@@ -7,7 +7,8 @@
         "yzhang.markdown-all-in-one",
         "astro-build.astro-vscode",
         "dbaeumer.vscode-eslint",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "vitest.explorer"
       ]
     }
   },

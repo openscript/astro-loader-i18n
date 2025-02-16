@@ -144,3 +144,7 @@ zh-CN:
   - Menus
   - Galleries
   - ...
+
+## Improvements
+
+- [ ] Export `GlobOptions` type from Astro
