@@ -1,0 +1,32 @@
+{
+  "name": "astro-loader-i18n",
+  "version": "0.0.1",
+  "description": "An Astro content loader for i18n files and folder structures.",
+  "keywords": [
+    "astro",
+    "astro-content-loader",
+    "astro-loader",
+    "i18n",
+    "withastro"
+  ],
+  "homepage": "https://github.com/openscript/astro-loader-i18n",
+  "license": "MIT",
+  "author": "Robin Bühler",
+  "repository": "github:openscript/astro-loader-i18n",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "astro": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "astro": "^5.3.0"
+  }
+}

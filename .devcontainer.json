@@ -1,4 +1,11 @@
 {
   "name": "astro-loader-i18n",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm"
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  }
 }

@@ -1,0 +1,10 @@
+de-CH:
+  - path: /projekte
+    title: Projekte
+  - path: /ueber-mich
+    title: Über mich
+zh-CN:
+  - path: /zh/projects
+    title: 项目
+  - path: /zh/about-me
+    title: 关于我
