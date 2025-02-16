@@ -21,14 +21,19 @@
     "src"
   ],
   "scripts": {
+    "lint": "eslint . --max-warnings 0",
     "test": "vitest"
   },
   "peerDependencies": {
     "astro": "^5.2.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
     "@types/node": "^22.13.4",
     "astro": "^5.3.0",
+    "eslint": "^9.20.1",
+    "globals": "^15.15.0",
+    "typescript-eslint": "^8.24.0",
     "vitest": "^3.0.5"
   }
 }

@@ -5,7 +5,9 @@
     "vscode": {
       "extensions": [
         "yzhang.markdown-all-in-one",
-        "astro-build.astro-vscode"
+        "astro-build.astro-vscode",
+        "dbaeumer.vscode-eslint",
+        "redhat.vscode-yaml"
       ]
     }
   },
