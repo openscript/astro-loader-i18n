@@ -8,7 +8,8 @@
         "astro-build.astro-vscode",
         "dbaeumer.vscode-eslint",
         "redhat.vscode-yaml",
-        "vitest.explorer"
+        "vitest.explorer",
+        "unifiedjs.vscode-mdx"
       ]
     }
   },

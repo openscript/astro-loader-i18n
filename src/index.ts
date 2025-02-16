@@ -1,1 +1,1 @@
-export { i18nFolderLoader } from "./loaders/i18nFolderLoader";
+export { i18nFolderLoader } from "./loaders/i18n-folder-loader";

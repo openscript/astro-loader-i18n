@@ -52,6 +52,9 @@ const pages = defineCollection({
 export const collections = { pages };
 ```
 
+> [!CAUTION]
+> The `schema` should be defined in the loader, not in the collection definition. This is because the loader is responsible for parsing the content and the collection is responsible for filtering and sorting the content.
+
 Retrieve the collection and filter by locale:
 
 ```ts

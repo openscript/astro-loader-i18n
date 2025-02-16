@@ -6,6 +6,7 @@ export function i18nFolderLoader(options: GlobOptions ): Loader {
     name: "i18n-folder-loader",
     load: async (context: LoaderContext): Promise<void> => {
       await glob(options).load(context);
+
     }
   }
 }
