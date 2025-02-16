@@ -8,5 +8,6 @@
         "astro-build.astro-vscode"
       ]
     }
-  }
+  },
+  "postCreateCommand": "npm install -g npm@10.9.0 pnpm@10.4.0"
 }

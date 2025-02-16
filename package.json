@@ -13,6 +13,7 @@
   "license": "MIT",
   "author": "Robin Bühler",
   "repository": "github:openscript/astro-loader-i18n",
+  "packageManager": "pnpm@10.4.0",
   "exports": {
     ".": "./src/index.ts"
   },
@@ -20,13 +21,14 @@
     "src"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "peerDependencies": {
     "astro": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.13.4",
-    "astro": "^5.3.0"
+    "astro": "^5.3.0",
+    "vitest": "^3.0.5"
   }
 }
