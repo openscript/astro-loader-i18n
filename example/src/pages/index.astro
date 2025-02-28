@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content"
+
+
+const folderCollection = await getCollection("folder");
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>astro-loader-i18n: example</title>
+	</head>
+	<body>
+		<h1>astro-loader-i18n</h1>
+		<h2>i18nFolderLoader</h2>
+		{folderCollection.map((entry) => {
+			return (
+				<div>
+					<h3>{entry.filePath}</h3>
+					<dl>
+						{Object.entries(entry.data).map(([key, value]) => {
+							return (
+								<div>
+									<dt>{key}</dt>
+									<dd>{value}</dd>
+								</div>
+							)
+						})}
+					</dl>
+				</div>
+			)
+		})}
+	</body>
+</html>

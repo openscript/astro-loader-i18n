@@ -6,6 +6,7 @@ export interface GenerateIdOptions {
   /** The parsed, unvalidated data of the entry. */
   data: Record<string, unknown>;
 }
+
 export interface GlobOptions {
   /** The glob pattern to match files, relative to the base directory */
   pattern: string | Array<string>;

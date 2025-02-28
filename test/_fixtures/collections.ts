@@ -1,6 +1,6 @@
 import { DataEntry } from "astro:content";
 
-export const filesCollection: DataEntry[] = [
+export const filesCollectionFixture: DataEntry[] = [
   {
     id: "about.de-CH",
     filePath: "src/content/pages/about.de-CH.mdx",
@@ -55,7 +55,7 @@ title: 项目
   },
 ]
 
-export const folderCollection: DataEntry[] = [
+export const folderCollectionFixture: DataEntry[] = [
   {
     id: "de-CH/about",
     filePath: "src/content/pages/de-CH/about.mdx",
