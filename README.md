@@ -65,6 +65,22 @@ const pages = await getCollection("pages", (entry) => { entry.locale === "de-CH"
 
 ## Usage
 
+Provide available locales and the default locale via Astros `astro.config.mjs`:
+
+```javascript
+import { defineConfig } from "astro/config"
+
+export default defineConfig({
+  i18n: {
+    locales: ["de-CH", "zh-CN"],
+    defaultLocale: "de-CH",
+  }
+})
+```
+
+> [!TIP]
+> You can also use locales withouth a region, e. g. `de` or `zh` and even mix them with region specific locales.
+
 This loader supports differently structured localized content:
 
 ### Folder via `i18nFolderLoader`
