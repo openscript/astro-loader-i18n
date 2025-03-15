@@ -13,7 +13,6 @@
   "license": "MIT",
   "author": "Robin Bühler",
   "repository": "github:openscript/astro-loader-i18n",
-  "packageManager": "pnpm@10.4.1",
   "type": "module",
   "exports": {
     ".": "./src/index.ts"
@@ -21,15 +20,8 @@
   "files": [
     "src"
   ],
-  "scripts": {
-    "dev": "nx serve dev",
-    "build": "nx vite:build",
-    "lint": "nx eslint:lint --max-warnings 0",
-    "test": "vitest",
-    "type-check": "tsc --noEmit"
-  },
   "peerDependencies": {
-    "astro": "^5.3.0"
+    "astro": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -42,5 +34,9 @@
     "vite": "^6.2.2",
     "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.0.8"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "../../dist/libs/astro-loader-i18n"
   }
 }

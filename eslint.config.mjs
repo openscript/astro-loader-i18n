@@ -10,7 +10,9 @@ export default [
   {
     ignores: [
       "**/vite.config.*.timestamp*",
-      "**/vitest.config.*.timestamp*"
+      "**/vitest.config.*.timestamp*",
+      "**/dist/**",
+      "**/.astro/**",
     ]
   }
 ];

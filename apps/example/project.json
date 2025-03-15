@@ -1,0 +1,28 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "example",
+  "sourceRoot": "apps/example/src",
+  "projectType": "application",
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "astro dev",
+        "cwd": "apps/example"
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "libs/astro-loader-i18n"
+        }
+      ]
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "astro build",
+        "cwd": "apps/example"
+      }
+    }
+  }
+}

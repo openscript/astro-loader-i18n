@@ -1,4 +1,5 @@
 {
+  "name": "root",
   "private": true,
   "homepage": "https://github.com/openscript/astro-loader-i18n",
   "license": "MIT",
@@ -7,8 +8,8 @@
   "packageManager": "pnpm@10.6.3",
   "type": "module",
   "scripts": {
-    "dev": "nx run-many --target=dev --parallel",
-    "build": "nx run-many --target=build --parallel",
+    "dev": "pnpm exec nx run-many --nx-bail --target=dev --parallel 10 --output-style stream",
+    "build": "pnpm exec nx run-many --nx-bail --target=build --parallel 10 --output-style stream",
     "lint": "eslint . --max-warnings 0",
     "test": "pnpm -r test",
     "type-check": "tsc --noEmit"

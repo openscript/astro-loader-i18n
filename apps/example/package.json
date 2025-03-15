@@ -3,12 +3,6 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "build": "nx exec -- astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
   "dependencies": {
     "@astrojs/mdx": "^4.2.0",
     "astro": "^5.5.2",
