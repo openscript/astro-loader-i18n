@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.1.0",
-    "astro": "^5.4.0",
+    "@astrojs/mdx": "^4.2.0",
+    "astro": "^5.5.2",
     "astro-loader-i18n": "workspace:*"
   }
 }
