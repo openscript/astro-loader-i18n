@@ -25,7 +25,7 @@
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "coverage/libs/astro-loader-i18n",
+        "reportsDirectory": "../../coverage/libs/astro-loader-i18n",
         "coverage": true
       }
     },

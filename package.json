@@ -11,7 +11,7 @@
     "dev": "pnpm exec nx run-many --nx-bail --target=dev --parallel 10 --output-style stream",
     "build": "pnpm exec nx run-many --nx-bail --target=build --parallel 10 --output-style stream",
     "lint": "eslint . --max-warnings 0",
-    "test": "pnpm -r test",
+    "test": "pnpm exec nx run-many --nx-bail --target=test --parallel 10 --output-style stream",
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {

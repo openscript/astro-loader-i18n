@@ -1,9 +1,7 @@
 .pnpm-store
 node_modules
 dist
-
-
-
+coverage
 .nx/cache
 .nx/workspace-data
 vite.config.*.timestamp*

@@ -24,5 +24,15 @@ export default defineConfig({
         },
       }
     }
-  }
+  },
+
+  test: {
+    globals: true,
+    environment: 'node',
+    coverage: {
+      reportsDirectory: '../../coverage/libs/astro-loader-i18n',
+    },
+    reporters: ['verbose'],
+    include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+  },
 });
