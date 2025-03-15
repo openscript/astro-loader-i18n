@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, it, vi } from 'vitest';
 import { i18nFolderLoader } from '../../src/loaders/i18n-folder-loader';
 import { LoaderContext } from 'astro/loaders';
 import { createLoaderContext } from '../_mocks/create-loader-context';
-import packageJson from '../../package.json';
+import packageJson from '../../../../package.json';
 import { folderCollectionFixture } from '../_fixtures/collections';
 
 vi.mock("astro/loaders", () => {

@@ -12,6 +12,6 @@
   "dependencies": {
     "@astrojs/mdx": "^4.1.0",
     "astro": "^5.4.0",
-    "astro-loader-i18n": "file:../"
+    "astro-loader-i18n": "file:../packages/astro-loader-i18n"
   }
 }
