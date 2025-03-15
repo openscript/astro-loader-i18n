@@ -22,9 +22,9 @@
     "src"
   ],
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "lint": "eslint . --max-warnings 0",
+    "dev": "nx serve dev",
+    "build": "nx vite:build",
+    "lint": "nx eslint:lint --max-warnings 0",
     "test": "vitest",
     "type-check": "tsc --noEmit"
   },

@@ -5,13 +5,13 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "nx exec -- astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.1.0",
     "astro": "^5.4.0",
-    "astro-loader-i18n": "file:../packages/astro-loader-i18n"
+    "astro-loader-i18n": "workspace:*"
   }
 }
