@@ -18,13 +18,13 @@ export function i18nFolderLoader(options: GlobOptions): Loader {
           ...entry,
           data: {
             ...entry.data,
-            commonTranslationId: createCommonTranslationId(entry.filePath)
-          }
+            commonTranslationId: createCommonTranslationId(entry.filePath),
+          },
         };
         context.store.set(newEntry);
       });
 
       console.log(context.store.values());
     },
-  }
+  };
 }

@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
 import dts from "vite-plugin-dts";
 import path from "path";
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/libs/astro-loader-i18n',
+  cacheDir: "../../node_modules/.vite/libs/astro-loader-i18n",
   plugins: [nxViteTsPaths(), dts({ entryRoot: "src", tsconfigPath: path.join(__dirname, "tsconfig.lib.json") })],
   build: {
     emptyOutDir: true,
@@ -21,17 +21,17 @@ export default defineConfig({
           "astro/loaders": "astroLoaders",
           "astro/zod": "astroZod",
         },
-      }
-    }
+      },
+    },
   },
 
   test: {
     globals: true,
-    environment: 'node',
+    environment: "node",
     coverage: {
-      reportsDirectory: './coverage',
+      reportsDirectory: "./coverage",
     },
-    reporters: ['verbose'],
-    include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    reporters: ["verbose"],
+    include: ["test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
   },
 });

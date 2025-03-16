@@ -1,9 +1,9 @@
-import { afterEach, beforeEach, describe, it, vi } from 'vitest';
-import { i18nFolderLoader } from '../../src/loaders/i18n-folder-loader';
-import { LoaderContext } from 'astro/loaders';
-import { createLoaderContext } from '../_mocks/create-loader-context';
-import packageJson from '../../package.json';
-import { folderCollectionFixture } from '../_fixtures/collections';
+import { afterEach, beforeEach, describe, it, vi } from "vitest";
+import { i18nFolderLoader } from "../../src/loaders/i18n-folder-loader";
+import { LoaderContext } from "astro/loaders";
+import { createLoaderContext } from "../_mocks/create-loader-context";
+import packageJson from "../../package.json";
+import { folderCollectionFixture } from "../_fixtures/collections";
 
 vi.mock("astro/loaders", () => {
   return {
@@ -12,10 +12,10 @@ vi.mock("astro/loaders", () => {
         folderCollectionFixture.forEach((entry) => {
           context.store.set(entry);
         });
-      })
-    })
-  }
-})
+      }),
+    }),
+  };
+});
 
 describe("i18nFolderLoader", () => {
   let context: LoaderContext;

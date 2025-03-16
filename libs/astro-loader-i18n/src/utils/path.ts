@@ -1,9 +1,9 @@
 const FILENAME_SUFFIX_PATTERN = /^([^.]+)\.?(.*)?(?=\.\w+)/;
 const ALL_SLASHES_PATTERN = /\//g;
-const INDEX_LOCALE_PAGES_ID = 'index';
+const INDEX_LOCALE_PAGES_ID = "index";
 
 export const trimSlashes = (path: string) => {
-  return path === '/' ? path : path.replace(/^\/|\/$/g, '');
+  return path === "/" ? path : path.replace(/^\/|\/$/g, "");
 };
 
 export const parseFilenameSuffix = (name: string, defaultLocale: string) => {
@@ -15,16 +15,15 @@ export const parseFilenameSuffix = (name: string, defaultLocale: string) => {
 };
 
 export const createCommonTranslationId = (path: string, prefix?: string) => {
-  let commonTranslationId = trimSlashes(path).replace(ALL_SLASHES_PATTERN, '.');
+  let commonTranslationId = trimSlashes(path).replace(ALL_SLASHES_PATTERN, ".");
 
   if (prefix) {
-    commonTranslationId = commonTranslationId.replace(new RegExp(`^${prefix}\\.`), '');
+    commonTranslationId = commonTranslationId.replace(new RegExp(`^${prefix}\\.`), "");
   }
 
-  if (commonTranslationId === '.' || commonTranslationId === prefix) {
+  if (commonTranslationId === "." || commonTranslationId === prefix) {
     return INDEX_LOCALE_PAGES_ID;
   }
 
   return commonTranslationId;
 };
-

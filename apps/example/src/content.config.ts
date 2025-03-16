@@ -5,8 +5,8 @@ import { i18nFolderLoader } from "astro-loader-i18n";
 const folderCollection = defineCollection({
   loader: i18nFolderLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/folder", generateId: ({ entry }) => entry }),
   schema: z.object({
-    title: z.string()
-  })
+    title: z.string(),
+  }),
 });
 
 export const collections = {

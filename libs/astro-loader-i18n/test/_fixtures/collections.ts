@@ -25,7 +25,7 @@ title: Projekte
 ---
 
 Test
-`
+`,
   },
   {
     id: "about.zh-CN",
@@ -38,7 +38,7 @@ title: 关于我
 ---
 
 测试
-`
+`,
   },
   {
     id: "projects.zh-CN",
@@ -51,9 +51,9 @@ title: 项目
 ---
 
 测试
-`
+`,
   },
-]
+];
 
 export const folderCollectionFixture: DataEntry[] = [
   {
@@ -80,7 +80,7 @@ title: Projekte
 ---
 
 Test
-`
+`,
   },
   {
     id: "zh-CN/about",
@@ -93,7 +93,7 @@ title: 关于我
 ---
 
 测试
-`
+`,
   },
   {
     id: "zh-CN/projects",
@@ -106,6 +106,6 @@ title: 项目
 ---
 
 测试
-`
+`,
   },
 ];
