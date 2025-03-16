@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.0.3
+
+### Patch Changes
+
+- 708b192: Fix release management
+
 ## 0.0.2
 
 ### Patch Changes
