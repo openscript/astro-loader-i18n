@@ -8,7 +8,6 @@ export default defineConfig({
   cacheDir: '../../node_modules/.vite/libs/astro-loader-i18n',
   plugins: [nxViteTsPaths(), dts({ entryRoot: "src", tsconfigPath: path.join(__dirname, "tsconfig.lib.json") })],
   build: {
-    outDir: '../../dist/libs/astro-loader-i18n',
     emptyOutDir: true,
     lib: {
       entry: "src/index.ts",
@@ -30,7 +29,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     coverage: {
-      reportsDirectory: '../../coverage/libs/astro-loader-i18n',
+      reportsDirectory: './coverage',
     },
     reporters: ['verbose'],
     include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],

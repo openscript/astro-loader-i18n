@@ -1,8 +1,18 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
+  "extends": [
+    "../../tsconfig.base.json",
+    "astro/tsconfigs/strict"
+  ],
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
   "compilerOptions": {
-    "types": ["astro/client"]
+    "types": [
+      "astro/client"
+    ],
   }
 }

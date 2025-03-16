@@ -14,11 +14,10 @@
   "author": "Robin Bühler",
   "repository": "github:openscript/astro-loader-i18n",
   "type": "module",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "main": "./dist/astro-loader-i18n.js",
+  "typings": "./dist/index.d.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "peerDependencies": {
     "astro": "^5.5.0"
@@ -37,7 +36,6 @@
     "vitest": "^3.0.8"
   },
   "publishConfig": {
-    "access": "public",
-    "directory": "../../dist/libs/astro-loader-i18n"
+    "access": "public"
   }
 }

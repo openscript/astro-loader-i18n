@@ -5,7 +5,6 @@ type GlobOptions = Parameters<typeof glob>[0];
 
 export function i18nFolderLoader(options: GlobOptions): Loader {
   const globLoader = glob(options);
-
   return {
     name: "i18n-folder-loader",
     load: async (context: LoaderContext): Promise<void> => {

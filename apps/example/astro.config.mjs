@@ -7,7 +7,6 @@ export default defineConfig({
   server: {
     host: true,
   },
-  outDir: "../../dist/apps/example",
   i18n: {
     locales: ['de-CH', 'zh-CN'],
     defaultLocale: 'de-CH',
