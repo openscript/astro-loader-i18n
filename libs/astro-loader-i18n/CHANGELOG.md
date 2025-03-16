@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.0.5
+
+### Patch Changes
+
+- c9ffa98: Distribute LICENSE and README.md
+
 ## 0.0.4
 
 ### Patch Changes
