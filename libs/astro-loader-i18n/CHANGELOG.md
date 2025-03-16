@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.0.4
+
+### Patch Changes
+
+- dc7abbd: Add release management scripts
+
 ## 0.0.3
 
 ### Patch Changes
