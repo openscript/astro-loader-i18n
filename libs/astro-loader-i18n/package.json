@@ -17,7 +17,9 @@
   "main": "./dist/astro-loader-i18n.js",
   "typings": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "peerDependencies": {
     "astro": "^5.5.0"

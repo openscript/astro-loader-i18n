@@ -19,7 +19,7 @@
     },
     "prepare": {
       "dependsOn": ["build"],
-      "command": "cp README.md LICENSE libs/astro-loader-i18n/dist"
+      "command": "cp README.md LICENSE libs/astro-loader-i18n"
     },
     "test": {
       "executor": "@nx/vite:test",
