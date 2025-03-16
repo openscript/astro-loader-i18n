@@ -46,7 +46,7 @@ jobs:
 
   deliver-packages:
     name: Deliver packages
-    uses: ./.github/workflows/cd-registries.yml
+    uses: ./.github/workflows/registries.yml
     needs: publish-packages
     with:
       ref: ${{ needs.publish-packages.outputs.ref }}
