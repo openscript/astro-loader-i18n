@@ -12,7 +12,10 @@
     "build": "pnpm exec nx run-many --nx-bail --target=build --parallel 10 --output-style stream",
     "lint": "eslint . --max-warnings 0",
     "test": "pnpm exec nx run-many --nx-bail --target=test --parallel 10 --output-style stream",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepublish": "pnpm exec nx run-many --target=prepare --parallel",
+    "version": "changeset version",
+    "tag": "changeset tag"
   },
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
