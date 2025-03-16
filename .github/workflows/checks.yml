@@ -8,6 +8,9 @@ on:
       - synchronize
     branches:
       - main
+  push:
+    branches:
+      - main
 
 jobs:
   version:
