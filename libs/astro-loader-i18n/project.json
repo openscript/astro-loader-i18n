@@ -12,9 +12,11 @@
       }
     },
     "dev": {
-      "executor": "@nx/vite:dev-server",
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "buildTarget": "astro-loader-i18n:build"
+        "outputPath": "libs/astro-loader-i18n/dist",
+        "watch": true
       }
     },
     "prepare": {

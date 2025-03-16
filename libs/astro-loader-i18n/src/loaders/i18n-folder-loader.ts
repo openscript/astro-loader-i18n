@@ -16,7 +16,10 @@ export function i18nFolderLoader(options: GlobOptions): Loader {
         if (!entry.filePath) return;
         const newEntry = {
           ...entry,
-          commonTranslationId: createCommonTranslationId(entry.filePath)
+          data: {
+            ...entry.data,
+            commonTranslationId: createCommonTranslationId(entry.filePath)
+          }
         };
         context.store.set(newEntry);
       });

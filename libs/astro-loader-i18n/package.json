@@ -16,6 +16,11 @@
   "type": "module",
   "main": "./dist/astro-loader-i18n.js",
   "typings": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/astro-loader-i18n.js"
+    }
+  },
   "files": [
     "dist",
     "README.md",
