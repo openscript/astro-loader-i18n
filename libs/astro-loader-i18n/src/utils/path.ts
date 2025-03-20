@@ -20,10 +20,10 @@ export const parseLocale = (path: string, locales: string[], defaultLocale: stri
 export const createCommonTranslationId = (path: string, pathLocale: string) => {
   path = path.replace(pathLocale, "");
   path = path.replace(DOUBLE_POINTS_PATTERN, "");
-  path = path.replace(DOUBLE_SLASH_PATTERN, "");
+  path = path.replace(DOUBLE_SLASH_PATTERN, "/");
   path = trimSlashes(path);
 
-  if (path === "") return INDEX_COMMON_TRANSLATION_ID;
+  if (path === "" || path === "/") return INDEX_COMMON_TRANSLATION_ID;
 
   return path;
 };
