@@ -11,6 +11,13 @@ export function createLoaderContext(context?: Partial<LoaderContext>): LoaderCon
     parseData: vi.fn().mockResolvedValue({}),
     store: new StoreMock(),
     meta: new Map<string, string>(),
+    config: {
+      i18n: {
+        defaultLocale: "zh-CN",
+        locales: ["de-CH", "en-US", "zh-CN"],
+        routing: "manual",
+      },
+    } satisfies Partial<LoaderContext["config"]> as unknown as LoaderContext["config"],
     ...context,
   } satisfies Partial<LoaderContext> as unknown as LoaderContext;
 }
