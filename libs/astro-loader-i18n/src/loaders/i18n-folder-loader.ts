@@ -31,8 +31,6 @@ export function i18nFolderLoader(options: GlobOptions): Loader {
         };
         context.store.set(newEntry);
       });
-
-      console.log(context.store.values());
     },
   };
 }
