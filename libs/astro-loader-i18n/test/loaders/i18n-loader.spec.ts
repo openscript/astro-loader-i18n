@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { i18nFolderLoader } from "../../src/loaders/i18n-loader";
+import { i18nLoader } from "../../src/loaders/i18n-loader";
 import { LoaderContext } from "astro/loaders";
 import { createLoaderContext } from "../_mocks/create-loader-context";
 import { folderCollectionFixture } from "../_fixtures/collections";
@@ -16,7 +16,7 @@ vi.mock("astro/loaders", () => {
   };
 });
 
-describe("i18nFolderLoader", () => {
+describe("i18nLoader", () => {
   let context: LoaderContext;
 
   beforeEach(() => {
@@ -28,7 +28,7 @@ describe("i18nFolderLoader", () => {
   });
 
   it("common translation id and locale in data", async () => {
-    const loader = i18nFolderLoader({ pattern: "**/*.mdx" });
+    const loader = i18nLoader({ pattern: "**/*.mdx" });
     await loader.load(context);
 
     const entries = context.store.entries();
