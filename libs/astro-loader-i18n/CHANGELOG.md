@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.1.0
+
+### Minor Changes
+
+- b745ea0: Add i18n loader and schemas
+
 ## 0.0.5
 
 ### Patch Changes
