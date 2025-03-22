@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { i18nFolderLoader } from "../../src/loaders/i18n-folder-loader";
+import { i18nFolderLoader } from "../../src/loaders/i18n-loader";
 import { LoaderContext } from "astro/loaders";
 import { createLoaderContext } from "../_mocks/create-loader-context";
 import { folderCollectionFixture } from "../_fixtures/collections";

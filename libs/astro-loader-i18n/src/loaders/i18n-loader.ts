@@ -3,10 +3,10 @@ import { createCommonTranslationId, parseLocale } from "../utils/path";
 
 type GlobOptions = Parameters<typeof glob>[0];
 
-export function i18nFolderLoader(options: GlobOptions): Loader {
+export function i18nLoader(options: GlobOptions): Loader {
   const globLoader = glob(options);
   return {
-    name: "i18n-folder-loader",
+    name: "i18n-loader",
     load: async (context: LoaderContext): Promise<void> => {
       await globLoader.load(context);
       const entries = context.store.values();
