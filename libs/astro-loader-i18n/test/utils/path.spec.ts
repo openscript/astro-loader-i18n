@@ -59,11 +59,11 @@ describe("createCommonTranslationId", () => {
   });
   it("locale as suffix", () => {
     const id = createCommonTranslationId("/page/file.zh-CN.md", "zh-CN");
-    expect(id).toBe("page/filemd");
+    expect(id).toBe("page/file.md");
   });
   it("locale as suffix and trailing slash", () => {
     const id = createCommonTranslationId("/page/file.zh-CN.md/", "zh-CN");
-    expect(id).toBe("page/filemd");
+    expect(id).toBe("page/file.md");
   });
   it("locale in between", () => {
     const id = createCommonTranslationId("/page/zh-CN/file", "zh-CN");

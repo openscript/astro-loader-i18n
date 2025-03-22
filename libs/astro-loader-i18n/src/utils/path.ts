@@ -1,6 +1,6 @@
 const TRIM_SLASHES_PATTERN = /^\/|\/$/g;
-const DOUBLE_POINTS_PATTERN = /\.\./g;
-const DOUBLE_SLASH_PATTERN = /\/\//g;
+const DOUBLE_POINTS_PATTERN = /\.{2}/g;
+const DOUBLE_SLASH_PATTERN = /\/{2}/g;
 const INDEX_COMMON_TRANSLATION_ID = "index";
 
 export const trimSlashes = (path: string) => {
@@ -19,7 +19,7 @@ export const parseLocale = (path: string, locales: string[], defaultLocale: stri
 
 export const createCommonTranslationId = (path: string, pathLocale: string) => {
   path = path.replace(pathLocale, "");
-  path = path.replace(DOUBLE_POINTS_PATTERN, "");
+  path = path.replace(DOUBLE_POINTS_PATTERN, ".");
   path = path.replace(DOUBLE_SLASH_PATTERN, "/");
   path = trimSlashes(path);
 
