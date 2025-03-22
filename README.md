@@ -44,7 +44,7 @@ The content loader features:
 ## Usage
 
 1. Install the package `astro-loader-i18n`:
-   <details>
+   <details open>
     <summary>npm</summary>
 
     ```bash
