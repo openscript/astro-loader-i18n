@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`i18nFolderLoader > common translation id and locale in data 1`] = `
+exports[`i18nLoader > common translation id and locale in data 1`] = `
 [
   [
     "de-CH/about",
