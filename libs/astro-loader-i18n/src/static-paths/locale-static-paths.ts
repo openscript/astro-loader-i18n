@@ -1,23 +1,17 @@
-import { i18nLoaderSchema } from "../schemas/i18n-loader-schema";
+import { checkI18nLoaderSchema } from "../schemas/i18n-loader-schema";
 import { GetStaticPathsResult } from "astro";
 
 export function localePaths(collection: unknown[]): GetStaticPathsResult {
-  const safeCollection = collection.map((entry) => {
-    const result = i18nLoaderSchema.safeParse(entry);
+  return collection.map((entry) => {
+    checkI18nLoaderSchema(entry);
 
-    if (!result.success) {
-      throw new Error(`Invalid collection entry: ${result.error}`);
-    }
-
-    return result.data;
+    return {
+      params: {
+        locale: entry.locale,
+      },
+      props: {
+        locale: entry.locale,
+      },
+    };
   });
-
-  return safeCollection.map((entry) => ({
-    params: {
-      locale: entry.locale,
-    },
-    props: {
-      locale: entry.locale,
-    },
-  }));
 }
