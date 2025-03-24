@@ -17,7 +17,7 @@ export const parseLocale = (path: string, locales: string[], defaultLocale: stri
   return defaultLocale;
 };
 
-export const createCommonTranslationId = (path: string, pathLocale: string) => {
+export const createTranslationId = (path: string, pathLocale: string) => {
   path = path.replace(pathLocale, "");
   path = path.replace(DOUBLE_POINTS_PATTERN, ".");
   path = path.replace(DOUBLE_SLASH_PATTERN, "/");

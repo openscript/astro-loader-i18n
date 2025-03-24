@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createCommonTranslationId, parseLocale, trimSlashes } from "../../src/utils/path";
+import { createTranslationId, parseLocale, trimSlashes } from "../../src/utils/path";
 
 describe("trimSlashes", () => {
   it("both sides", () => {
@@ -40,33 +40,33 @@ describe("parseLocale", () => {
   });
 });
 
-describe("createCommonTranslationId", () => {
+describe("createTranslationId", () => {
   it("no locale", () => {
-    const id = createCommonTranslationId("/page/", "zh-CN");
+    const id = createTranslationId("/page/", "zh-CN");
     expect(id).toBe("page");
   });
   it("index without locale", () => {
-    const id = createCommonTranslationId("/", "zh-CN");
+    const id = createTranslationId("/", "zh-CN");
     expect(id).toBe("index");
   });
   it("index with locale", () => {
-    const id = createCommonTranslationId("/zh-CN/", "zh-CN");
+    const id = createTranslationId("/zh-CN/", "zh-CN");
     expect(id).toBe("index");
   });
   it("locale as prefix", () => {
-    const id = createCommonTranslationId("/zh-CN/page", "zh-CN");
+    const id = createTranslationId("/zh-CN/page", "zh-CN");
     expect(id).toBe("page");
   });
   it("locale as suffix", () => {
-    const id = createCommonTranslationId("/page/file.zh-CN.md", "zh-CN");
+    const id = createTranslationId("/page/file.zh-CN.md", "zh-CN");
     expect(id).toBe("page/file.md");
   });
   it("locale as suffix and trailing slash", () => {
-    const id = createCommonTranslationId("/page/file.zh-CN.md/", "zh-CN");
+    const id = createTranslationId("/page/file.zh-CN.md/", "zh-CN");
     expect(id).toBe("page/file.md");
   });
   it("locale in between", () => {
-    const id = createCommonTranslationId("/page/zh-CN/file", "zh-CN");
+    const id = createTranslationId("/page/zh-CN/file", "zh-CN");
     expect(id).toBe("page/file");
   });
 });

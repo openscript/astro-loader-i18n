@@ -12,9 +12,9 @@ title: Über mich
 Test
 ",
       "data": {
-        "commonTranslationId": "src/content/pages/about.mdx",
         "locale": "de-CH",
         "title": "Über mich",
+        "translationId": "src/content/pages/about.mdx",
       },
       "filePath": "src/content/pages/de-CH/about.mdx",
       "id": "de-CH/about",
@@ -30,9 +30,9 @@ title: Projekte
 Test
 ",
       "data": {
-        "commonTranslationId": "src/content/pages/projects.mdx",
         "locale": "de-CH",
         "title": "Projekte",
+        "translationId": "src/content/pages/projects.mdx",
       },
       "filePath": "src/content/pages/de-CH/projects.mdx",
       "id": "de-CH/projects",
@@ -48,9 +48,9 @@ title: 关于我
 测试
 ",
       "data": {
-        "commonTranslationId": "src/content/pages/about.mdx",
         "locale": "zh-CN",
         "title": "关于我",
+        "translationId": "src/content/pages/about.mdx",
       },
       "filePath": "src/content/pages/zh-CN/about.mdx",
       "id": "zh-CN/about",
@@ -66,9 +66,9 @@ title: 项目
 测试
 ",
       "data": {
-        "commonTranslationId": "src/content/pages/projects.mdx",
         "locale": "zh-CN",
         "title": "项目",
+        "translationId": "src/content/pages/projects.mdx",
       },
       "filePath": "src/content/pages/zh-CN/projects.mdx",
       "id": "zh-CN/projects",

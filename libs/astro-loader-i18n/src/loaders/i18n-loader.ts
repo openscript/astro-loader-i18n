@@ -1,5 +1,5 @@
 import { glob, Loader, LoaderContext } from "astro/loaders";
-import { createCommonTranslationId, parseLocale } from "../utils/path";
+import { createTranslationId, parseLocale } from "../utils/path";
 
 type GlobOptions = Parameters<typeof glob>[0];
 
@@ -26,7 +26,7 @@ export function i18nLoader(options: GlobOptions): Loader {
           data: {
             ...entry.data,
             locale,
-            commonTranslationId: createCommonTranslationId(entry.filePath, locale),
+            translationId: createTranslationId(entry.filePath, locale),
           },
         };
         context.store.set(newEntry);
