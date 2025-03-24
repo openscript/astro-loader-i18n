@@ -40,6 +40,7 @@ The content loader features:
 - Provides schema partials for `content.config.ts`
   - Loader schema as `i18nLoaderSchema`
   - Infile schema as `i18nInfileSchema`
+- Includes utilities to simplify the creation of `getStaticPaths`
 
 ## Usage
 
