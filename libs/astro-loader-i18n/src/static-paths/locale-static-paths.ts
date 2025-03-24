@@ -1,8 +1,7 @@
-import { CollectionEntry, ContentCollectionKey } from "astro:content";
 import { i18nLoaderSchema } from "../schemas/i18n-loader-schema";
 import { GetStaticPathsResult } from "astro";
 
-export function localePaths<C extends ContentCollectionKey>(collection: CollectionEntry<C>[]): GetStaticPathsResult {
+export function localePaths(collection: unknown[]): GetStaticPathsResult {
   const safeCollection = collection.map((entry) => {
     const result = i18nLoaderSchema.safeParse(entry);
 
