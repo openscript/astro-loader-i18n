@@ -1,71 +1,90 @@
 import { describe, expect, it } from "vitest";
-import { createTranslationId, parseLocale, trimSlashes } from "../../src/utils/path";
+import { createTranslationId, joinPath, parseLocale, resolvePath, trimSlashes } from "../../src/utils/path";
+
+describe("joinPath", () => {
+  it("should join paths", () => {
+    expect(joinPath("en-US", "docs", "getting-started")).toBe("en-US/docs/getting-started");
+  });
+  it("should join paths with undefined", () => {
+    expect(joinPath("en-US", undefined, "getting-started")).toBe("en-US/getting-started");
+  });
+});
+
+describe("resolvePath", () => {
+  it("should resolve path by joining and making it relative", () => {
+    expect(resolvePath("en-US", "docs", "getting-started")).toBe("/en-US/docs/getting-started");
+  });
+
+  it("should resolve path by joining and making it relative with undefined", () => {
+    expect(resolvePath("en-US", undefined, "getting-started")).toBe("/en-US/getting-started");
+  });
+});
 
 describe("trimSlashes", () => {
-  it("both sides", () => {
+  it("should trim slashes on both sides", () => {
     const trimmed = trimSlashes("/de/page/");
     expect(trimmed).toBe("de/page");
   });
 
-  it("only slash", () => {
+  it("should return '/' when only slash is present", () => {
     const trimmed = trimSlashes("/");
     expect(trimmed).toBe("/");
   });
 
-  it("left side", () => {
+  it("should trim slashes on the left side", () => {
     const trimmed = trimSlashes("/de/page");
     expect(trimmed).toBe("de/page");
   });
 
-  it("right side", () => {
+  it("should trim slashes on the right side", () => {
     const trimmed = trimSlashes("de/page/");
     expect(trimmed).toBe("de/page");
   });
 });
 
 describe("parseLocale", () => {
-  it("locale from folder", () => {
+  it("should extract locale from folder", () => {
     const locale = parseLocale("/de-CH/page", ["de-CH", "zh-CN"], "zh-CN");
     expect(locale).toBe("de-CH");
   });
 
-  it("locale from file suffix", () => {
+  it("should extract locale from file suffix", () => {
     const locale = parseLocale("/some/path/page.de-CH.md", ["de-CH", "zh-CN"], "zh-CN");
     expect(locale).toBe("de-CH");
   });
 
-  it("default locale", () => {
+  it("should return default locale when no locale is found", () => {
     const locale = parseLocale("/page", ["de-CH", "zh-CN"], "zh-CN");
     expect(locale).toBe("zh-CN");
   });
 });
 
 describe("createTranslationId", () => {
-  it("no locale", () => {
+  it("should create ID with no locale", () => {
     const id = createTranslationId("/page/", "zh-CN");
     expect(id).toBe("page");
   });
-  it("index without locale", () => {
+  it("should create ID for index without locale", () => {
     const id = createTranslationId("/", "zh-CN");
     expect(id).toBe("index");
   });
-  it("index with locale", () => {
+  it("should create ID for index with locale", () => {
     const id = createTranslationId("/zh-CN/", "zh-CN");
     expect(id).toBe("index");
   });
-  it("locale as prefix", () => {
+  it("should create ID with locale as prefix", () => {
     const id = createTranslationId("/zh-CN/page", "zh-CN");
     expect(id).toBe("page");
   });
-  it("locale as suffix", () => {
+  it("should create ID with locale as suffix", () => {
     const id = createTranslationId("/page/file.zh-CN.md", "zh-CN");
     expect(id).toBe("page/file.md");
   });
-  it("locale as suffix and trailing slash", () => {
+  it("should create ID with locale as suffix and trailing slash", () => {
     const id = createTranslationId("/page/file.zh-CN.md/", "zh-CN");
     expect(id).toBe("page/file.md");
   });
-  it("locale in between", () => {
+  it("should create ID with locale in between", () => {
     const id = createTranslationId("/page/zh-CN/file", "zh-CN");
     expect(id).toBe("page/file");
   });

@@ -5,8 +5,14 @@ export const i18nLoaderSchema = z.object({
   locale: z.string(),
 });
 
-export function checkI18nLoaderSchema(obj: unknown): asserts obj is z.infer<typeof i18nLoaderSchema> {
-  const result = i18nLoaderSchema.safeParse(obj);
+const i18nLoaderCollectionSchema = z.array(
+  z.object({
+    data: i18nLoaderSchema,
+  })
+);
+
+export function checkI18nLoaderCollection(obj: unknown): asserts obj is z.infer<typeof i18nLoaderCollectionSchema> {
+  const result = i18nLoaderCollectionSchema.safeParse(obj);
 
   if (!result.success) {
     throw new Error(`Invalid collection entry: ${result.error}`);

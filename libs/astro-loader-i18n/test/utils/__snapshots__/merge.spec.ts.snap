@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`mergeGetStaticPathsResults > should merge static paths 1`] = `
+[
+  {
+    "params": {
+      "locale": "en",
+    },
+    "props": {
+      "commonTransaltionId": "some/page.mdx",
+      "locale": "en",
+    },
+  },
+  {
+    "params": {
+      "locale": "de",
+    },
+    "props": {
+      "commonTransaltionId": "some/page.mdx",
+      "locale": "de",
+    },
+  },
+]
+`;

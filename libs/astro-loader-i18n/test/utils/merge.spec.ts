@@ -1,6 +1,6 @@
 import { GetStaticPathsResult } from "astro";
 import { describe, expect, it } from "vitest";
-import { mergeStaticPaths } from "../../src/utils/merge-static-paths";
+import { mergeGetStaticPathsResults } from "../../src/utils/merge";
 
 const fixture: GetStaticPathsResult[] = [
   [
@@ -13,9 +13,9 @@ const fixture: GetStaticPathsResult[] = [
   ],
 ];
 
-describe("mergeStaticPaths", () => {
+describe("mergeGetStaticPathsResults", () => {
   it("should merge static paths", () => {
-    const merged = mergeStaticPaths(...fixture);
+    const merged = mergeGetStaticPathsResults(...fixture);
     expect(merged).toMatchSnapshot();
   });
 });

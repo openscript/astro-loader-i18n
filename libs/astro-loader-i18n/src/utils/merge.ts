@@ -1,6 +1,6 @@
 import { GetStaticPathsResult } from "astro";
 
-export function mergeStaticPaths(...staticPaths: GetStaticPathsResult[]): GetStaticPathsResult {
+export function mergeGetStaticPathsResults(...staticPaths: GetStaticPathsResult[]): GetStaticPathsResult {
   if (staticPaths.some((paths) => paths.length !== staticPaths[0].length)) {
     throw new Error("All static paths must have the same length");
   }

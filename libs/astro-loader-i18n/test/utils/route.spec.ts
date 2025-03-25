@@ -1,0 +1,42 @@
+import { describe, expect, it } from "vitest";
+import { parseRoutePattern } from "../../src/utils/route";
+
+describe("parseRoutePattern", () => {
+  it("should parse a static route pattern", () => {
+    const result = parseRoutePattern("/blog/post");
+    expect(result).toEqual([
+      { spread: false, param: false, value: "blog" },
+      { spread: false, param: false, value: "post" },
+    ]);
+  });
+
+  it("should parse a dynamic route pattern", () => {
+    const result = parseRoutePattern("/blog/[slug]");
+    expect(result).toEqual([
+      { spread: false, param: false, value: "blog" },
+      { spread: false, param: true, value: "slug" },
+    ]);
+  });
+
+  it("should parse a spread route pattern", () => {
+    const result = parseRoutePattern("/[...locale]/blog/[slug]");
+    expect(result).toEqual([
+      { spread: true, param: true, value: "locale" },
+      { spread: false, param: false, value: "blog" },
+      { spread: false, param: true, value: "slug" },
+    ]);
+  });
+
+  it("should parse a route pattern with trailing slash", () => {
+    const result = parseRoutePattern("/blog/post/");
+    expect(result).toEqual([
+      { spread: false, param: false, value: "blog" },
+      { spread: false, param: false, value: "post" },
+    ]);
+  });
+
+  it("should parse a route pattern with only a slash", () => {
+    const result = parseRoutePattern("/");
+    expect(result).toEqual([{ spread: false, param: false, value: "/" }]);
+  });
+});
