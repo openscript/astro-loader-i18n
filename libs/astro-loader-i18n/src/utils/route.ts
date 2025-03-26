@@ -1,8 +1,7 @@
-import limax from "limax";
 import { resolvePath } from "./path";
 
-type SegmentTranslation = Record<string, string>;
-export type SegmentTranslations = Record<string, SegmentTranslation>;
+type Segments = Record<string, string>;
+export type SegmentTranslations = Record<string, Segments>;
 type RouteSegment = {
   spread: boolean;
   param: boolean;
@@ -46,21 +45,16 @@ export function parseRoutePattern(routePattern: string): RoutePattern {
  *
  * @param routePattern is an array consisting of route segments
  */
-export function buildPath(routePattern: RoutePattern, segmentTranslation: SegmentTranslation, slugParamName?: string, title?: string): string {
+export function buildPath(routePattern: RoutePattern, segmentValues: Segments): string {
   return resolvePath(
     ...routePattern.map((segment) => {
       if (segment.param) {
-        if (segment.value === slugParamName && title) {
-          return limax(title);
+        if (!segmentValues[segment.value] && !segment.spread) {
+          throw new Error(`No segment value found for route segment ${segment.value}`);
         }
 
-        if (!segmentTranslation[segment.value]) {
-          throw new Error(`No translation found for route segment ${segment.value}`);
-        }
-
-        return segmentTranslation[segment.value];
+        return segmentValues[segment.value];
       }
-
       return `${segment.value}`;
     })
   );
