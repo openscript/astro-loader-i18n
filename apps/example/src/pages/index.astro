@@ -1,37 +1,81 @@
 ---
-import { getCollection } from "astro:content"
+import { getCollection } from "astro:content";
 
-
+const filesCollection = await getCollection("files");
 const folderCollection = await getCollection("folder");
-
+const infileCollection = await getCollection("infile");
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>astro-loader-i18n: example</title>
-	</head>
-	<body>
-		<h1>astro-loader-i18n</h1>
-		<h2>i18nFolderLoader</h2>
-		{folderCollection.map((entry) => {
-			return (
-				<div>
-					<h3>{entry.filePath}</h3>
-					<dl>
-						{Object.entries(entry.data).map(([key, value]) => {
-							return (
-								<div>
-									<dt>{key}</dt>
-									<dd>{value}</dd>
-								</div>
-							)
-						})}
-					</dl>
-				</div>
-			)
-		})}
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>astro-loader-i18n: example</title>
+  </head>
+  <body>
+    <h1>astro-loader-i18n</h1>
+    <h2>files</h2>
+    {
+      filesCollection.map((entry) => (
+        <>
+          <h3>{entry.filePath}</h3>
+          <dl>
+            {Object.entries(entry.data).map(([key, value]) => (
+              <>
+                <dt>{key}</dt>
+                <dd>{value}</dd>
+              </>
+            ))}
+          </dl>
+        </>
+      ))
+    }
+    <h2>folder</h2>
+    {
+      folderCollection.map((entry) => (
+        <>
+          <h3>{entry.filePath}</h3>
+          <dl>
+            {Object.entries(entry.data).map(([key, value]) => (
+              <>
+                <dt>{key}</dt>
+                <dd>{value}</dd>
+              </>
+            ))}
+          </dl>
+        </>
+      ))
+    }
+    <h2>infile</h2>
+    {
+      infileCollection.map((entry) => (
+        <>
+          <h3>{entry.filePath}</h3>
+          <dl>
+            {Object.entries(entry.data).map(([key, value]) => (
+              <>
+                <dt>{key}</dt>
+                <dd>
+                  {value.map((entry, index) => (
+                    <>
+                      <h4>{index}</h4>
+                      <dl>
+                        {Object.entries(entry).map(([key, value]) => (
+                          <>
+                            <dt>{key}</dt>
+                            <dd>{value}</dd>
+                          </>
+                        ))}
+                      </dl>
+                    </>
+                  ))}
+                </dd>
+              </>
+            ))}
+          </dl>
+        </>
+      ))
+    }
+  </body>
 </html>
