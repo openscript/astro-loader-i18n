@@ -49,7 +49,7 @@ export function translationPaths(collection: unknown[], config: Config): GetStat
       (previous, current) => {
         const segmentValues = getSegmentTranslations(segmentTranslations, current.data.locale);
         segmentValues[localeParamName] = defaultLocale === current.data.locale ? "" : current.data.locale;
-        const slugValue = (current.data as { [titleDataKey]: string | undefined })[titleDataKey];
+        const slugValue = titleDataKey ? (current.data as Record<string, string | undefined>)[titleDataKey] : undefined;
         if (slugValue) {
           segmentValues[slugParamName] = limax(slugValue);
         }
