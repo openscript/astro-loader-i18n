@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`createCollection > should create a collection based on the provided locales and route pattern 1`] = `
+[
+  {
+    "locale": "en",
+    "translationId": "/[...locale]/blog/[slug]",
+  },
+  {
+    "locale": "de",
+    "translationId": "/[...locale]/blog/[slug]",
+  },
+]
+`;

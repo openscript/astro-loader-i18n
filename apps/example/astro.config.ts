@@ -1,6 +1,7 @@
 // @ts-check
 import mdx from "@astrojs/mdx";
 import { defineConfig } from "astro/config";
+import { C } from "./src/site.config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,8 +9,8 @@ export default defineConfig({
     host: true,
   },
   i18n: {
-    locales: ["de-CH", "zh-CN"],
-    defaultLocale: "de-CH",
+    locales: C.LOCALES,
+    defaultLocale: C.DEFAULT_LOCALE,
   },
   integrations: [mdx()],
 });

@@ -14,8 +14,6 @@
     ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "rootDir": ".",
-    "baseUrl": ".",
     "paths": {
       "astro-loader-i18n": [
         "./libs/astro-loader-i18n"
