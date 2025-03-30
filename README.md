@@ -1,14 +1,19 @@
 # astro-loader-i18n
 
-This package contains a **content loader** for i18n files and folder structures for [Astro](https://astro.build/). It is built on top of the [`glob()` loader](https://docs.astro.build/en/reference/content-loader-reference/#glob-loader).
+[![codecov](https://codecov.io/github/openscript/astro-loader-i18n/graph/badge.svg?token=O2UYXUDEOT)](https://codecov.io/github/openscript/astro-loader-i18n) [![NPM Downloads](https://img.shields.io/npm/dw/astro-loader-i18n) ![npm bundle size](https://img.shields.io/bundlephobia/min/astro-loader-i18n)](https://npmjs.org/astro-loader-i18n)
 
-The content loader features:
+`astro-loader-i18n` is a **content loader** for internationalized content in [Astro](https://astro.build). It builds on top of Astro’s [`glob()` loader](https://docs.astro.build/en/reference/content-loader-reference/#glob-loader) and helps manage translations by detecting locales, mapping content, and enriching `getStaticPaths`.
 
-- Detects locales from the file names or folder structure
+
+## Features
+
+### ✅ Automatic locale detection
+
+- Extracts locale information from file names or folder structures:
   <details>
-    <summary>Folder structure example</summary>
+    <summary>📂 Folder structure example</summary>
 
-    ```
+    ```plaintext
     . (project root)
     ├── README.md
     └── src
@@ -23,9 +28,9 @@ The content loader features:
     ```
   </details>
   <details>
-    <summary>File name suffix example</summary>
+    <summary>📄 File name suffix example</summary>
 
-    ```
+    ```plaintext
     . (project root)
     └── src
         └── content
@@ -36,11 +41,17 @@ The content loader features:
                 └── projects.zh-CN.mdx
     ```
   </details>
-- Creates a common translation identifier so that translations can be easily mapped
-- Provides schema partials for `content.config.ts`
-  - Loader schema as `i18nLoaderSchema`
-  - Infile schema as `i18nInfileSchema`
-- Includes utilities to simplify the creation of `getStaticPaths`
+
+### ✅ Translation mapping
+- Generates a common translation identifier to easily match different language versions of content.
+
+### ✅ Schema support
+- Provides predefined schemas for `content.config.ts`
+  - Loader schema: `i18nLoaderSchema`
+  - In-file schema: `i18nInfileSchema`
+
+### ✅ `getStaticPaths()` helpers included
+- Includes helper utilities to streamline the creation of localized routes.
 
 ## Usage
 
