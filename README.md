@@ -1,6 +1,8 @@
 # astro-loader-i18n
 
-[![codecov](https://codecov.io/github/openscript/astro-loader-i18n/graph/badge.svg?token=O2UYXUDEOT)](https://codecov.io/github/openscript/astro-loader-i18n) [![NPM Downloads](https://img.shields.io/npm/dw/astro-loader-i18n) ![npm bundle size](https://img.shields.io/bundlephobia/min/astro-loader-i18n)](https://npmjs.org/astro-loader-i18n)
+[![codecov](https://codecov.io/github/openscript/astro-loader-i18n/graph/badge.svg?token=O2UYXUDEOT)](https://codecov.io/github/openscript/astro-loader-i18n)
+[![NPM Downloads](https://img.shields.io/npm/dw/astro-loader-i18n)](https://npmjs.org/astro-loader-i18n)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/astro-loader-i18n)](https://npmjs.org/astro-loader-i18n)
 
 `astro-loader-i18n` is a **content loader** for internationalized content in [Astro](https://astro.build). It builds on top of Astro’s [`glob()` loader](https://docs.astro.build/en/reference/content-loader-reference/#glob-loader) and helps manage translations by detecting locales, mapping content, and enriching `getStaticPaths`.
 

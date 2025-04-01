@@ -14,5 +14,10 @@
     "types": [
       "astro/client"
     ],
+    "paths": {
+      "astro-loader-i18n": [
+        "../../libs/astro-loader-i18n/src"
+      ],
+    }
   }
 }
