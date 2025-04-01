@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.1.1
+
+### Patch Changes
+
+- bc18996: Add getStaticPaths helpers
+
 ## 0.1.0
 
 ### Minor Changes
