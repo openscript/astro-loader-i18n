@@ -4,13 +4,14 @@ import { i18nPropsAndParams } from "astro-loader-i18n";
 import { C } from "../../../site.config";
 
 export const getStaticPaths = async () => {
-  const routePattern = "[...locale]/[files]/[slug]";
+  const routePattern = "[...test]/[files]/[slug]";
   const filesCollection = await getCollection("files");
 
   return i18nPropsAndParams(filesCollection, {
     defaultLocale: C.DEFAULT_LOCALE,
     routePattern,
     segmentTranslations: C.SEGMENT_TRANSLATIONS,
+    localeParamName: "test"
   });
 };
 
