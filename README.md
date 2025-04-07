@@ -113,7 +113,7 @@
    ```
 
 1. Create content files in the defined structure:
-   > [!WARNING]
+   > ⚠️ WARNING
    > The content files need to be structured according to the in `astro.config.mjs` defined locales.
 
    ```
@@ -136,6 +136,17 @@
 
    const pages = await getCollection("pages");
 
+   ```
+
+1. Use the `getStaticPaths()` helper to generate localized routes:
+
+   ```typescript
+   import { getStaticPaths } from "astro-loader-i18n";
+
+   export async function getStaticPaths() {
+     const pages = await getCollection("pages");
+     return getStaticPaths(pages);
+   }
    ```
 
 ### Infile content

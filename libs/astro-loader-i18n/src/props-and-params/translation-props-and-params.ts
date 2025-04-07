@@ -1,7 +1,7 @@
 import { GetStaticPathsResult } from "astro";
 import limax from "limax";
 import { checkI18nLoaderCollection } from "../schemas/i18n-loader-schema";
-import { buildPath, parseRoutePattern, SegmentTranslations } from "../utils/route";
+import { buildPath, getSegmentTranslations, parseRoutePattern, SegmentTranslations } from "../utils/route";
 
 type Config = {
   routePattern: string;
@@ -18,12 +18,7 @@ const defaultConfig = {
   titleDataKey: "title",
 };
 
-function getSegmentTranslations(segments: SegmentTranslations, locale: string) {
-  if (!segments[locale]) throw new Error(`No slugs found for locale ${locale}`);
-  return segments[locale];
-}
-
-export function translationPaths(collection: unknown[], config: Config): GetStaticPathsResult {
+export function translationPropsAndParams(collection: unknown[], config: Config): GetStaticPathsResult {
   checkI18nLoaderCollection(collection);
   const { routePattern, segmentTranslations, defaultLocale, localeParamName, slugParamName, titleDataKey } = { ...defaultConfig, ...config };
   const route = parseRoutePattern(routePattern);
@@ -40,11 +35,8 @@ export function translationPaths(collection: unknown[], config: Config): GetStat
   });
 
   return collection.map((entry) => {
-    const segments = getSegmentTranslations(segmentTranslations, entry.data.locale);
     const translationId = entry.data.translationId;
-
     const entryTranslations = collection.filter((entry) => entry.data.translationId === translationId);
-
     const translations = entryTranslations.reduce(
       (previous, current) => {
         const segmentValues = getSegmentTranslations(segmentTranslations, current.data.locale);
@@ -62,11 +54,8 @@ export function translationPaths(collection: unknown[], config: Config): GetStat
     );
 
     return {
-      params: {
-        ...segments,
-      },
+      params: {},
       props: {
-        translationId,
         translations,
       },
     };

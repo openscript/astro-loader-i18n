@@ -59,3 +59,8 @@ export function buildPath(routePattern: RoutePattern, segmentValues: Segments): 
     })
   );
 }
+
+export function getSegmentTranslations(segments: SegmentTranslations, locale: string) {
+  if (!segments[locale]) throw new Error(`No slugs found for locale ${locale}`);
+  return segments[locale];
+}

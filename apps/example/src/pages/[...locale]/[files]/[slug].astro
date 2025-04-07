@@ -1,17 +1,18 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-import { mergeGetStaticPathsResults, localePaths, translationPaths } from "astro-loader-i18n";
+import { mergeGetStaticPathsResults, localePropsAndParams, translationPropsAndParams } from "astro-loader-i18n";
 import { C } from "../../../site.config";
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const routePattern = "[...locale]/[files]/[slug]";
   const filesCollection = await getCollection("files");
 
   return mergeGetStaticPathsResults(
-    localePaths(filesCollection),
-    translationPaths(filesCollection, {
+    localePropsAndParams(filesCollection, C.DEFAULT_LOCALE),
+    translationPropsAndParams(filesCollection, {
       defaultLocale: C.DEFAULT_LOCALE,
-      routePattern: Astro.routePattern,
+      routePattern,
       segmentTranslations: C.SEGMENT_TRANSLATIONS,
     })
   );

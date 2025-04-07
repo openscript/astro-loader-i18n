@@ -1,18 +1,14 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { mergeGetStaticPathsResults, localePaths, translationPaths, createCollection } from "astro-loader-i18n";
+import { mergeGetStaticPathsResults, createCollection, localePropsAndParams } from "astro-loader-i18n";
 import { C } from "../../../site.config";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const collection = createCollection({ locales: C.LOCALES, routePattern: Astro.routePattern });
+  const routePattern = "[...locale]/[files]"
+  const collection = createCollection({ locales: C.LOCALES, routePattern });
 
   return mergeGetStaticPathsResults(
-    localePaths(collection),
-    translationPaths(collection, {
-      defaultLocale: C.DEFAULT_LOCALE,
-      routePattern: Astro.routePattern,
-      segmentTranslations: C.SEGMENT_TRANSLATIONS,
-    })
+    localePropsAndParams(collection, C.DEFAULT_LOCALE),
   );
 };
 ---

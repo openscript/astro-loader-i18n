@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`translationPaths > should generate paths for a valid collection 1`] = `
+exports[`translationPropsAndParams > should generate paths for a valid collection 1`] = `
 [
   {
     "params": {
@@ -9,7 +9,6 @@ exports[`translationPaths > should generate paths for a valid collection 1`] = `
       "slug": "veruckte-umlaute",
     },
     "props": {
-      "translationId": "magic.mdx",
       "translations": {
         "de-CH": "/logbuch/posts/veruckte-umlaute",
         "zh-CN": "/zh-CN/blog/posts/shen2-qi2-de-biao1-ti2",
@@ -23,9 +22,20 @@ exports[`translationPaths > should generate paths for a valid collection 1`] = `
       "slug": "shen2-qi2-de-biao1-ti2",
     },
     "props": {
-      "translationId": "magic.mdx",
       "translations": {
         "de-CH": "/logbuch/posts/veruckte-umlaute",
+        "zh-CN": "/zh-CN/blog/posts/shen2-qi2-de-biao1-ti2",
+      },
+    },
+  },
+  {
+    "params": {
+      "blog": "blog",
+      "locale": "zh-CN",
+      "slug": "shen2-qi2-de-biao1-ti2",
+    },
+    "props": {
+      "translations": {
         "zh-CN": "/zh-CN/blog/posts/shen2-qi2-de-biao1-ti2",
       },
     },
