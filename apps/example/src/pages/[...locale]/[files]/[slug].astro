@@ -14,16 +14,17 @@ export const getStaticPaths = async () => {
   });
 };
 
-const { locale, translationId, translations } = Astro.props;
+const params = Astro.params;
+const props = Astro.props;
 ---
 
 <dl>
-  <dt>Locale</dt>
-  <dd>{locale}</dd>
-  <dt>Translation ID</dt>
-  <dd>{translationId}</dd>
-  <dt>Translations</dt>
+  <dt>Params</dt>
   <dd>
-    {JSON.stringify(translations)}
+    {JSON.stringify(params)}
+  </dd>
+  <dt>Props</dt>
+  <dd>
+    {JSON.stringify(props)}
   </dd>
 </dl>

@@ -4,9 +4,9 @@ import { buildPath, parseRoutePattern, SegmentTranslations } from "../utils/rout
 import { z } from "astro/zod";
 
 type Config = {
+  defaultLocale: string;
   routePattern: string;
   segmentTranslations: SegmentTranslations;
-  defaultLocale: string;
   localeParamName?: string;
   slugParamName?: string;
   titleDataKey?: string;
@@ -16,7 +16,7 @@ const defaultConfig = {
   localeParamName: "locale",
   slugParamName: "slug",
   titleDataKey: "title",
-};
+} as const;
 
 function getSegmentTranslations(
   data: z.infer<typeof i18nLoaderSchema> & Record<string, string | unknown>,
@@ -64,7 +64,7 @@ export function i18nPropsAndParams<C extends Config>(collection: unknown[], conf
     );
 
     return {
-      params: { ...getSegmentTranslations(entry.data, c) },
+      params: getSegmentTranslations(entry.data, c),
       props: {
         locale,
         translationId,
