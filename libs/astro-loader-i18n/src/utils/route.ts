@@ -1,6 +1,6 @@
 import { resolvePath } from "./path";
 
-type Segments = Record<string, string>;
+type Segments = Record<string, string | undefined>;
 export type SegmentTranslations = Record<string, Segments>;
 type RouteSegment = {
   spread: boolean;
@@ -58,9 +58,4 @@ export function buildPath(routePattern: RoutePattern, segmentValues: Segments): 
       return `${segment.value}`;
     })
   );
-}
-
-export function getSegmentTranslations(segments: SegmentTranslations, locale: string) {
-  if (!segments[locale]) throw new Error(`No slugs found for locale ${locale}`);
-  return segments[locale];
 }

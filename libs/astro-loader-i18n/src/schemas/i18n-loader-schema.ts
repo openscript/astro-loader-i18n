@@ -1,9 +1,11 @@
-import { z } from "astro/zod";
+import { AnyZodObject, z } from "astro/zod";
 
 export const i18nLoaderSchema = z.object({
   translationId: z.string(),
   locale: z.string(),
 });
+
+export const extendI18nLoaderSchema = (schema: AnyZodObject) => i18nLoaderSchema.merge(schema);
 
 const i18nLoaderCollectionSchema = z.array(
   z.object({

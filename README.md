@@ -135,7 +135,6 @@
    import { getCollection } from "astro:content";
 
    const pages = await getCollection("pages");
-
    ```
 
 1. Use the `getStaticPaths()` helper to generate localized routes:

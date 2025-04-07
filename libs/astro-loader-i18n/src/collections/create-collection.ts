@@ -6,7 +6,7 @@ type Options = {
   routePattern: string;
 };
 
-export function createCollection(options: Options): z.infer<typeof i18nLoaderSchema>[] {
+export function createCollection(options: Options): { data: z.infer<typeof i18nLoaderSchema> }[] {
   const { locales, routePattern } = options;
-  return locales.map((locale) => ({ locale: locale, translationId: routePattern }));
+  return locales.map((locale) => ({ data: { locale: locale, translationId: routePattern } }));
 }
