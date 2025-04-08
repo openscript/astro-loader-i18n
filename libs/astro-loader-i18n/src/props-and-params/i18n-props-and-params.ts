@@ -2,6 +2,7 @@ import limax from "limax";
 import { checkI18nLoaderCollection, i18nLoaderSchema } from "../schemas/i18n-loader-schema";
 import { buildPath, parseRoutePattern, SegmentTranslations } from "../utils/route";
 import { z } from "astro/zod";
+import { CollectionEntry, CollectionKey } from "astro:content";
 
 type Config = {
   defaultLocale: string;
@@ -34,7 +35,9 @@ function getSegmentTranslations(
   return segmentValues;
 }
 
-export function i18nPropsAndParams<C extends Config>(collection: unknown[], config: C) {
+type CollectionEntryWithData = z.infer<typeof i18nLoaderSchema> & CollectionEntry<CollectionKey>;
+
+export function i18nPropsAndParams<C extends CollectionEntryWithData[]>(collection: C, config: Config) {
   checkI18nLoaderCollection(collection);
   const { routePattern, ...c } = { ...defaultConfig, ...config };
   const route = parseRoutePattern(routePattern);
@@ -51,7 +54,7 @@ export function i18nPropsAndParams<C extends Config>(collection: unknown[], conf
   });
 
   return collection.map((entry) => {
-    const { locale, translationId } = entry.data;
+    const { translationId } = entry.data;
     const entryTranslations = collection.filter((e) => e.data.translationId === translationId);
     const translations = entryTranslations.reduce(
       (previous, current) => {
@@ -66,8 +69,7 @@ export function i18nPropsAndParams<C extends Config>(collection: unknown[], conf
     return {
       params: getSegmentTranslations(entry.data, c),
       props: {
-        locale,
-        translationId,
+        ...entry,
         translations,
       },
     };
