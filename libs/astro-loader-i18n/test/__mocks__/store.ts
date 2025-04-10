@@ -1,6 +1,6 @@
 import type { DataStore } from "astro/loaders";
 
-export class StoreMock implements DataStore {
+export class Store implements DataStore {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   readonly #store = new Map<string, any>();
 

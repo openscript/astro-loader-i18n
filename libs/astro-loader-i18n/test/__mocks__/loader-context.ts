@@ -1,17 +1,22 @@
 import type { LoaderContext } from "astro/loaders";
 import { vi } from "vitest";
-import { LoggerMock } from "./logger.mock";
-import { StoreMock } from "./store.mock";
+import { Logger } from "./logger";
+import { Store } from "./store";
 
 export function createLoaderContext(context?: Partial<LoaderContext>): LoaderContext {
   return {
     collection: "testCollection",
     generateDigest: vi.fn().mockReturnValue("digest"),
-    logger: new LoggerMock(),
-    parseData: vi.fn().mockResolvedValue({}),
-    store: new StoreMock(),
+    logger: new Logger(),
+    parseData: async (props) => props.data,
+    store: new Store(),
     meta: new Map<string, string>(),
     config: {
+      root: new URL("file://"),
+      srcDir: new URL("file://src/"),
+      legacy: {
+        collections: false,
+      },
       i18n: {
         defaultLocale: "zh-CN",
         locales: ["de-CH", "en-US", "zh-CN"],

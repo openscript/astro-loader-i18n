@@ -3,6 +3,7 @@ import { checkI18nLoaderCollection, i18nLoaderSchema } from "../schemas/i18n-loa
 import { buildPath, parseRoutePattern, SegmentTranslations } from "../utils/route";
 import { z } from "astro/zod";
 import { CollectionEntry, CollectionKey } from "astro:content";
+import { I18nCollection } from "../collections/create-i18n-collection";
 
 type Config = {
   defaultLocale: string;
@@ -35,9 +36,7 @@ function getSegmentTranslations(
   return segmentValues;
 }
 
-type CollectionEntryWithData = z.infer<typeof i18nLoaderSchema> & CollectionEntry<CollectionKey>;
-
-export function i18nPropsAndParams<C extends CollectionEntryWithData[]>(collection: C, config: Config) {
+export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(collection: C | I18nCollection, config: Config) {
   checkI18nLoaderCollection(collection);
   const { routePattern, ...c } = { ...defaultConfig, ...config };
   const route = parseRoutePattern(routePattern);

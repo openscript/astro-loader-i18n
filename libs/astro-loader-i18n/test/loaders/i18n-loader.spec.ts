@@ -1,18 +1,25 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { i18nLoader } from "../../src/loaders/i18n-loader";
 import { LoaderContext } from "astro/loaders";
-import { createLoaderContext } from "../_mocks/create-loader-context";
-import { folderCollectionFixture } from "../_fixtures/collections";
+import { createLoaderContext } from "../__mocks__/loader-context";
+import { folderCollectionFixture } from "../__fixtures__/collections";
 
 vi.mock("astro/loaders", () => {
   return {
-    glob: () => ({
-      load: vi.fn().mockImplementation(async (context: LoaderContext) => {
-        folderCollectionFixture.forEach((entry) => {
-          context.store.set(entry);
-        });
-      }),
-    }),
+    glob: () => {
+      return {
+        load: vi.fn().mockImplementation(async (context: LoaderContext) => {
+          const entries = await Promise.all(
+            folderCollectionFixture.map(async (entry) => {
+              return { ...entry, data: await context.parseData(entry) };
+            })
+          );
+          entries.forEach((entry) => {
+            context.store.set(entry);
+          });
+        }),
+      };
+    },
   };
 });
 
@@ -23,11 +30,7 @@ describe("i18nLoader", () => {
     context = createLoaderContext();
   });
 
-  afterEach(() => {
-    vi.resetAllMocks();
-  });
-
-  it("common translation id and locale in data", async () => {
+  it("should put common translation id and locale in data", async () => {
     const loader = i18nLoader({ pattern: "**/*.mdx" });
     await loader.load(context);
 

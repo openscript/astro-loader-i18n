@@ -1,0 +1,32 @@
+---
+import { createI18nCollection, i18nPropsAndParams } from "astro-loader-i18n";
+import { C } from "../../../site.config";
+import Page from "../../../layouts/Page.astro";
+
+export const getStaticPaths = async () => {
+  const routePattern = "[...locale]/[files]";
+  const collection = createI18nCollection({ locales: C.LOCALES, routePattern });
+
+  return i18nPropsAndParams(collection, {
+    defaultLocale: C.DEFAULT_LOCALE,
+    routePattern,
+    segmentTranslations: C.SEGMENT_TRANSLATIONS,
+  });
+};
+
+const params = Astro.params;
+const props = Astro.props;
+---
+
+<Page>
+  <dl>
+    <dt>Params</dt>
+    <dd>
+      {JSON.stringify(params, null, 2)}
+    </dd>
+    <dt>Props</dt>
+    <dd>
+      {JSON.stringify(props, null, 2)}
+    </dd>
+  </dl>
+</Page>
