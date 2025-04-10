@@ -70,7 +70,7 @@ export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(c
       props: {
         ...entry,
         translations,
-      },
+      } as C[number] & I18nCollection[number] & { translations: Record<string, string> },
     };
   });
 }

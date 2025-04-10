@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 import { extendI18nInfileSchema, extendI18nLoaderSchema, i18nLoader } from "astro-loader-i18n";
 import { glob } from "astro/loaders";
-import astroConfig from "../astro.config";
+import { C } from "./site.config";
 
 const filesCollection = defineCollection({
   loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/files" }),
@@ -19,7 +19,15 @@ const folderCollection = defineCollection({
 });
 const infileCollection = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
-  schema: extendI18nInfileSchema(z.array(z.object({ path: z.string(), title: z.string() })), astroConfig.i18n!.locales),
+  schema: extendI18nInfileSchema(
+    z.array(
+      z.object({
+        path: z.string(),
+        title: z.string(),
+      })
+    ),
+    C.LOCALES
+  ),
 });
 
 export const collections = {
