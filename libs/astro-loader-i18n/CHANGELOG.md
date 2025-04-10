@@ -1,5 +1,16 @@
 # astro-loader-i18n
 
+## 0.2.0
+
+### Minor Changes
+
+- aa75291: Enhance README.md
+- e406dbb: Improve `i18nPropsAndParams` type-safety
+
+### Patch Changes
+
+- bc18996: Add getStaticPaths helpers
+
 ## 0.1.0
 
 ### Minor Changes
