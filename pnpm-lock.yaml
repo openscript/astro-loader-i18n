@@ -19,13 +19,13 @@ importers:
         version: 20.7.2(@babel/traverse@7.27.0)(@zkochan/js-yaml@0.0.7)(eslint@9.24.0(jiti@2.4.2))(nx@20.7.2)
       '@nx/vite':
         specifier: 20.7.2
-        version: 20.7.2(@babel/traverse@7.27.0)(nx@20.7.2)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1))(vitest@3.1.1)
+        version: 20.7.2(@babel/traverse@7.27.0)(nx@20.7.2)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))(vitest@3.1.1)
       '@nx/web':
         specifier: 20.7.2
         version: 20.7.2(@babel/traverse@7.27.0)(nx@20.7.2)
       '@types/node':
         specifier: ^22.14.0
-        version: 22.14.0
+        version: 22.14.1
       '@vitest/ui':
         specifier: ^3.1.1
         version: 3.1.1(vitest@3.1.1)
@@ -58,16 +58,16 @@ importers:
         version: 8.29.1(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
       vite:
         specifier: ^6.2.6
-        version: 6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1)
+        version: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
 
   apps/example:
     dependencies:
       '@astrojs/mdx':
         specifier: ^4.2.3
-        version: 4.2.3(astro@5.6.1(@types/node@22.14.0)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1))
+        version: 4.2.3(astro@5.6.1(@types/node@22.14.1)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1))
       astro:
         specifier: ^5.6.1
-        version: 5.6.1(@types/node@22.14.0)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1)
+        version: 5.6.1(@types/node@22.14.1)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1)
       astro-loader-i18n:
         specifier: workspace:*
         version: link:../../libs/astro-loader-i18n
@@ -1511,6 +1511,9 @@ packages:
 
   '@types/node@22.14.0':
     resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
+
+  '@types/node@22.14.1':
+    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
@@ -4287,12 +4290,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.2.3(astro@5.6.1(@types/node@22.14.0)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1))':
+  '@astrojs/mdx@4.2.3(astro@5.6.1(@types/node@22.14.1)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.1
       '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
       acorn: 8.14.1
-      astro: 5.6.1(@types/node@22.14.0)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1)
+      astro: 5.6.1(@types/node@22.14.1)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1)
       es-module-lexer: 1.6.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -5635,7 +5638,7 @@ snapshots:
   '@nx/nx-win32-x64-msvc@20.7.2':
     optional: true
 
-  '@nx/vite@20.7.2(@babel/traverse@7.27.0)(nx@20.7.2)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1))(vitest@3.1.1)':
+  '@nx/vite@20.7.2(@babel/traverse@7.27.0)(nx@20.7.2)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))(vitest@3.1.1)':
     dependencies:
       '@nx/devkit': 20.7.2(nx@20.7.2)
       '@nx/js': 20.7.2(@babel/traverse@7.27.0)(nx@20.7.2)
@@ -5645,8 +5648,8 @@ snapshots:
       minimatch: 9.0.3
       semver: 7.7.1
       tsconfig-paths: 4.2.0
-      vite: 6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1)
-      vitest: 3.1.1(@types/debug@4.1.12)(@types/node@22.14.0)(@vitest/ui@3.1.1)(jiti@2.4.2)(yaml@2.7.1)
+      vite: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
+      vitest: 3.1.1(@types/debug@4.1.12)(@types/node@22.14.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(yaml@2.7.1)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -5942,6 +5945,10 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
+  '@types/node@22.14.1':
+    dependencies:
+      undici-types: 6.21.0
+
   '@types/parse-json@4.0.2': {}
 
   '@types/unist@2.0.11': {}
@@ -6060,6 +6067,14 @@ snapshots:
     optionalDependencies:
       vite: 6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1)
 
+  '@vitest/mocker@3.1.1(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))':
+    dependencies:
+      '@vitest/spy': 3.1.1
+      estree-walker: 3.0.3
+      magic-string: 0.30.17
+    optionalDependencies:
+      vite: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
+
   '@vitest/pretty-format@3.1.1':
     dependencies:
       tinyrainbow: 2.0.0
@@ -6088,7 +6103,7 @@ snapshots:
       sirv: 3.0.1
       tinyglobby: 0.2.12
       tinyrainbow: 2.0.0
-      vitest: 3.1.1(@types/debug@4.1.12)(@types/node@22.14.0)(@vitest/ui@3.1.1)(jiti@2.4.2)(yaml@2.7.1)
+      vitest: 3.1.1(@types/debug@4.1.12)(@types/node@22.14.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(yaml@2.7.1)
 
   '@vitest/utils@3.1.1':
     dependencies:
@@ -6283,6 +6298,101 @@ snapshots:
       vfile: 6.0.3
       vite: 6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1)
       vitefu: 1.0.6(vite@6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1))
+      xxhash-wasm: 1.1.0
+      yargs-parser: 21.1.1
+      yocto-spinner: 0.2.1
+      zod: 3.24.2
+      zod-to-json-schema: 3.24.5(zod@3.24.2)
+      zod-to-ts: 1.2.0(typescript@5.8.3)(zod@3.24.2)
+    optionalDependencies:
+      sharp: 0.33.5
+    transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@types/node'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/kv'
+      - aws4fetch
+      - db0
+      - idb-keyval
+      - ioredis
+      - jiti
+      - less
+      - lightningcss
+      - rollup
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - uploadthing
+      - yaml
+
+  astro@5.6.1(@types/node@22.14.1)(jiti@2.4.2)(rollup@4.39.0)(typescript@5.8.3)(yaml@2.7.1):
+    dependencies:
+      '@astrojs/compiler': 2.11.0
+      '@astrojs/internal-helpers': 0.6.1
+      '@astrojs/markdown-remark': 6.3.1
+      '@astrojs/telemetry': 3.2.0
+      '@oslojs/encoding': 1.1.0
+      '@rollup/pluginutils': 5.1.4(rollup@4.39.0)
+      acorn: 8.14.1
+      aria-query: 5.3.2
+      axobject-query: 4.1.0
+      boxen: 8.0.1
+      ci-info: 4.2.0
+      clsx: 2.1.1
+      common-ancestor-path: 1.0.1
+      cookie: 1.0.2
+      cssesc: 3.0.0
+      debug: 4.4.0
+      deterministic-object-hash: 2.0.2
+      devalue: 5.1.1
+      diff: 5.2.0
+      dlv: 1.1.3
+      dset: 3.1.4
+      es-module-lexer: 1.6.0
+      esbuild: 0.25.2
+      estree-walker: 3.0.3
+      flattie: 1.1.1
+      github-slugger: 2.0.0
+      html-escaper: 3.0.3
+      http-cache-semantics: 4.1.1
+      js-yaml: 4.1.0
+      kleur: 4.1.5
+      magic-string: 0.30.17
+      magicast: 0.3.5
+      mrmime: 2.0.1
+      neotraverse: 0.6.18
+      p-limit: 6.2.0
+      p-queue: 8.1.0
+      package-manager-detector: 1.1.0
+      picomatch: 4.0.2
+      prompts: 2.4.2
+      rehype: 13.0.2
+      semver: 7.7.1
+      shiki: 3.2.1
+      tinyexec: 0.3.2
+      tinyglobby: 0.2.12
+      tsconfck: 3.1.5(typescript@5.8.3)
+      ultrahtml: 1.6.0
+      unist-util-visit: 5.0.0
+      unstorage: 1.15.0
+      vfile: 6.0.3
+      vite: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
+      vitefu: 1.0.6(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.1
@@ -9038,6 +9148,27 @@ snapshots:
       - tsx
       - yaml
 
+  vite-node@3.1.1(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1):
+    dependencies:
+      cac: 6.7.14
+      debug: 4.4.0
+      es-module-lexer: 1.6.0
+      pathe: 2.0.3
+      vite: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
+    transitivePeerDependencies:
+      - '@types/node'
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+
   vite-plugin-dts@4.5.3(@types/node@22.14.0)(rollup@4.39.0)(typescript@5.8.3)(vite@6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1)):
     dependencies:
       '@microsoft/api-extractor': 7.52.2(@types/node@22.14.0)
@@ -9068,9 +9199,24 @@ snapshots:
       jiti: 2.4.2
       yaml: 2.7.1
 
+  vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1):
+    dependencies:
+      esbuild: 0.25.2
+      postcss: 8.5.3
+      rollup: 4.39.0
+    optionalDependencies:
+      '@types/node': 22.14.1
+      fsevents: 2.3.3
+      jiti: 2.4.2
+      yaml: 2.7.1
+
   vitefu@1.0.6(vite@6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1)):
     optionalDependencies:
       vite: 6.2.6(@types/node@22.14.0)(jiti@2.4.2)(yaml@2.7.1)
+
+  vitefu@1.0.6(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)):
+    optionalDependencies:
+      vite: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
 
   vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.14.0)(@vitest/ui@3.1.1)(jiti@2.4.2)(yaml@2.7.1):
     dependencies:
@@ -9097,6 +9243,46 @@ snapshots:
     optionalDependencies:
       '@types/debug': 4.1.12
       '@types/node': 22.14.0
+      '@vitest/ui': 3.1.1(vitest@3.1.1)
+    transitivePeerDependencies:
+      - jiti
+      - less
+      - lightningcss
+      - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+
+  vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.14.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(yaml@2.7.1):
+    dependencies:
+      '@vitest/expect': 3.1.1
+      '@vitest/mocker': 3.1.1(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))
+      '@vitest/pretty-format': 3.1.1
+      '@vitest/runner': 3.1.1
+      '@vitest/snapshot': 3.1.1
+      '@vitest/spy': 3.1.1
+      '@vitest/utils': 3.1.1
+      chai: 5.2.0
+      debug: 4.4.0
+      expect-type: 1.2.1
+      magic-string: 0.30.17
+      pathe: 2.0.3
+      std-env: 3.8.1
+      tinybench: 2.9.0
+      tinyexec: 0.3.2
+      tinypool: 1.0.2
+      tinyrainbow: 2.0.0
+      vite: 6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
+      vite-node: 3.1.1(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/debug': 4.1.12
+      '@types/node': 22.14.1
       '@vitest/ui': 3.1.1(vitest@3.1.1)
     transitivePeerDependencies:
       - jiti
