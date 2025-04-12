@@ -209,25 +209,71 @@ Sometimes to have multilingual content in a single file is more convenient. For 
 
 Use the standard `glob()` loader to load infile i18n content.
 
-```
-. (project root)
-└── src
-    └── content
-        └── navigation
-            ├── footer.yml
-            └── main.yml
-```
+1. Create a collection:
+   <details>
+     <summary>📄 Infile collection example</summary>
 
-```yaml
-# src/content/navigation/main.yml
-de-CH:
-  - path: /projekte
-    title: Projekte
-  - path: /ueber-mich
-    title: Über mich
-zh-CN:
-  - path: /zh/projects
-    title: 项目
-  - path: /zh/about-me
-    title: 关于我
+      ```plaintext
+     . (project root)
+     └── src
+         └── content
+             └── navigation
+                 ├── footer.yml
+                 └── main.yml
+     ```
+
+   </details>
+   <details>
+     <summary>📄 Content of <code>main.yml</code></summary>
+
+     ```yaml
+     # src/content/navigation/main.yml
+     de-CH:
+       - path: /projekte
+         title: Projekte
+       - path: /ueber-mich
+         title: Über mich
+     zh-CN:
+       - path: /zh/projects
+         title: 项目
+       - path: /zh/about-me
+         title: 关于我
+     ```
+
+   </details>
+
+1. Use `extendI18nInfileSchema` to define the schema:
+
+   ```typescript
+   const infileCollection = defineCollection({
+     loader: glob({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
+     schema: extendI18nInfileSchema(
+       z.array(
+         z.object({
+           path: z.string(),
+           title: z.string(),
+         })
+       ),
+       C.LOCALES
+     ),
+   });
+   ```
+
+### Virtual i18n collections
+
+Sometimes you want to translate that is not based on i18n content. For example an index page or a 404 page.
+
+`createI18nCollection` allows you to create a virtual collection that is not based on any content:
+
+```typescript
+export const getStaticPaths = async () => {
+  const routePattern = "[...locale]/[files]";
+  const collection = createI18nCollection({ locales: C.LOCALES, routePattern });
+
+  return i18nPropsAndParams(collection, {
+    defaultLocale: C.DEFAULT_LOCALE,
+    routePattern,
+    segmentTranslations: C.SEGMENT_TRANSLATIONS,
+  });
+};
 ```
