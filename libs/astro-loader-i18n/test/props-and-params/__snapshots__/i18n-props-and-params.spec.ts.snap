@@ -40,3 +40,5 @@ exports[`i18nPropsAndParams > should generate paths for a valid collection 1`] =
   },
 ]
 `;
+
+exports[`i18nPropsAndParams > should throw an error if not all params can be filled 1`] = `[Error: No slugs found for route segment unknown]`;

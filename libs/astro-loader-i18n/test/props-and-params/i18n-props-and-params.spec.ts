@@ -17,4 +17,18 @@ describe("i18nPropsAndParams", () => {
     const result = i18nPropsAndParams(collection, { routePattern, segmentTranslations, defaultLocale: "de-CH" });
     expect(result).toMatchSnapshot();
   });
+
+  it("should throw an error if not all params can be filled", () => {
+    const routePattern = "/[...locale]/[blog]/[unknown]/posts/[slug]";
+    const segmentTranslations: SegmentTranslations = { "de-CH": { blog: "logbuch" }, "zh-CN": { blog: "blog" } };
+    const collection = [
+      {
+        data: { locale: "de-CH", translationId: "magic.mdx", title: "Verückte Umlaute!" },
+      },
+      {
+        data: { locale: "zh-CN", translationId: "magic.mdx", title: "神奇的标题" },
+      },
+    ];
+    expect(() => i18nPropsAndParams(collection, { routePattern, segmentTranslations, defaultLocale: "de-CH" })).toThrowErrorMatchingSnapshot();
+  });
 });
