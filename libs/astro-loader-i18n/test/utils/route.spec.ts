@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseRoutePattern } from "../../src/utils/route";
+import { buildPath, parseRoutePattern } from "../../src/utils/route";
 
 describe("parseRoutePattern", () => {
   it("should parse a static route pattern", () => {
@@ -38,5 +38,12 @@ describe("parseRoutePattern", () => {
   it("should parse a route pattern with only a slash", () => {
     const result = parseRoutePattern("/");
     expect(result).toEqual([{ spread: false, param: false, value: "/" }]);
+  });
+});
+
+describe("buildPath", () => {
+  it("should throw if no segment matches a param", () => {
+    const routePattern = parseRoutePattern("/blog/[slug]");
+    expect(() => buildPath(routePattern, { slug: undefined })).toThrowErrorMatchingSnapshot();
   });
 });
