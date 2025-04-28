@@ -1,5 +1,12 @@
 # astro-loader-i18n
 
+## 0.2.1
+
+### Patch Changes
+
+- 6056aaa: Export extendI18nLoaderSchema as localizedSchema
+- b0cc973: Upgrade dependencies
+
 ## 0.2.0
 
 ### Minor Changes
