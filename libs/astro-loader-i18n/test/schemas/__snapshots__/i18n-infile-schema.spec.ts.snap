@@ -1,5 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`i18nInfileSchema > should extend the schema 1`] = `"{"en":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}},"fr":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}},"de":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}}}"`;
-
-exports[`i18nInfileSchema > should put common translation id and locale in data 1`] = `"{"en":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}},"fr":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}},"de":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}}}"`;

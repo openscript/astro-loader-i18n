@@ -50,7 +50,7 @@ export function buildPath(routePattern: RoutePattern, segmentValues: Segments): 
     ...routePattern.map((segment) => {
       if (segment.param) {
         if (!segmentValues[segment.value] && !segment.spread) {
-          throw new Error(`No segment value found for route segment ${segment.value}`);
+          throw new Error(`No segment value found for route segment "${segment.value}". Did you forget to provide it?`);
         }
 
         return segmentValues[segment.value];

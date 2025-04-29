@@ -17,6 +17,8 @@ export function checkI18nLoaderCollection(obj: unknown): asserts obj is z.infer<
   const result = i18nLoaderCollectionSchema.safeParse(obj);
 
   if (!result.success) {
-    throw new Error(`Invalid collection entry: ${result.error}`);
+    throw new Error(
+      `Invalid collection entry was provided: ${result.error} \n Did you forget to use "extendI18nLoaderSchema" to extend the schema?`
+    );
   }
 }

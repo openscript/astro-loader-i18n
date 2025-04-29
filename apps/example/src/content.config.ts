@@ -13,9 +13,11 @@ const filesCollection = defineCollection({
 });
 const folderCollection = defineCollection({
   loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/folder" }),
-  schema: z.object({
-    title: z.string(),
-  }),
+  schema: extendI18nLoaderSchema(
+    z.object({
+      title: z.string(),
+    })
+  ),
 });
 const infileCollection = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
