@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.2.2
+
+### Patch Changes
+
+- 21d4dad: Enhance type packaging
+
 ## 0.2.1
 
 ### Patch Changes
