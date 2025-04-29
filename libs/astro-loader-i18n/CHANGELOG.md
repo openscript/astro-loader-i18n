@@ -1,5 +1,12 @@
 # astro-loader-i18n
 
+## 0.2.3
+
+### Patch Changes
+
+- bc5c8ea: Enhance error messages
+- 38134d0: Improve translation id generation
+
 ## 0.2.2
 
 ### Patch Changes
