@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import { extendI18nLoaderSchema } from "../../src";
+import { extendI18nLoaderSchema } from "../../src/astro-loader-i18n";
 import { z } from "astro/zod";
 import { checkI18nLoaderCollection } from "../../src/schemas/i18n-loader-schema";
 

@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import { extendI18nInfileSchema } from "../../src";
+import { extendI18nInfileSchema } from "../../src/astro-loader-i18n";
 import { z } from "astro/zod";
 
 describe("i18nInfileSchema", () => {

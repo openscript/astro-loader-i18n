@@ -3,14 +3,13 @@ import { defineConfig } from "vite";
 import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
 import dts from "vite-plugin-dts";
 import { codecovVitePlugin } from "@codecov/vite-plugin";
-import path from "path";
 
 export default defineConfig({
   root: __dirname,
   cacheDir: "../../node_modules/.vite/libs/astro-loader-i18n",
   plugins: [
     nxViteTsPaths(),
-    dts({ entryRoot: "src", tsconfigPath: path.join(__dirname, "tsconfig.lib.json") }),
+    dts({ entryRoot: "src", tsconfigPath: "tsconfig.lib.json" }),
     codecovVitePlugin({
       enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
       bundleName: "astro-loader-i18n",
@@ -20,7 +19,7 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     lib: {
-      entry: "src/index.ts",
+      entry: "src/astro-loader-i18n.ts",
       name: "astro-loader-i18n",
       formats: ["es"],
     },

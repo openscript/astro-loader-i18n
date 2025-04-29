@@ -8,7 +8,8 @@
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "libs/astro-loader-i18n/dist"
+        "outputPath": "libs/astro-loader-i18n/dist",
+        "generatePackageJson": false
       }
     },
     "dev": {
@@ -16,12 +17,13 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "libs/astro-loader-i18n/dist",
-        "watch": true
+        "watch": true,
+        "generatePackageJson": false
       }
     },
     "prepare": {
       "dependsOn": ["build"],
-      "command": "cp README.md LICENSE libs/astro-loader-i18n"
+      "command": "cp README.md LICENSE libs/astro-loader-i18n && rm libs/astro-loader-i18n/dist/package.json"
     },
     "test": {
       "executor": "@nx/vite:test",

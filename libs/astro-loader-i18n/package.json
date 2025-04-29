@@ -15,10 +15,11 @@
   "repository": "github:openscript/astro-loader-i18n",
   "type": "module",
   "main": "./dist/astro-loader-i18n.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/astro-loader-i18n.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/astro-loader-i18n.js"
+      "import": "./dist/astro-loader-i18n.js",
+      "types": "./dist/astro-loader-i18n.d.ts"
     }
   },
   "files": [
