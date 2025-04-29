@@ -88,4 +88,8 @@ describe("createTranslationId", () => {
     const id = createTranslationId("/page/zh-CN/file", "zh-CN");
     expect(id).toBe("page/file");
   });
+  it("should create ID without alter other segments of the path", () => {
+    const id = createTranslationId("/deutsch/hackbraten.de.md", "de");
+    expect(id).toBe("deutsch/hackbraten.md");
+  });
 });

@@ -2,6 +2,7 @@ const TRIM_SLASHES_PATTERN = /^\/|\/$/g;
 const DOUBLE_POINTS_PATTERN = /\.{2}/g;
 const DOUBLE_SLASH_PATTERN = /\/{2}/g;
 const INDEX_COMMON_TRANSLATION_ID = "index";
+const createLocalePattern = (pathLocale: string) => new RegExp(`(?<=[./])${pathLocale}(?=[./])`, "i");
 
 export function joinPath(...paths: Array<string | number | undefined>) {
   return paths.filter(Boolean).join("/");
@@ -26,7 +27,7 @@ export const parseLocale = (path: string, locales: string[], defaultLocale: stri
 };
 
 export const createTranslationId = (path: string, pathLocale: string) => {
-  path = path.replace(pathLocale, "");
+  path = path.replace(createLocalePattern(pathLocale), "");
   path = path.replace(DOUBLE_POINTS_PATTERN, ".");
   path = path.replace(DOUBLE_SLASH_PATTERN, "/");
   path = trimSlashes(path);
