@@ -5,7 +5,7 @@ import { C } from "../../../site.config";
 import Page from "../../../layouts/Page.astro";
 
 export const getStaticPaths = async () => {
-  const routePattern = "[...locale]/[files]/[slug]";
+  const routePattern = "[...locale]/[folder]/[slug]";
   const collection = await getCollection("files");
 
   return i18nPropsAndParams(collection, {

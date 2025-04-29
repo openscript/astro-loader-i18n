@@ -4,9 +4,11 @@ export const C = {
   SEGMENT_TRANSLATIONS: {
     "de-CH": {
       files: "dateien",
+      folder: "ordner",
     },
     "zh-CN": {
       files: "files",
+      folder: "folder",
     },
   },
 };
