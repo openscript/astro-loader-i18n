@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.2.7
+
+### Patch Changes
+
+- fdd471b: Fix error in parsing of locales from paths
+
 ## 0.2.6
 
 ### Patch Changes
