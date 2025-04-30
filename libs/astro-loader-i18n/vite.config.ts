@@ -17,6 +17,7 @@ export default defineConfig({
     }),
   ],
   build: {
+    sourcemap: true,
     emptyOutDir: true,
     lib: {
       entry: "src/astro-loader-i18n.ts",
