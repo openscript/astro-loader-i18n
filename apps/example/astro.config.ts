@@ -9,8 +9,8 @@ export default defineConfig({
     host: true,
   },
   i18n: {
-    locales: C.LOCALES,
     defaultLocale: C.DEFAULT_LOCALE,
+    locales: C.LOCALES,
   },
   integrations: [mdx()],
 });

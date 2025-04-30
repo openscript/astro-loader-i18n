@@ -17,7 +17,8 @@ export const trimSlashes = (path: string) => {
 };
 
 export const parseLocale = (path: string, locales: string[], defaultLocale: string) => {
-  const locale = locales.find((locale) => path.indexOf(locale) !== -1);
+  const localePattern = createLocalePattern(`(${locales.join("|")})`);
+  const locale = path.match(localePattern)?.[0];
 
   return locale ? locale : defaultLocale;
 };

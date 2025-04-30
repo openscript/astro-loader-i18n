@@ -47,6 +47,10 @@ describe("parseLocale", () => {
     const locale = parseLocale("src/content/projects/de/project-a.mdx", ["de", "zh"], "zh");
     expect(locale).toBe("de");
   });
+  it("should extract locale observing delimiters", () => {
+    const locale = parseLocale("src/projects/deutsch/zh/project-a.mdx", ["de", "zh"], "zh");
+    expect(locale).toBe("zh");
+  });
   it("should extract locale from file suffix", () => {
     const locale = parseLocale("/some/path/page.de-CH.md", ["de-CH", "zh-CN"], "zh-CN");
     expect(locale).toBe("de-CH");

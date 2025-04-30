@@ -14,8 +14,8 @@ export function i18nLoader(options: GlobOptions): Loader {
       const localeCodes = locales.flatMap((locale) => (typeof locale === "string" ? locale : locale.codes));
 
       const parseData = context.parseData;
-      const parseDataProxy: typeof context.parseData = (props) => {
-        if (!props.filePath) return context.parseData(props);
+      const parseDataProxy: typeof parseData = (props) => {
+        if (!props.filePath) return parseData(props);
         const locale = parseLocale(props.filePath, localeCodes, defaultLocale);
         const translationId = createTranslationId(props.filePath, locale);
         return parseData({ ...props, data: { ...props.data, locale, translationId } });
