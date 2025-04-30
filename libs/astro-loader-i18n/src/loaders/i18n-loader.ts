@@ -13,15 +13,16 @@ export function i18nLoader(options: GlobOptions): Loader {
       const { locales, defaultLocale } = context.config.i18n;
       const localeCodes = locales.flatMap((locale) => (typeof locale === "string" ? locale : locale.codes));
 
+      const parseData = context.parseData;
       const parseDataProxy: typeof context.parseData = (props) => {
         if (!props.filePath) return context.parseData(props);
         const locale = parseLocale(props.filePath, localeCodes, defaultLocale);
         const translationId = createTranslationId(props.filePath, locale);
-        return context.parseData({ ...props, data: { ...props.data, locale, translationId } });
+        return parseData({ ...props, data: { ...props.data, locale, translationId } });
       };
 
-      const globContext = Object.assign({}, context, { parseData: parseDataProxy });
-      await globLoader.load(globContext);
+      context.parseData = parseDataProxy;
+      await globLoader.load(context);
     },
   };
 }
