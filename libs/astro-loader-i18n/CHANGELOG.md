@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.2.6
+
+### Patch Changes
+
+- c304593: Enhance parseData inside i18nLoader
+
 ## 0.2.5
 
 ### Patch Changes
