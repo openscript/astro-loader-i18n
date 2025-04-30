@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.2.5
+
+### Patch Changes
+
+- f8c74ef: Simplify parseDataProxy
+
 ## 0.2.4
 
 ### Patch Changes
