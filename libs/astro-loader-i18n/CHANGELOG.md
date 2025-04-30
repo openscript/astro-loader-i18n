@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.2.4
+
+### Patch Changes
+
+- bd303c5: Add source maps
+
 ## 0.2.3
 
 ### Patch Changes
