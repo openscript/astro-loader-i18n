@@ -5,14 +5,14 @@
   ],
   "include": [
     ".astro/types.d.ts",
-    "**/*"
+    "**/*",
   ],
   "exclude": [
     "dist"
   ],
   "compilerOptions": {
     "types": [
-      "astro/client"
+      "astro/client",
     ],
     "paths": {
       "astro-loader-i18n": [
