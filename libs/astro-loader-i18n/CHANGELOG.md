@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.3.0
+
+### Minor Changes
+
+- 47e73bd: Add `translatedPath` to props
+
 ## 0.2.7
 
 ### Patch Changes
