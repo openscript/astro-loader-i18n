@@ -3,8 +3,8 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@astrojs/mdx": "^4.2.5",
-    "astro": "^5.7.9",
+    "@astrojs/mdx": "^4.2.6",
+    "astro": "^5.7.10",
     "astro-loader-i18n": "workspace:*"
   }
 }

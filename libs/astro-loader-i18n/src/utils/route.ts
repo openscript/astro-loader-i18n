@@ -44,6 +44,7 @@ export function parseRoutePattern(routePattern: string): RoutePattern {
 /**
  *
  * @param routePattern is an array consisting of route segments
+ * @param segmentValues is an object containing the values for each route segment
  */
 export function buildPath(routePattern: RoutePattern, segmentValues: Segments): string {
   return resolvePath(

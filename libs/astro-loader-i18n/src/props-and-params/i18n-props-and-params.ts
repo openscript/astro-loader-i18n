@@ -65,12 +65,16 @@ export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(c
       {} as Record<string, string>
     );
 
+    const params = getSegmentTranslations(entry.data, c);
+    const translatedPath = buildPath(route, params);
+
     return {
-      params: getSegmentTranslations(entry.data, c),
+      params,
       props: {
         ...entry,
         translations,
-      } as C[number] & I18nCollection[number] & { translations: Record<string, string> },
+        translatedPath,
+      } as C[number] & I18nCollection[number] & { translations: Record<string, string>; translatedPath: string },
     };
   });
 }
