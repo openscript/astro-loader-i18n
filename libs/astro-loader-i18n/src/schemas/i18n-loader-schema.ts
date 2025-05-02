@@ -5,7 +5,7 @@ export const i18nLoaderSchema = z.object({
   locale: z.string(),
 });
 
-export const extendI18nLoaderSchema = (schema: AnyZodObject) => i18nLoaderSchema.merge(schema);
+export const extendI18nLoaderSchema = <Z extends AnyZodObject>(schema: Z) => i18nLoaderSchema.merge(schema);
 
 const i18nLoaderCollectionSchema = z.array(
   z.object({
