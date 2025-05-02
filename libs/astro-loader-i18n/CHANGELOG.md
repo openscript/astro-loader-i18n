@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.3.1
+
+### Patch Changes
+
+- 8f8ecf5: Improve `extendI18nLoaderSchema` return type
+
 ## 0.3.0
 
 ### Minor Changes
