@@ -3,7 +3,9 @@
 exports[`i18nLoaderSchema > should extend the schema 1`] = `"{"translationId":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}},"locale":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}},"title":{"_def":{"checks":[],"typeName":"ZodString","coerce":false},"~standard":{"version":1,"vendor":"zod"}}}"`;
 
 exports[`i18nLoaderSchema > should throw an error when checkI18nLoaderCollection fails 1`] = `
-[Error: Invalid collection entry was provided: [
+[Error: Invalid collection entry was provided to astro-i18n-loader. Did you forget to use "extendI18nLoaderSchema" to extend the schema in your "content.config.js" definition? Validation failed with:
+
+[
   {
     "code": "invalid_type",
     "expected": "string",
@@ -15,6 +17,5 @@ exports[`i18nLoaderSchema > should throw an error when checkI18nLoaderCollection
     ],
     "message": "Required"
   }
-] 
- Did you forget to use "extendI18nLoaderSchema" to extend the schema?]
+]]
 `;
