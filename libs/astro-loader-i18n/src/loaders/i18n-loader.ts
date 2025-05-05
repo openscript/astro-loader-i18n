@@ -20,8 +20,8 @@ export function i18nLoader(options: GlobOptions): Loader {
         const translationId = createTranslationId(props.filePath, locale);
         return parseData({ ...props, data: { ...props.data, locale, translationId } });
       };
-
       context.parseData = parseDataProxy;
+
       await globLoader.load(context);
     },
   };
