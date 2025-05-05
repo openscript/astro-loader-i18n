@@ -23,8 +23,8 @@ export const parseLocale = (path: string, locales: string[], defaultLocale: stri
   return locale ? locale : defaultLocale;
 };
 
-export const createTranslationId = (path: string, pathLocale: string) => {
-  path = path.replace(createLocalePattern(pathLocale), "");
+export const createTranslationId = (path: string, pathLocale?: string) => {
+  if (pathLocale) path = path.replace(createLocalePattern(pathLocale), "");
   path = path.replace(DOUBLE_POINTS_PATTERN, ".");
   path = path.replace(DOUBLE_SLASH_PATTERN, "/");
   path = trimSlashes(path);
