@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { convertToSingleLocale, getAllUniqueKeys } from "../../src/utils/collection";
+import { getAllUniqueKeys, pruneLocales } from "../../src/utils/collection";
 
 describe("getAllUniqueKeys", () => {
   it("should return all unique keys of an object", () => {
@@ -24,25 +24,41 @@ describe("getAllUniqueKeys", () => {
   });
 });
 
-describe("convertToSingleLocale", () => {
-  it("should convert to single locale", () => {
-    const result = convertToSingleLocale(
-      {
-        en: { a: 1, b: 2 },
-        fr: { a: 3, b: 4 },
-        de: { a: 5, b: 6 },
-      },
-      ["en", "fr", "de"],
-      "en"
-    );
+describe("pruneLocales", () => {
+  it("should prune locales with top level locale data as objects", () => {
+    const result = () => {
+      pruneLocales(
+        {
+          en: { a: 1, b: 2 },
+          fr: { a: 3, b: 4 },
+          de: { a: 5, b: 6 },
+        },
+        ["en", "fr", "de"],
+        "en"
+      );
+    };
+    expect(result).toThrowErrorMatchingSnapshot();
+  });
+  it("should prune locales with top level local data as strings", () => {
+    const result = () => {
+      pruneLocales(
+        {
+          en: "Hello",
+          fr: "Bonjour",
+          de: "Hallo",
+        },
+        ["en", "fr", "de"],
+        "en"
+      );
+    };
+    expect(result).toThrowErrorMatchingSnapshot();
+  });
+  it("should prune locales with no data", () => {
+    const result = pruneLocales({}, ["en", "fr", "de"], "en");
     expect(result).toMatchSnapshot();
   });
-  it("should convert to single locale with empty object", () => {
-    const result = convertToSingleLocale({}, ["en", "fr", "de"], "en");
-    expect(result).toMatchSnapshot();
-  });
-  it("should convert to single locale when locale is nested", () => {
-    const result = convertToSingleLocale(
+  it("should prune locales with nested data", () => {
+    const result = pruneLocales(
       {
         title: { en: "Title", fr: "Titre", de: "Titel" },
         nested: {

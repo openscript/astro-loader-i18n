@@ -1,6 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`convertToSingleLocale > should convert to single locale when locale is nested 1`] = `
+exports[`getAllUniqueKeys > should return all unique keys of an object 1`] = `
+Set {
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "g",
+  "i",
+  "k",
+}
+`;
+
+exports[`pruneLocales > should prune locales with nested data 1`] = `
 {
   "array": [
     1,
@@ -18,25 +31,12 @@ exports[`convertToSingleLocale > should convert to single locale when locale is 
     "b": 2,
   },
   "string": "normal string",
-  "title": {
-    "0": "T",
-    "1": "i",
-    "2": "t",
-    "3": "l",
-    "4": "e",
-  },
+  "title": "Title",
 }
 `;
 
-exports[`getAllUniqueKeys > should return all unique keys of an object 1`] = `
-Set {
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "g",
-  "i",
-  "k",
-}
-`;
+exports[`pruneLocales > should prune locales with no data 1`] = `{}`;
+
+exports[`pruneLocales > should prune locales with top level local data as strings 1`] = `[Error: Top-level locales are not allowed]`;
+
+exports[`pruneLocales > should prune locales with top level locale data as objects 1`] = `[Error: Top-level locales are not allowed]`;

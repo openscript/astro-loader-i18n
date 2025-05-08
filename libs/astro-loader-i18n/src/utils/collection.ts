@@ -8,17 +8,37 @@ export function getAllUniqueKeys(obj: Record<string, unknown>, keys = new Set<st
   return keys;
 }
 
-export function convertToSingleLocale(obj: Record<string, unknown>, locales: string[], locale: string): Record<string, unknown> {
-  return Object.entries(obj).reduce(
-    (result, [key, value]) => {
-      if (key === locale) {
-        Object.assign(result, value);
-      } else if (!locales.includes(key)) {
-        result[key] =
-          typeof value === "object" && !Array.isArray(value) ? convertToSingleLocale(value as Record<string, unknown>, locales, locale) : value;
+function recursivePruneLocales(obj: Record<string, unknown>, locales: string[], locale: string) {
+  const result: Record<string, unknown> = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      const valueAsRecord = value as Record<string, unknown>;
+      const hasLocales = Object.keys(valueAsRecord).some((k) => locales.includes(k));
+      let prunedValue: unknown | undefined = undefined;
+
+      if (hasLocales) {
+        prunedValue = valueAsRecord[locale] ?? undefined;
+      } else {
+        prunedValue = value;
       }
-      return result;
-    },
-    {} as Record<string, unknown>
-  );
+
+      if (prunedValue && typeof prunedValue === "object") {
+        prunedValue = recursivePruneLocales(prunedValue as Record<string, unknown>, locales, locale);
+      }
+
+      result[key] = prunedValue;
+    } else {
+      result[key] = value;
+    }
+  }
+
+  return result;
+}
+
+export function pruneLocales(obj: Record<string, unknown>, locales: string[], locale: string) {
+  if (Object.keys(obj).find((key) => locales.includes(key))) throw new Error("Top-level locales are not allowed");
+  if (Object.keys(obj).length === 0) return obj;
+
+  return recursivePruneLocales(obj, locales, locale);
 }
