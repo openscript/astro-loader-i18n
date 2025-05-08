@@ -159,4 +159,19 @@ export const contentCollectionFixture: DataEntry[] = [
       ],
     },
   },
+  {
+    id: "omni",
+    filePath: "src/content/gallery/omni.yml",
+    data: {
+      title: "Omni",
+      cover: "./animals1.jpg",
+      images: [
+        { src: "./animals1.jpg" },
+        { src: "./animals2.jpg" },
+        { src: "./animals3.jpg" },
+        { src: "./animals4.jpg" },
+        { src: "./animals5.jpg" },
+      ],
+    },
+  },
 ];

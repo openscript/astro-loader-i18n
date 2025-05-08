@@ -182,5 +182,35 @@ exports[`i18nContentLoader > should put common translation id and locale in data
       "id": "animals/zh-CN",
     },
   ],
+  [
+    "omni",
+    {
+      "data": {
+        "cover": "./animals1.jpg",
+        "images": [
+          {
+            "src": "./animals1.jpg",
+          },
+          {
+            "src": "./animals2.jpg",
+          },
+          {
+            "src": "./animals3.jpg",
+          },
+          {
+            "src": "./animals4.jpg",
+          },
+          {
+            "src": "./animals5.jpg",
+          },
+        ],
+        "locale": "zh-CN",
+        "title": "Omni",
+        "translationId": "src/content/gallery/omni.yml",
+      },
+      "filePath": "src/content/gallery/omni.yml",
+      "id": "omni",
+    },
+  ],
 ]
 `;
