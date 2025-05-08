@@ -1,5 +1,5 @@
 import { glob, Loader, LoaderContext } from "astro/loaders";
-import { convertToSingleLocale, getAllUniqueKeys } from "../utils/collection";
+import { pruneLocales, getAllUniqueKeys } from "../utils/collection";
 import { createTranslationId } from "../utils/path";
 
 type GlobOptions = Parameters<typeof glob>[0];
@@ -34,8 +34,8 @@ export function i18nContentLoader(options: GlobOptions): Loader {
           context.store.set(entry);
         } else {
           entryLocales.forEach((locale) => {
-            const entryData = convertToSingleLocale(entry.data, entryLocales, locale);
-            context.store.set({ ...entry, data: { ...entryData, locale } });
+            const entryData = pruneLocales(entry.data, entryLocales, locale);
+            context.store.set({ ...entry, id: `${entry.id}/${locale}`, data: { ...entryData, locale } });
           });
         }
       });
