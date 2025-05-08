@@ -1,5 +1,15 @@
 # astro-loader-i18n
 
+## 0.4.0
+
+### Minor Changes
+
+- 302ee2f: Add i18n content loader
+
+### Patch Changes
+
+- bfc9d46: Upgrade dependencies
+
 ## 0.3.1
 
 ### Patch Changes
