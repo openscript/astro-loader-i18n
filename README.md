@@ -48,10 +48,9 @@
 - Generates a translation identifier to easily match different language versions of content.
 
 ### ✅ Schema support
-- Provides predefined schemas for `content.config.ts`
-  - Loader schema: `i18nLoaderSchema`
-  - In-file schema: `i18nInfileSchema`
-- Adds a `translationId` and `locale` to each content item.
+- Helps to define schemas for your localized content.
+- Add `translationId` and `locale` to the schema by using `extendI18nLoaderSchema`. You need this when using `i18nLoader` or `i18nContentLoader`.
+- When you have multiple locales in a single file, you can use `localized` to define the necessary schema. This is useful when using `i18nContentLoader`.
 
 ### ✅ `getStaticPaths()` helpers included
 - Includes a helper utility called `i18nPropsAndParams`
@@ -121,8 +120,7 @@
 
    ```typescript
    import { defineCollection, z } from "astro:content";
-   import { extendI18nInfileSchema, extendI18nLoaderSchema, i18nLoader } from "astro-loader-i18n";
-   import { glob } from "astro/loaders";
+   import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized } from "astro-loader-i18n";
    import { C } from "./site.config";
 
    const filesCollection = defineCollection({
@@ -135,19 +133,42 @@
    });
    const folderCollection = defineCollection({
      loader: i18nLoader({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/folder" }),
-     schema: z.object({
-       title: z.string(),
-     }),
+     schema: extendI18nLoaderSchema(
+       z.object({
+         title: z.string(),
+       })
+     ),
    });
+
+   /*
+    Example of a content file:
+    navigation:
+      de-CH:
+        - path: /projekte
+          title: Projekte
+        - path: /ueber-mich
+          title: Über mich
+      zh-CN:
+        - path: /zh/projects
+          title: 项目
+        - path: /zh/about-me
+          title: 关于我
+   */
    const infileCollection = defineCollection({
-     loader: glob({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
-     schema: extendI18nInfileSchema(
-       z.array(
-         z.object({
-           path: z.string(),
-           title: z.string()
-         })
-       ), C.LOCALES),
+     loader: i18nContentLoader({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
+     schema: extendI18nLoaderSchema( // `extendI18nLoaderSchema` defines `translationId` and `locale` for you in the schema.
+       z.object({
+         navigation: localized( // `localized` defines an object with the locale as key and applies the schema you provide to the value.
+           z.array(
+             z.object({
+               path: z.string(),
+               title: z.string(),
+             })
+           ),
+           C.LOCALES
+         ),
+       })
+     ),
    });
 
    export const collections = {
@@ -155,12 +176,11 @@
      folder: folderCollection,
      infile: infileCollection,
    };
-
    ```
 
 1. Create content files in the defined structure:
    > ⚠️ WARNING
-   > The content files need to be structured according to the in `astro.config.ts` defined locales.
+   > The content files need to be structured according to the locales defined in `astro.config.ts`.
 
    ```
    . (project root)
@@ -201,13 +221,14 @@
      });
    };
    ```
-1. Finally check `Astro.props.translations` to link the other pages.
 
-### Infile content
+1. Use `Astro.props.translations` to provide a same site language switcher.
+
+### In-file localized content
 
 Sometimes to have multilingual content in a single file is more convenient. For example data for menus or galleries. This allows sharing untranslated content across locales.
 
-Use the standard `glob()` loader to load infile i18n content.
+Use the `i18nContentLoader` loader to load in-file localized content.
 
 1. Create a collection:
    <details>
@@ -228,40 +249,56 @@ Use the standard `glob()` loader to load infile i18n content.
 
      ```yaml
      # src/content/navigation/main.yml
-     de-CH:
-       - path: /projekte
-         title: Projekte
-       - path: /ueber-mich
-         title: Über mich
-     zh-CN:
-       - path: /zh/projects
-         title: 项目
-       - path: /zh/about-me
-         title: 关于我
+     navigation:
+       de-CH:
+         - path: /projekte
+           title: Projekte
+         - path: /ueber-mich
+           title: Über mich
+       zh-CN:
+         - path: /zh/projects
+           title: 项目
+         - path: /zh/about-me
+           title: 关于我
      ```
 
    </details>
 
-1. Use `extendI18nInfileSchema` to define the schema:
+1. Use `extendI18nLoaderSchema` and `localized` to define the schema:
 
    ```typescript
    const infileCollection = defineCollection({
-     loader: glob({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
-     schema: extendI18nInfileSchema(
-       z.array(
-         z.object({
-           path: z.string(),
-           title: z.string(),
-         })
-       ),
-       C.LOCALES
+     loader: i18nContentLoader({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
+     schema: extendI18nLoaderSchema( // `extendI18nLoaderSchema` defines `translationId` and `locale` for you in the schema.
+       z.object({
+         navigation: localized( // `localized` defines an object with the locale as key and applies the schema you provide to the value.
+           z.array(
+             z.object({
+               path: z.string(),
+               title: z.string(),
+             })
+           ),
+           C.LOCALES
+         ),
+       })
      ),
    });
    ```
 
+1. When you get the collection, you will receive for each locale the localized content. For example if you have two locales `de-CH` and `zh-CN` with two files `main.yml` and `footer.yml`, you will get four entries in the collection:
+
+   ```typescript
+   import { getCollection } from "astro:content";
+
+   const navigation = await getCollection("infile");
+   console.log(navigation[0].data.locale); // e.g. de-CH
+   console.log(navigation[0].data.translationId); // e.g. src/content/infile/main.yml
+   console.log(navigation[0].data.navigation); // e.g. [{ path: "/projekte", title: "Projekte" }, ...]
+   ```
+
 ### Virtual i18n collections
 
-Sometimes you want to translate that is not based on i18n content. For example an index page or a 404 page.
+Sometimes you want to translate a page that is not based on i18n content. For example an index page or a 404 page.
 
 `createI18nCollection` allows you to create a virtual collection that is not based on any content:
 

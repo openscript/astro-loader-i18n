@@ -1,6 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { extendI18nInfileSchema, extendI18nLoaderSchema, i18nLoader } from "astro-loader-i18n";
-import { glob } from "astro/loaders";
+import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized } from "astro-loader-i18n";
 import { C } from "./site.config";
 
 const filesCollection = defineCollection({
@@ -20,15 +19,19 @@ const folderCollection = defineCollection({
   ),
 });
 const infileCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
-  schema: extendI18nInfileSchema(
-    z.array(
-      z.object({
-        path: z.string(),
-        title: z.string(),
-      })
-    ),
-    C.LOCALES
+  loader: i18nContentLoader({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
+  schema: extendI18nLoaderSchema(
+    z.object({
+      navigation: localized(
+        z.array(
+          z.object({
+            path: z.string(),
+            title: z.string(),
+          })
+        ),
+        C.LOCALES
+      ),
+    })
   ),
 });
 

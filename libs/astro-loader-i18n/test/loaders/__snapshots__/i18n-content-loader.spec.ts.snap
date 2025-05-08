@@ -1,0 +1,216 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`i18nContentLoader > should put common translation id and locale in data 1`] = `
+[
+  [
+    "space/de-CH",
+    {
+      "data": {
+        "cover": "./space1.jpg",
+        "images": [
+          {
+            "src": "./space1.jpg",
+          },
+          {
+            "src": "./space2.jpg",
+          },
+          {
+            "src": "./space3.jpg",
+          },
+          {
+            "src": "./space4.jpg",
+          },
+          {
+            "src": "./space5.jpg",
+          },
+        ],
+        "locale": "de-CH",
+        "title": "Weltraum",
+        "translationId": "src/content/gallery/space.yml",
+      },
+      "filePath": "src/content/gallery/space.yml",
+      "id": "space/de-CH",
+    },
+  ],
+  [
+    "space/zh-CN",
+    {
+      "data": {
+        "cover": "./space1.jpg",
+        "images": [
+          {
+            "src": "./space1.jpg",
+          },
+          {
+            "src": "./space2.jpg",
+          },
+          {
+            "src": "./space3.jpg",
+          },
+          {
+            "src": "./space4.jpg",
+          },
+          {
+            "src": "./space5.jpg",
+          },
+        ],
+        "locale": "zh-CN",
+        "title": "太空",
+        "translationId": "src/content/gallery/space.yml",
+      },
+      "filePath": "src/content/gallery/space.yml",
+      "id": "space/zh-CN",
+    },
+  ],
+  [
+    "nature/de-CH",
+    {
+      "data": {
+        "cover": "./nature1.jpg",
+        "images": [
+          {
+            "src": "./nature1.jpg",
+          },
+          {
+            "src": "./nature2.jpg",
+          },
+          {
+            "src": "./nature3.jpg",
+          },
+          {
+            "src": "./nature4.jpg",
+          },
+          {
+            "src": "./nature5.jpg",
+          },
+        ],
+        "locale": "de-CH",
+        "title": "Natur",
+        "translationId": "src/content/gallery/nature.yml",
+      },
+      "filePath": "src/content/gallery/nature.yml",
+      "id": "nature/de-CH",
+    },
+  ],
+  [
+    "nature/zh-CN",
+    {
+      "data": {
+        "cover": "./nature1.jpg",
+        "images": [
+          {
+            "src": "./nature1.jpg",
+          },
+          {
+            "src": "./nature2.jpg",
+          },
+          {
+            "src": "./nature3.jpg",
+          },
+          {
+            "src": "./nature4.jpg",
+          },
+          {
+            "src": "./nature5.jpg",
+          },
+        ],
+        "locale": "zh-CN",
+        "title": "自然",
+        "translationId": "src/content/gallery/nature.yml",
+      },
+      "filePath": "src/content/gallery/nature.yml",
+      "id": "nature/zh-CN",
+    },
+  ],
+  [
+    "animals/de-CH",
+    {
+      "data": {
+        "cover": "./animals1.jpg",
+        "images": [
+          {
+            "src": "./animals1.jpg",
+          },
+          {
+            "src": "./animals2.jpg",
+          },
+          {
+            "src": "./animals3.jpg",
+          },
+          {
+            "src": "./animals4.jpg",
+          },
+          {
+            "src": "./animals5.jpg",
+          },
+        ],
+        "locale": "de-CH",
+        "title": "Tiere",
+        "translationId": "src/content/gallery/animals.yml",
+      },
+      "filePath": "src/content/gallery/animals.yml",
+      "id": "animals/de-CH",
+    },
+  ],
+  [
+    "animals/zh-CN",
+    {
+      "data": {
+        "cover": "./animals1.jpg",
+        "images": [
+          {
+            "src": "./animals1.jpg",
+          },
+          {
+            "src": "./animals2.jpg",
+          },
+          {
+            "src": "./animals3.jpg",
+          },
+          {
+            "src": "./animals4.jpg",
+          },
+          {
+            "src": "./animals5.jpg",
+          },
+        ],
+        "locale": "zh-CN",
+        "title": "动物",
+        "translationId": "src/content/gallery/animals.yml",
+      },
+      "filePath": "src/content/gallery/animals.yml",
+      "id": "animals/zh-CN",
+    },
+  ],
+  [
+    "omni",
+    {
+      "data": {
+        "cover": "./animals1.jpg",
+        "images": [
+          {
+            "src": "./animals1.jpg",
+          },
+          {
+            "src": "./animals2.jpg",
+          },
+          {
+            "src": "./animals3.jpg",
+          },
+          {
+            "src": "./animals4.jpg",
+          },
+          {
+            "src": "./animals5.jpg",
+          },
+        ],
+        "locale": "zh-CN",
+        "title": "Omni",
+        "translationId": "src/content/gallery/omni.yml",
+      },
+      "filePath": "src/content/gallery/omni.yml",
+      "id": "omni",
+    },
+  ],
+]
+`;

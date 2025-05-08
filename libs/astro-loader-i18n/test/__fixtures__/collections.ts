@@ -109,3 +109,69 @@ title: 项目
 `,
   },
 ];
+
+export const contentCollectionFixture: DataEntry[] = [
+  {
+    id: "space",
+    filePath: "src/content/gallery/space.yml",
+    data: {
+      title: {
+        "de-CH": "Weltraum",
+        "zh-CN": "太空",
+      },
+      cover: "./space1.jpg",
+      images: [{ src: "./space1.jpg" }, { src: "./space2.jpg" }, { src: "./space3.jpg" }, { src: "./space4.jpg" }, { src: "./space5.jpg" }],
+    },
+  },
+  {
+    id: "nature",
+    filePath: "src/content/gallery/nature.yml",
+    data: {
+      title: {
+        "de-CH": "Natur",
+        "zh-CN": "自然",
+      },
+      cover: "./nature1.jpg",
+      images: [
+        { src: "./nature1.jpg" },
+        { src: "./nature2.jpg" },
+        { src: "./nature3.jpg" },
+        { src: "./nature4.jpg" },
+        { src: "./nature5.jpg" },
+      ],
+    },
+  },
+  {
+    id: "animals",
+    filePath: "src/content/gallery/animals.yml",
+    data: {
+      title: {
+        "de-CH": "Tiere",
+        "zh-CN": "动物",
+      },
+      cover: "./animals1.jpg",
+      images: [
+        { src: "./animals1.jpg" },
+        { src: "./animals2.jpg" },
+        { src: "./animals3.jpg" },
+        { src: "./animals4.jpg" },
+        { src: "./animals5.jpg" },
+      ],
+    },
+  },
+  {
+    id: "omni",
+    filePath: "src/content/gallery/omni.yml",
+    data: {
+      title: "Omni",
+      cover: "./animals1.jpg",
+      images: [
+        { src: "./animals1.jpg" },
+        { src: "./animals2.jpg" },
+        { src: "./animals3.jpg" },
+        { src: "./animals4.jpg" },
+        { src: "./animals5.jpg" },
+      ],
+    },
+  },
+];

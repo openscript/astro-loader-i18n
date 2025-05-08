@@ -50,19 +50,7 @@ const infileCollection = await getCollection("infile");
             <>
               <dt>{key}</dt>
               <dd>
-                {value.map((entry, index) => (
-                  <>
-                    <h4>{index}</h4>
-                    <dl>
-                      {Object.entries(entry).map(([key, value]) => (
-                        <>
-                          <dt>{key}</dt>
-                          <dd>{value}</dd>
-                        </>
-                      ))}
-                    </dl>
-                  </>
-                ))}
+                {JSON.stringify(value, null, 2)}
               </dd>
             </>
           ))}

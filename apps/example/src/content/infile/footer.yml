@@ -1,10 +1,11 @@
-de-CH:
-  - path: /impressum
-    title: Impressum
-  - path: /datenschutz
-    title: Datenschutz
-zh-CN:
-  - path: /zh/imprint
-    title: 印记
-  - path: /zh/data-protection
-    title: 数据保护
+navigation:
+  de-CH:
+    - path: /impressum
+      title: Impressum
+    - path: /datenschutz
+      title: Datenschutz
+  zh-CN:
+    - path: /zh/imprint
+      title: 印记
+    - path: /zh/data-protection
+      title: 数据保护

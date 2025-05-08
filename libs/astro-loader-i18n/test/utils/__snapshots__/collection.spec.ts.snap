@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`getAllUniqueKeys > should return all unique keys of an object 1`] = `
+Set {
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "g",
+  "i",
+  "k",
+}
+`;
+
+exports[`pruneLocales > should prune locales with nested data 1`] = `
+{
+  "array": [
+    1,
+    2,
+    3,
+  ],
+  "boolean": true,
+  "nested": {
+    "a": 7,
+    "b": 8,
+  },
+  "number": 123,
+  "object": {
+    "a": 1,
+    "b": 2,
+  },
+  "string": "normal string",
+  "title": "Title",
+}
+`;
+
+exports[`pruneLocales > should prune locales with no data 1`] = `{}`;
+
+exports[`pruneLocales > should prune locales with top level local data as strings 1`] = `[Error: Top-level locales are not allowed]`;
+
+exports[`pruneLocales > should prune locales with top level locale data as objects 1`] = `[Error: Top-level locales are not allowed]`;
