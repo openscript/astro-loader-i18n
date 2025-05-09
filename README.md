@@ -116,7 +116,7 @@
    });
    ```
 
-1. Define collections using `astro-loader-i18n` in `content.config.ts`. Don't forget to use `extendI18nLoaderSchema` or `extendI18nInfileSchema` to extend the schema with the i18n specific properties:
+1. Define collections using `astro-loader-i18n` in `content.config.ts`. Don't forget to use `extendI18nLoaderSchema` or `localized` to extend the schema with the i18n specific properties:
 
    ```typescript
    import { defineCollection, z } from "astro:content";
@@ -314,3 +314,10 @@ export const getStaticPaths = async () => {
   });
 };
 ```
+
+## Wish list
+
+To make internationalization easier, Astro could offer the following features:
+- [ ] Provide routing information to `getStaticPaths()` such as the route pattern. See https://github.com/withastro/astro/pull/13520
+- [ ] Allow to define custom properties from loaders apart from the `data` object in the data store, that are available while rendering.
+- [ ] Allow to define different schemas for input and output of a loader.
