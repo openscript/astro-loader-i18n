@@ -1,6 +1,8 @@
 const TRIM_SLASHES_PATTERN = /^\/|\/$/g;
+const TRIM_RELATIVE_PATTERN = /^\.{0,2}\/|\/$/g;
 const DOUBLE_POINTS_PATTERN = /\.{2}/g;
 const DOUBLE_SLASH_PATTERN = /\/{2}/g;
+const DIRNAME_PATTERN = /\/[^/]+$/g;
 const INDEX_COMMON_TRANSLATION_ID = "index";
 const createLocalePattern = (pathLocale: string) => new RegExp(`(?<=[./])${pathLocale}(?=[./])`, "i");
 
@@ -16,6 +18,10 @@ export const trimSlashes = (path: string) => {
   return path === "/" ? path : path.replace(TRIM_SLASHES_PATTERN, "");
 };
 
+export const trimRelativePath = (path: string) => {
+  return path === "/" ? path : path.replace(TRIM_RELATIVE_PATTERN, "");
+};
+
 export const parseLocale = (path: string, locales: string[], defaultLocale: string) => {
   const localePattern = createLocalePattern(`(${locales.join("|")})`);
   const locale = path.match(localePattern)?.[0];
@@ -23,13 +29,24 @@ export const parseLocale = (path: string, locales: string[], defaultLocale: stri
   return locale ? locale : defaultLocale;
 };
 
-export const createTranslationId = (path: string, pathLocale?: string) => {
-  if (pathLocale) path = path.replace(createLocalePattern(pathLocale), "");
+export const createTranslationId = (path: string, locale?: string) => {
+  if (locale) path = path.replace(createLocalePattern(locale), "");
   path = path.replace(DOUBLE_POINTS_PATTERN, ".");
   path = path.replace(DOUBLE_SLASH_PATTERN, "/");
   path = trimSlashes(path);
 
-  if (path === "" || path === "/") return INDEX_COMMON_TRANSLATION_ID;
+  return path === "" || path === "/" ? INDEX_COMMON_TRANSLATION_ID : path;
+};
+
+export const createContentPath = (path: string, base?: string | URL, locale?: string) => {
+  let basePath = base ? (base instanceof URL ? base.pathname : base) : undefined;
+  if (basePath) {
+    basePath = trimRelativePath(basePath);
+    const basePathIndex = path.indexOf(basePath);
+    path = basePathIndex !== -1 ? path.slice(basePathIndex + basePath.length) : path;
+  }
+  path = createTranslationId(path, locale);
+  path = path.includes("/") ? path.replace(DIRNAME_PATTERN, "") : "";
 
   return path;
 };

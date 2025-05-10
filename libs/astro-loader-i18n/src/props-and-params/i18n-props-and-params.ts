@@ -4,6 +4,7 @@ import { buildPath, parseRoutePattern, SegmentTranslations } from "../utils/rout
 import { z } from "astro/zod";
 import { CollectionEntry, CollectionKey } from "astro:content";
 import { I18nCollection } from "../collections/create-i18n-collection";
+import { joinPath } from "../utils/path";
 
 type Config = {
   defaultLocale: string;
@@ -31,7 +32,7 @@ function getSegmentTranslations(
 
   const slugValue = c.titleDataKey ? data[c.titleDataKey] : undefined;
   if (slugValue && typeof slugValue === "string") {
-    segmentValues[c.slugParamName] = limax(slugValue);
+    segmentValues[c.slugParamName] = joinPath(data.contentPath, limax(slugValue));
   }
   return segmentValues;
 }
@@ -49,6 +50,12 @@ export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(c
       !Object.values(c.segmentTranslations).every((translation) => translation[segment.value])
     ) {
       throw new Error(`No slugs found for route segment ${segment.value}`);
+    }
+    if (segment.value === c.slugParamName && !segment.spread && collection.some((entry) => entry.data.contentPath !== "")) {
+      const example = collection.find((entry) => entry.data.contentPath !== "");
+      throw new Error(
+        `The slug param "${segment.value}" requires to be spread, because some entries (e.g ${example?.data.translationId}:${example?.data.contentPath}) have a contentPath, that leads to a slug with a path. Add "..." to the slug param in your route pattern ${routePattern} via changing the corresponding file or folder name.`
+      );
     }
   });
 

@@ -26,7 +26,7 @@ describe("i18nContentLoader", () => {
   });
 
   it("should put common translation id and locale in data", async () => {
-    const loader = i18nContentLoader({ pattern: "**/*.yml" });
+    const loader = i18nContentLoader({ pattern: "**/*.yml", base: "./src/content/gallery" });
     await loader.load(context);
 
     const entries = context.store.entries();

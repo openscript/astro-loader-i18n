@@ -16,7 +16,7 @@ Test
   },
   {
     id: "projects.de-CH",
-    filePath: "src/content/pages/projects.de-CH.mdx",
+    filePath: "src/content/pages/subpath/projects.de-CH.mdx",
     data: {
       title: "Projekte",
     },
@@ -42,7 +42,7 @@ title: 关于我
   },
   {
     id: "projects.zh-CN",
-    filePath: "src/content/pages/projects.zh-CN.mdx",
+    filePath: "src/content/pages/subpath/projects.zh-CN.mdx",
     data: {
       title: "项目",
     },
@@ -71,7 +71,7 @@ Test
   },
   {
     id: "de-CH/projects",
-    filePath: "src/content/pages/de-CH/projects.mdx",
+    filePath: "src/content/pages/de-CH/subpath/projects.mdx",
     data: {
       title: "Projekte",
     },
@@ -97,7 +97,7 @@ title: 关于我
   },
   {
     id: "zh-CN/projects",
-    filePath: "src/content/pages/zh-CN/projects.mdx",
+    filePath: "src/content/pages/zh-CN/subpath/projects.mdx",
     data: {
       title: "项目",
     },

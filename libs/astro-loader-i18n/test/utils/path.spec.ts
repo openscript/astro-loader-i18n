@@ -1,5 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { createTranslationId, joinPath, parseLocale, resolvePath, trimSlashes } from "../../src/utils/path";
+import {
+  createContentPath,
+  createTranslationId,
+  joinPath,
+  parseLocale,
+  resolvePath,
+  trimRelativePath,
+  trimSlashes,
+} from "../../src/utils/path";
 
 describe("joinPath", () => {
   it("should join paths", () => {
@@ -34,6 +42,29 @@ describe("trimSlashes", () => {
   });
   it("should trim slashes on the right side", () => {
     const trimmed = trimSlashes("de/page/");
+    expect(trimmed).toBe("de/page");
+  });
+});
+
+describe("trimRelativePath", () => {
+  it("should trim relative on both sides", () => {
+    const trimmed = trimRelativePath("./de/page/");
+    expect(trimmed).toBe("de/page");
+  });
+  it("should trim more relative on both sides", () => {
+    const trimmed = trimRelativePath("../de/page/");
+    expect(trimmed).toBe("de/page");
+  });
+  it("should return '/' when only slash is present", () => {
+    const trimmed = trimRelativePath("/");
+    expect(trimmed).toBe("/");
+  });
+  it("should trim relative on the left side", () => {
+    const trimmed = trimRelativePath("/de/page");
+    expect(trimmed).toBe("de/page");
+  });
+  it("should trim relative on the right side", () => {
+    const trimmed = trimRelativePath("de/page/");
     expect(trimmed).toBe("de/page");
   });
 });
@@ -97,5 +128,16 @@ describe("createTranslationId", () => {
   it("should create ID without alter other segments of the path as suffix", () => {
     const id = createTranslationId("/deutsch/hackbraten.de.md", "de");
     expect(id).toBe("deutsch/hackbraten.md");
+  });
+});
+
+describe("createContentPath", () => {
+  it("should create ID with no locale", () => {
+    const id = createContentPath(
+      "/workspaces/astro-loader-i18n/apps/example/src/content/files/de-ch/subpath/to/the/content/about.mdx",
+      "./src/content/files",
+      "de-ch"
+    );
+    expect(id).toBe("subpath/to/the/content");
   });
 });

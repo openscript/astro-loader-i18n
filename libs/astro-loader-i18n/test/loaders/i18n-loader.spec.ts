@@ -26,7 +26,7 @@ describe("i18nLoader", () => {
   });
 
   it("should put common translation id and locale in data", async () => {
-    const loader = i18nLoader({ pattern: "**/*.mdx" });
+    const loader = i18nLoader({ pattern: "**/*.mdx", base: "./src/content/pages" });
     await loader.load(context);
 
     const entries = context.store.entries();

@@ -6,6 +6,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "space/de-CH",
     {
       "data": {
+        "contentPath": "",
         "cover": "./space1.jpg",
         "images": [
           {
@@ -36,6 +37,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "space/zh-CN",
     {
       "data": {
+        "contentPath": "",
         "cover": "./space1.jpg",
         "images": [
           {
@@ -66,6 +68,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "nature/de-CH",
     {
       "data": {
+        "contentPath": "",
         "cover": "./nature1.jpg",
         "images": [
           {
@@ -96,6 +99,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "nature/zh-CN",
     {
       "data": {
+        "contentPath": "",
         "cover": "./nature1.jpg",
         "images": [
           {
@@ -126,6 +130,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "animals/de-CH",
     {
       "data": {
+        "contentPath": "",
         "cover": "./animals1.jpg",
         "images": [
           {
@@ -156,6 +161,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "animals/zh-CN",
     {
       "data": {
+        "contentPath": "",
         "cover": "./animals1.jpg",
         "images": [
           {
@@ -186,6 +192,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "omni",
     {
       "data": {
+        "contentPath": "",
         "cover": "./animals1.jpg",
         "images": [
           {

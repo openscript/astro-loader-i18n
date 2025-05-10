@@ -10,7 +10,7 @@ describe("i18nLoaderSchema", () => {
   });
   it("should throw an error when checkI18nLoaderCollection fails", () => {
     const invalidData = [
-      { data: { translationId: "1", locale: "en" } },
+      { data: { translationId: "1", locale: "en", contentPath: "" } },
       { data: { translationId: "2", locale: "fr" } },
       { data: { translationId: "3" } },
     ];

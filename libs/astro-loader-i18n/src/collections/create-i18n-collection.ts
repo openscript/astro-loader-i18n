@@ -10,5 +10,6 @@ export type I18nCollection = { data: z.infer<typeof i18nLoaderSchema> }[];
 
 export function createI18nCollection(options: Options): I18nCollection {
   const { locales, routePattern } = options;
-  return locales.map((locale) => ({ data: { locale: locale, translationId: routePattern } }));
+
+  return locales.map((locale) => ({ data: { locale: locale, translationId: routePattern, contentPath: "" } }));
 }

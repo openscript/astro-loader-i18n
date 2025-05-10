@@ -1,6 +1,6 @@
 import { glob, Loader, LoaderContext } from "astro/loaders";
 import { pruneLocales, getAllUniqueKeys } from "../utils/collection";
-import { createTranslationId } from "../utils/path";
+import { createContentPath, createTranslationId } from "../utils/path";
 
 const UNDETERMINED_LOCALE = "und";
 
@@ -21,7 +21,8 @@ export function i18nContentLoader(options: GlobOptions): Loader {
         if (!props.filePath) return parseData(props);
         const locale = UNDETERMINED_LOCALE;
         const translationId = createTranslationId(props.filePath);
-        return parseData({ ...props, data: { ...props.data, locale, translationId } });
+        const contentPath = createContentPath(props.filePath, options.base);
+        return parseData({ ...props, data: { ...props.data, locale, translationId, contentPath } });
       };
       context.parseData = parseDataProxy;
 

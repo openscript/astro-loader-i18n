@@ -6,18 +6,19 @@ exports[`i18nPropsAndParams > should generate paths for a valid collection 1`] =
     "params": {
       "blog": "logbuch",
       "locale": undefined,
-      "slug": "veruckte-umlaute",
+      "slug": "test/veruckte-umlaute",
     },
     "props": {
       "data": {
+        "contentPath": "test",
         "locale": "de-CH",
         "title": "Verückte Umlaute!",
         "translationId": "magic.mdx",
       },
-      "translatedPath": "/logbuch/posts/veruckte-umlaute",
+      "translatedPath": "/logbuch/posts/test/veruckte-umlaute",
       "translations": {
-        "de-CH": "/logbuch/posts/veruckte-umlaute",
-        "zh-CN": "/zh-CN/blog/posts/shen2-qi2-de-biao1-ti2",
+        "de-CH": "/logbuch/posts/test/veruckte-umlaute",
+        "zh-CN": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
       },
     },
   },
@@ -25,22 +26,25 @@ exports[`i18nPropsAndParams > should generate paths for a valid collection 1`] =
     "params": {
       "blog": "blog",
       "locale": "zh-CN",
-      "slug": "shen2-qi2-de-biao1-ti2",
+      "slug": "test/shen2-qi2-de-biao1-ti2",
     },
     "props": {
       "data": {
+        "contentPath": "test",
         "locale": "zh-CN",
         "title": "神奇的标题",
         "translationId": "magic.mdx",
       },
-      "translatedPath": "/zh-CN/blog/posts/shen2-qi2-de-biao1-ti2",
+      "translatedPath": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
       "translations": {
-        "de-CH": "/logbuch/posts/veruckte-umlaute",
-        "zh-CN": "/zh-CN/blog/posts/shen2-qi2-de-biao1-ti2",
+        "de-CH": "/logbuch/posts/test/veruckte-umlaute",
+        "zh-CN": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
       },
     },
   },
 ]
 `;
+
+exports[`i18nPropsAndParams > should should throw an error if the slug needs to be a spread param, but isn't 1`] = `[Error: The slug param "slug" requires to be spread, because some entries (e.g magic.mdx:test) have a contentPath, that leads to a slug with a path. Add "..." to the slug param in your route pattern [...locale]/[blog]/posts/[slug] via changing the corresponding file or folder name.]`;
 
 exports[`i18nPropsAndParams > should throw an error if not all params can be filled 1`] = `[Error: No slugs found for route segment unknown]`;
