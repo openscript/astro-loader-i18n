@@ -132,12 +132,28 @@ describe("createTranslationId", () => {
 });
 
 describe("createContentPath", () => {
-  it("should create ID with no locale", () => {
+  it("should extract content path", () => {
     const id = createContentPath(
       "/workspaces/astro-loader-i18n/apps/example/src/content/files/de-ch/subpath/to/the/content/about.mdx",
       "./src/content/files",
       "de-ch"
     );
     expect(id).toBe("subpath/to/the/content");
+  });
+  it("should extract content path without locale", () => {
+    const id = createContentPath(
+      "/workspaces/astro-loader-i18n/apps/example/src/content/files/subpath/to/the/content/about.mdx",
+      "./src/content/files",
+      "de-ch"
+    );
+    expect(id).toBe("subpath/to/the/content");
+  });
+  it("should extract content path on index path", () => {
+    const id = createContentPath(
+      "/workspaces/astro-loader-i18n/apps/example/src/content/files/de-ch/subpath/to/the/content/index.mdx",
+      "./src/content/files",
+      "de-ch"
+    );
+    expect(id).toBe("subpath/to/the");
   });
 });

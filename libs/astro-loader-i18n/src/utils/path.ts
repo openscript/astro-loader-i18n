@@ -46,6 +46,9 @@ export const createContentPath = (path: string, base?: string | URL, locale?: st
     path = basePathIndex !== -1 ? path.slice(basePathIndex + basePath.length) : path;
   }
   path = createTranslationId(path, locale);
+  if (path.includes(INDEX_COMMON_TRANSLATION_ID)) {
+    path = path.replace(DIRNAME_PATTERN, "");
+  }
   path = path.includes("/") ? path.replace(DIRNAME_PATTERN, "") : "";
 
   return path;
