@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.5.1
+
+### Patch Changes
+
+- 3714427: Resolve contentPath for index files
+
 ## 0.5.0
 
 ### Minor Changes
