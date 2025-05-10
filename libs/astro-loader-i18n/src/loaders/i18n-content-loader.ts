@@ -2,6 +2,8 @@ import { glob, Loader, LoaderContext } from "astro/loaders";
 import { pruneLocales, getAllUniqueKeys } from "../utils/collection";
 import { createTranslationId } from "../utils/path";
 
+const UNDETERMINED_LOCALE = "und";
+
 type GlobOptions = Parameters<typeof glob>[0];
 
 export function i18nContentLoader(options: GlobOptions): Loader {
@@ -11,13 +13,13 @@ export function i18nContentLoader(options: GlobOptions): Loader {
     load: async (context: LoaderContext) => {
       if (!context.config.i18n) throw new Error("i18n configuration is missing in your astro config");
 
-      const { locales, defaultLocale } = context.config.i18n;
+      const { locales } = context.config.i18n;
       const localeCodes = locales.flatMap((locale) => (typeof locale === "string" ? locale : locale.codes));
 
       const parseData = context.parseData;
       const parseDataProxy: typeof parseData = (props) => {
         if (!props.filePath) return parseData(props);
-        const locale = defaultLocale;
+        const locale = UNDETERMINED_LOCALE;
         const translationId = createTranslationId(props.filePath);
         return parseData({ ...props, data: { ...props.data, locale, translationId } });
       };

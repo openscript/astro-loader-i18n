@@ -204,7 +204,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
             "src": "./animals5.jpg",
           },
         ],
-        "locale": "zh-CN",
+        "locale": "und",
         "title": "Omni",
         "translationId": "src/content/gallery/omni.yml",
       },
