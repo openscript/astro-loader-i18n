@@ -1,5 +1,15 @@
 # astro-loader-i18n
 
+## 0.5.0
+
+### Minor Changes
+
+- 2d99af3: Add contentPath to entries data
+
+### Patch Changes
+
+- 799480d: Add undefined locale for unrecognized content
+
 ## 0.4.0
 
 ### Minor Changes
