@@ -43,6 +43,28 @@
     ```
   </details>
 
+- Supports nested folders:
+  <details>
+    <summary>📂 Nested folder structure example</summary>
+
+    ```plaintext
+    . (project root)
+    └── src
+        └── content
+            └── pages
+                ├── de-CH
+                │   ├── about.mdx
+                │   └── projects
+                │       ├── project1.mdx
+                │       └── project2.mdx
+                └── zh-CN
+                    ├── about.mdx
+                    └── projects
+                        ├── project1.mdx
+                        └── project2.mdx
+    ```
+  </details>
+
 ### ✅ Translation mapping
 - Generates a translation identifier to easily match different language versions of content.
 
