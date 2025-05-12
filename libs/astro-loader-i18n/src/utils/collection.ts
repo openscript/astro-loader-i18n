@@ -23,7 +23,7 @@ function recursivePruneLocales(obj: Record<string, unknown>, locales: string[], 
         prunedValue = value;
       }
 
-      if (prunedValue && typeof prunedValue === "object") {
+      if (prunedValue && typeof prunedValue === "object" && !Array.isArray(prunedValue)) {
         prunedValue = recursivePruneLocales(prunedValue as Record<string, unknown>, locales, locale);
       }
 

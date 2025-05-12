@@ -21,7 +21,17 @@ exports[`pruneLocales > should prune locales with nested data 1`] = `
     3,
   ],
   "boolean": true,
-  "nested": {
+  "nestedArray": [
+    {
+      "a": 13,
+      "b": 14,
+    },
+    {
+      "a": 15,
+      "b": 16,
+    },
+  ],
+  "nestedObject": {
     "a": 7,
     "b": 8,
   },

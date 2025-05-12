@@ -61,10 +61,24 @@ describe("pruneLocales", () => {
     const result = pruneLocales(
       {
         title: { en: "Title", fr: "Titre", de: "Titel" },
-        nested: {
+        nestedObject: {
           en: { a: 7, b: 8 },
           fr: { a: 9, b: 10 },
           de: { a: 11, b: 12 },
+        },
+        nestedArray: {
+          en: [
+            { a: 13, b: 14 },
+            { a: 15, b: 16 },
+          ],
+          fr: [
+            { a: 17, b: 18 },
+            { a: 19, b: 20 },
+          ],
+          de: [
+            { a: 21, b: 22 },
+            { a: 23, b: 24 },
+          ],
         },
         string: "normal string",
         number: 123,

@@ -44,7 +44,7 @@ const infileCollection = await getCollection("infile");
   {
     infileCollection.map((entry) => (
       <>
-        <h3>{entry.filePath}</h3>
+        <h3>{entry.filePath} / {entry.id}</h3>
         <dl>
           {Object.entries(entry.data).map(([key, value]) => (
             <>
