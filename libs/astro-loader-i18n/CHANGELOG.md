@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.5.2
+
+### Patch Changes
+
+- 16caf12: Fix prune locales in nested arrays
+
 ## 0.5.1
 
 ### Patch Changes
