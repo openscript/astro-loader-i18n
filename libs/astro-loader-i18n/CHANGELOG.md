@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.6.0
+
+### Minor Changes
+
+- cd37b7e: Make all paths relative
+
 ## 0.5.2
 
 ### Patch Changes
