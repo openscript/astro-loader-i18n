@@ -1,4 +1,4 @@
-import { joinPath } from "./path";
+import { resolvePath } from "./path";
 
 type Segments = Record<string, string | undefined>;
 export type SegmentTranslations = Record<string, Segments>;
@@ -47,7 +47,7 @@ export function parseRoutePattern(routePattern: string): RoutePattern {
  * @param segmentValues is an object containing the values for each route segment
  */
 export function buildPath(routePattern: RoutePattern, segmentValues: Segments) {
-  return joinPath(
+  return resolvePath(
     ...routePattern.map((segment) => {
       if (segment.param) {
         if (!segmentValues[segment.value] && !segment.spread) {

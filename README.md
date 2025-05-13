@@ -336,16 +336,6 @@ export const getStaticPaths = async () => {
 };
 ```
 
-### Relative paths
-
-All paths produced by `astro-loader-i18n` are relative to the projects base path. It's recommended to use `<base>` in the `<head>` of your pages to set the base path. This is especially important for links in the content files.
-
-```html
-<head>
-  <base href="/" />
-</head>
-```
-
 ## Examples
 
 Made by the author of `astro-loader-i18n`:
