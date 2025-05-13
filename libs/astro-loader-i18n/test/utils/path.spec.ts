@@ -1,13 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  createContentPath,
-  createTranslationId,
-  joinPath,
-  parseLocale,
-  resolvePath,
-  trimRelativePath,
-  trimSlashes,
-} from "../../src/utils/path";
+import { createContentPath, createTranslationId, joinPath, parseLocale, trimRelativePath, trimSlashes } from "../../src/utils/path";
 
 describe("joinPath", () => {
   it("should join paths", () => {
@@ -15,15 +7,6 @@ describe("joinPath", () => {
   });
   it("should join paths with undefined", () => {
     expect(joinPath("en-US", undefined, "getting-started")).toBe("en-US/getting-started");
-  });
-});
-
-describe("resolvePath", () => {
-  it("should resolve path by joining and making it relative", () => {
-    expect(resolvePath("en-US", "docs", "getting-started")).toBe("/en-US/docs/getting-started");
-  });
-  it("should resolve path by joining and making it relative with undefined", () => {
-    expect(resolvePath("en-US", undefined, "getting-started")).toBe("/en-US/getting-started");
   });
 });
 

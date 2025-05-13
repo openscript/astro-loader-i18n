@@ -336,6 +336,16 @@ export const getStaticPaths = async () => {
 };
 ```
 
+### Relative paths
+
+All paths produced by `astro-loader-i18n` are relative to the projects base path. It's recommended to use `<base>` in the `<head>` of your pages to set the base path. This is especially important for links in the content files.
+
+```html
+<head>
+  <base href="/" />
+</head>
+```
+
 ## Examples
 
 Made by the author of `astro-loader-i18n`:
@@ -346,9 +356,14 @@ Made by the author of `astro-loader-i18n`:
 Made by the community:
 - eCamp3 ([Demo](https://www.ecamp3.ch) / [Source](https://github.com/ecamp/ecamp-site)): A website of an application for camp planning.
 
+## Roadmap
+
+- [ ] Improve types of params returned by `i18nPropsAndParams`
+
 ## Wish list
 
-To make internationalization easier, Astro could offer the following features:
-- [ ] Provide routing information to `getStaticPaths()` such as the route pattern. See https://github.com/withastro/astro/pull/13520
-- [ ] Allow to define custom properties from loaders apart from the `data` object in the data store, that are available while rendering.
-- [ ] Allow to define different schemas for input and output of a loader.
+To make internationalization easier, **Astro** could offer the following features:
+
+- [ ] Provide routing information to `getStaticPaths()` such as the route pattern to avoid manual repetition. Also see this pull request: https://github.com/withastro/astro/pull/13520
+- [ ] Allow to define additional custom properties from loaders apart from the `data` object, that are available while rendering. This is useful if a loader adds additional data.
+- [ ] Allow to define different schemas for input and output of a loader. This is useful if a loader transforms the data. Currently the schema wouldn't match the output of the loader anymore.
