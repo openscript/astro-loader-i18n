@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.6.4
+
+### Patch Changes
+
+- 1ca5343: Prune slashes in `resolvePath`
+
 ## 0.6.3
 
 ### Patch Changes
