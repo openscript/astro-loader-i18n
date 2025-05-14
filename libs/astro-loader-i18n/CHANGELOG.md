@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.6.2
+
+### Patch Changes
+
+- 3b168c5: Append base_url to paths
+
 ## 0.6.1
 
 ### Patch Changes
