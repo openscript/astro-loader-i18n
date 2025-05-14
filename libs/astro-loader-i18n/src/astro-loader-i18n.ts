@@ -4,3 +4,4 @@ export { localized } from "./schemas/i18n-content-schema";
 export { extendI18nLoaderSchema, i18nLoaderSchema } from "./schemas/i18n-loader-schema";
 export { i18nPropsAndParams } from "./props-and-params/i18n-props-and-params";
 export { createI18nCollection } from "./collections/create-i18n-collection";
+export { resolvePath } from "./utils/path";

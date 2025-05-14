@@ -10,6 +10,14 @@ export function joinPath(...paths: Array<string | number | undefined>) {
   return paths.filter(Boolean).join("/");
 }
 
+/**
+ * Resolves a URL path by joining the provided path segments with the base URL.
+ *
+ * @param paths - An array of path segments to be joined. Each segment can be a string, number, or undefined.
+ *                Undefined values are ignored during the path resolution.
+ * @returns The resolved path as a string, prefixed with a forward slash and based on the `BASE_URL`
+ *          environment variable, with trailing slashes removed.
+ */
 export function resolvePath(...paths: Array<string | number | undefined>) {
   const base = import.meta.env.BASE_URL.replace(TRIM_SLASHES_PATTERN, "");
   return `/${joinPath(base, ...paths)}`;
