@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.6.1
+
+### Patch Changes
+
+- d5e5e5e: Produce absolute paths as Astro also does
+
 ## 0.6.0
 
 ### Minor Changes
