@@ -11,7 +11,8 @@ export function joinPath(...paths: Array<string | number | undefined>) {
 }
 
 export function resolvePath(...paths: Array<string | number | undefined>) {
-  return `/${joinPath(...paths)}`;
+  const base = import.meta.env.BASE_URL.replace(TRIM_SLASHES_PATTERN, "");
+  return `/${joinPath(base, ...paths)}`;
 }
 
 export const trimSlashes = (path: string) => {
