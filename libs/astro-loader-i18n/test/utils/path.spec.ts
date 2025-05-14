@@ -43,6 +43,12 @@ describe("resolvePath", () => {
     expect(resolvePath("en-US", "docs", "getting-started")).toBe("/base/en-US/docs/getting-started");
     import.meta.env.BASE_URL = defaultBaseUrl;
   });
+  it("should trim slashes in segments", () => {
+    const defaultBaseUrl = import.meta.env.BASE_URL;
+    import.meta.env.BASE_URL = "/base/";
+    expect(resolvePath("en-US/", "/docs", "/getting-started/")).toBe("/base/en-US/docs/getting-started");
+    import.meta.env.BASE_URL = defaultBaseUrl;
+  });
 });
 
 describe("trimSlashes", () => {

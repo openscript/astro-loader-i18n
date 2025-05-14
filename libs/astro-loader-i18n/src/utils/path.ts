@@ -19,8 +19,9 @@ export function joinPath(...paths: Array<string | number | undefined>) {
  *          environment variable, with trailing slashes removed.
  */
 export function resolvePath(...paths: Array<string | number | undefined>) {
+  const trimmedPaths = paths.map((path) => (typeof path === "string" ? path.replace(TRIM_SLASHES_PATTERN, "") : path));
   const base = import.meta.env.BASE_URL.replace(TRIM_SLASHES_PATTERN, "");
-  return `/${joinPath(base, ...paths)}`;
+  return `/${joinPath(base, ...trimmedPaths)}`;
 }
 
 export const trimSlashes = (path: string) => {
