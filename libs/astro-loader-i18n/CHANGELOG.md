@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.6.3
+
+### Patch Changes
+
+- 3172f8c: Export resolvePath helper function
+
 ## 0.6.2
 
 ### Patch Changes
