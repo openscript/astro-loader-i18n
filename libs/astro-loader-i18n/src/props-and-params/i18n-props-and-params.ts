@@ -37,6 +37,15 @@ function getSegmentTranslations(
   return segmentValues;
 }
 
+/**
+ * Processes a collection of entries and generates i18n-related properties and parameters.
+ *
+ * @template C - The type of the collection entries.
+ * @param collection - The collection of entries or an i18n collection.
+ * @param config - The configuration object for i18n processing.
+ * @returns An array of objects containing `params` and `props` for each entry.
+ * @throws {Error} If route segment translations or slug parameters are invalid.
+ */
 export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(collection: C | I18nCollection, config: Config) {
   checkI18nLoaderCollection(collection);
   const { routePattern, ...c } = { ...defaultConfig, ...config };

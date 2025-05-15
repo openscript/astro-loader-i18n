@@ -4,6 +4,7 @@ exports[`createI18nCollection > should create a collection based on the provided
 [
   {
     "data": {
+      "basePath": "",
       "contentPath": "",
       "locale": "en",
       "translationId": "/[...locale]/blog/[slug]",
@@ -11,6 +12,7 @@ exports[`createI18nCollection > should create a collection based on the provided
   },
   {
     "data": {
+      "basePath": "",
       "contentPath": "",
       "locale": "de",
       "translationId": "/[...locale]/blog/[slug]",

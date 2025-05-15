@@ -3,6 +3,14 @@ import { createContentPath, createTranslationId, parseLocale } from "../utils/pa
 
 type GlobOptions = Parameters<typeof glob>[0];
 
+/**
+ * Creates a custom i18n loader for Astro projects.
+ *
+ * @param options - Configuration options for the glob loader.
+ * @returns A loader that integrates i18n functionality into the Astro build process.
+ *
+ * @throws If the `i18n` configuration is missing in the Astro config.
+ */
 export function i18nLoader(options: GlobOptions): Loader {
   const globLoader = glob(options);
   return {

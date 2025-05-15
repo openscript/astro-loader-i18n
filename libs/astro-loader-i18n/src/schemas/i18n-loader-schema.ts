@@ -1,5 +1,15 @@
 import { AnyZodObject, z } from "astro/zod";
 
+/**
+ * Schema definition for the i18n loader configuration.
+ * This schema validates the structure of the i18n loader object.
+ *
+ * Properties:
+ * - `translationId` (string): A unique identifier for the translation.
+ * - `locale` (string): The locale code (e.g., "en", "fr", "es") for the translation.
+ * - `contentPath` (string): The path from the contents root to the content file.
+ * - `basePath` (string): The base directory path of your website. This is used by i18nPropsAndParams to provide paths with a base path.
+ */
 export const i18nLoaderSchema = z.object({
   translationId: z.string(),
   locale: z.string(),
@@ -7,6 +17,13 @@ export const i18nLoaderSchema = z.object({
   basePath: z.string(),
 });
 
+/**
+ * Extends the base `i18nLoaderSchema` with additional schema definitions.
+ *
+ * @template Z - A Zod object schema that will be merged with the base schema.
+ * @param schema - The Zod schema to extend the base `i18nLoaderSchema`.
+ * @returns A new schema resulting from merging the base `i18nLoaderSchema` with the provided schema.
+ */
 export const extendI18nLoaderSchema = <Z extends AnyZodObject>(schema: Z) => i18nLoaderSchema.merge(schema);
 
 const i18nLoaderCollectionSchema = z.array(
