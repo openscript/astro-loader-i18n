@@ -26,28 +26,13 @@ describe("resolvePath", () => {
     expect(resolvePath("en-US", undefined, "getting-started")).toBe("/en-US/getting-started");
   });
   it("should prepend base URL", () => {
-    const defaultBaseUrl = import.meta.env.BASE_URL;
-    import.meta.env.BASE_URL = "/base";
-    expect(resolvePath("en-US", "docs", "getting-started")).toBe("/base/en-US/docs/getting-started");
-    import.meta.env.BASE_URL = defaultBaseUrl;
+    expect(resolvePath("/base", "en-US", "docs", "getting-started")).toBe("/base/en-US/docs/getting-started");
   });
   it("should not prepend base URL if it's /", () => {
-    const defaultBaseUrl = import.meta.env.BASE_URL;
-    import.meta.env.BASE_URL = "/";
-    expect(resolvePath("en-US", "docs", "getting-started")).toBe("/en-US/docs/getting-started");
-    import.meta.env.BASE_URL = defaultBaseUrl;
-  });
-  it("should deal with trailing slash in base url", () => {
-    const defaultBaseUrl = import.meta.env.BASE_URL;
-    import.meta.env.BASE_URL = "/base/";
-    expect(resolvePath("en-US", "docs", "getting-started")).toBe("/base/en-US/docs/getting-started");
-    import.meta.env.BASE_URL = defaultBaseUrl;
+    expect(resolvePath("/", "en-US", "docs", "getting-started")).toBe("/en-US/docs/getting-started");
   });
   it("should trim slashes in segments", () => {
-    const defaultBaseUrl = import.meta.env.BASE_URL;
-    import.meta.env.BASE_URL = "/base/";
-    expect(resolvePath("en-US/", "/docs", "/getting-started/")).toBe("/base/en-US/docs/getting-started");
-    import.meta.env.BASE_URL = defaultBaseUrl;
+    expect(resolvePath("/base/", "en-US/", "/docs", "/getting-started/")).toBe("/base/en-US/docs/getting-started");
   });
 });
 

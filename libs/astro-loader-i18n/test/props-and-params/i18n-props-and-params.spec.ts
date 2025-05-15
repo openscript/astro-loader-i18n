@@ -4,10 +4,10 @@ import { SegmentTranslations } from "../../src/utils/route";
 
 const COLLECTION_FIXTURE = [
   {
-    data: { locale: "de-CH", translationId: "magic.mdx", contentPath: "test", title: "Verückte Umlaute!" },
+    data: { locale: "de-CH", translationId: "magic.mdx", contentPath: "test", basePath: "/", title: "Verückte Umlaute!" },
   },
   {
-    data: { locale: "zh-CN", translationId: "magic.mdx", contentPath: "test", title: "神奇的标题" },
+    data: { locale: "zh-CN", translationId: "magic.mdx", contentPath: "test", basePath: "/", title: "神奇的标题" },
   },
 ];
 

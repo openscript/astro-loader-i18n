@@ -6,6 +6,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "space/de-CH",
     {
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "cover": "./space1.jpg",
         "images": [
@@ -37,6 +38,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "space/zh-CN",
     {
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "cover": "./space1.jpg",
         "images": [
@@ -68,6 +70,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "nature/de-CH",
     {
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "cover": "./nature1.jpg",
         "images": [
@@ -99,6 +102,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "nature/zh-CN",
     {
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "cover": "./nature1.jpg",
         "images": [
@@ -130,6 +134,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "animals/de-CH",
     {
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "cover": "./animals1.jpg",
         "images": [
@@ -161,6 +166,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "animals/zh-CN",
     {
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "cover": "./animals1.jpg",
         "images": [
@@ -192,6 +198,7 @@ exports[`i18nContentLoader > should put common translation id and locale in data
     "omni",
     {
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "cover": "./animals1.jpg",
         "images": [
@@ -221,3 +228,5 @@ exports[`i18nContentLoader > should put common translation id and locale in data
   ],
 ]
 `;
+
+exports[`i18nContentLoader > should throw error if i18n config is missing 1`] = `[Error: i18n configuration is missing in your astro config]`;

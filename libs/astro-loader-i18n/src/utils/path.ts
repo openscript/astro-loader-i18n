@@ -11,17 +11,18 @@ export function joinPath(...paths: Array<string | number | undefined>) {
 }
 
 /**
- * Resolves a URL path by joining the provided path segments with the base URL.
+ * Resolves and joins multiple path segments into a single normalized path.
  *
- * @param paths - An array of path segments to be joined. Each segment can be a string, number, or undefined.
- *                Undefined values are ignored during the path resolution.
- * @returns The resolved path as a string, prefixed with a forward slash and based on the `BASE_URL`
- *          environment variable, with trailing slashes removed.
+ * This function trims leading and trailing slashes from string path segments
+ * and ensures the resulting path starts with a single forward slash (`/`).
+ * Non-string segments (e.g., numbers or `undefined`) are included as-is.
+ *
+ * @param paths - An array of path segments which can be strings, numbers, or `undefined`.
+ * @returns A normalized path string starting with a forward slash.
  */
 export function resolvePath(...paths: Array<string | number | undefined>) {
   const trimmedPaths = paths.map((path) => (typeof path === "string" ? path.replace(TRIM_SLASHES_PATTERN, "") : path));
-  const base = import.meta.env.BASE_URL.replace(TRIM_SLASHES_PATTERN, "");
-  return `/${joinPath(base, ...trimmedPaths)}`;
+  return `/${joinPath(...trimmedPaths)}`;
 }
 
 export const trimSlashes = (path: string) => {

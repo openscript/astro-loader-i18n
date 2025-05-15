@@ -42,12 +42,22 @@ export function parseRoutePattern(routePattern: string): RoutePattern {
 }
 
 /**
+ * Constructs a full path by resolving a base path with a route pattern and corresponding segment values.
  *
- * @param routePattern is an array consisting of route segments
- * @param segmentValues is an object containing the values for each route segment
+ * @param routePattern - An array of route segments that define the structure of the route.
+ *                        Each segment can either be a static value or a parameter.
+ * @param segmentValues - An object mapping parameter names to their corresponding values.
+ *                        These values are used to replace parameterized segments in the route pattern.
+ * @param basePath - The base path to resolve the constructed route against.
+ *
+ * @returns The resolved path as a string.
+ *
+ * @throws {Error} If a required segment value for a parameterized route segment is missing
+ *                 and the segment is not marked as a spread segment.
  */
-export function buildPath(routePattern: RoutePattern, segmentValues: Segments) {
+export function buildPath(routePattern: RoutePattern, segmentValues: Segments, basePath: string) {
   return resolvePath(
+    basePath,
     ...routePattern.map((segment) => {
       if (segment.param) {
         if (!segmentValues[segment.value] && !segment.spread) {

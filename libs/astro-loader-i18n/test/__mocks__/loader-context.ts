@@ -12,6 +12,7 @@ export function createLoaderContext(context?: Partial<LoaderContext>): LoaderCon
     store: new Store(),
     meta: new Map<string, string>(),
     config: {
+      base: "/",
       root: new URL("file://"),
       srcDir: new URL("file://src/"),
       legacy: {

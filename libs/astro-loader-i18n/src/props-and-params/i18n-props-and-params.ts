@@ -66,14 +66,14 @@ export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(c
       (previous, current) => {
         return {
           ...previous,
-          [current.data.locale]: buildPath(route, getSegmentTranslations(current.data, c)),
+          [current.data.locale]: buildPath(route, getSegmentTranslations(current.data, c), current.data.basePath),
         };
       },
       {} as Record<string, string>
     );
 
     const params = getSegmentTranslations(entry.data, c);
-    const translatedPath = buildPath(route, params);
+    const translatedPath = buildPath(route, params, entry.data.basePath);
 
     return {
       params,

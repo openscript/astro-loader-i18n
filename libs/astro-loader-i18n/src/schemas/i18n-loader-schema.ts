@@ -4,6 +4,7 @@ export const i18nLoaderSchema = z.object({
   translationId: z.string(),
   locale: z.string(),
   contentPath: z.string(),
+  basePath: z.string(),
 });
 
 export const extendI18nLoaderSchema = <Z extends AnyZodObject>(schema: Z) => i18nLoaderSchema.merge(schema);

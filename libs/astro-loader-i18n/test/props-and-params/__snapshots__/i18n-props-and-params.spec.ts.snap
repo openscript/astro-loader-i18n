@@ -10,6 +10,7 @@ exports[`i18nPropsAndParams > should generate paths for a valid collection 1`] =
     },
     "props": {
       "data": {
+        "basePath": "/",
         "contentPath": "test",
         "locale": "de-CH",
         "title": "Verückte Umlaute!",
@@ -30,6 +31,7 @@ exports[`i18nPropsAndParams > should generate paths for a valid collection 1`] =
     },
     "props": {
       "data": {
+        "basePath": "/",
         "contentPath": "test",
         "locale": "zh-CN",
         "title": "神奇的标题",

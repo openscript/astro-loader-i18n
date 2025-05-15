@@ -19,7 +19,8 @@ export function i18nLoader(options: GlobOptions): Loader {
         const locale = parseLocale(props.filePath, localeCodes, defaultLocale);
         const translationId = createTranslationId(props.filePath, locale);
         const contentPath = createContentPath(props.filePath, options.base, locale);
-        return parseData({ ...props, data: { ...props.data, locale, translationId, contentPath } });
+        const basePath = context.config.base;
+        return parseData({ ...props, data: { ...props.data, locale, translationId, contentPath, basePath } });
       };
       context.parseData = parseDataProxy;
 

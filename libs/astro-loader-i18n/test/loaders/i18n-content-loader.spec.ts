@@ -32,4 +32,11 @@ describe("i18nContentLoader", () => {
     const entries = context.store.entries();
     expect(entries).toMatchSnapshot();
   });
+
+  it("should throw error if i18n config is missing", async () => {
+    const loader = i18nContentLoader({ pattern: "**/*.mdx", base: "./src/content/pages" });
+    context.config.i18n = undefined;
+
+    await expect(loader.load(context)).rejects.toThrowErrorMatchingSnapshot();
+  });
 });

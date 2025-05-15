@@ -32,4 +32,28 @@ describe("i18nLoader", () => {
     const entries = context.store.entries();
     expect(entries).toMatchSnapshot();
   });
+
+  it("should throw error if i18n config is missing", async () => {
+    const loader = i18nLoader({ pattern: "**/*.mdx", base: "./src/content/pages" });
+    context.config.i18n = undefined;
+
+    await expect(loader.load(context)).rejects.toThrowErrorMatchingSnapshot();
+  });
+
+  it("should use locale.codes if locale is an object", async () => {
+    const loader = i18nLoader({ pattern: "**/*.mdx", base: "./src/content/pages" });
+    context.config.i18n = {
+      defaultLocale: "zh-CN",
+      routing: "manual",
+      locales: [
+        { codes: ["de-CH"], path: "/de" },
+        { codes: ["en-US"], path: "/en" },
+        { codes: ["zh-CN"], path: "/zh" },
+      ],
+    };
+    await loader.load(context);
+
+    const entries = context.store.entries();
+    expect(entries).toMatchSnapshot();
+  });
 });

@@ -12,6 +12,7 @@ title: Über mich
 Test
 ",
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "locale": "de-CH",
         "title": "Über mich",
@@ -31,6 +32,7 @@ title: Projekte
 Test
 ",
       "data": {
+        "basePath": "/",
         "contentPath": "subpath",
         "locale": "de-CH",
         "title": "Projekte",
@@ -50,6 +52,7 @@ title: 关于我
 测试
 ",
       "data": {
+        "basePath": "/",
         "contentPath": "",
         "locale": "zh-CN",
         "title": "关于我",
@@ -69,6 +72,94 @@ title: 项目
 测试
 ",
       "data": {
+        "basePath": "/",
+        "contentPath": "subpath",
+        "locale": "zh-CN",
+        "title": "项目",
+        "translationId": "src/content/pages/subpath/projects.mdx",
+      },
+      "filePath": "src/content/pages/zh-CN/subpath/projects.mdx",
+      "id": "zh-CN/projects",
+    },
+  ],
+]
+`;
+
+exports[`i18nLoader > should throw error if i18n config is missing 1`] = `[Error: i18n configuration is missing in your astro config]`;
+
+exports[`i18nLoader > should use locale.codes if locale is an object 1`] = `
+[
+  [
+    "de-CH/about",
+    {
+      "body": "---
+title: Über mich
+---
+
+Test
+",
+      "data": {
+        "basePath": "/",
+        "contentPath": "",
+        "locale": "de-CH",
+        "title": "Über mich",
+        "translationId": "src/content/pages/about.mdx",
+      },
+      "filePath": "src/content/pages/de-CH/about.mdx",
+      "id": "de-CH/about",
+    },
+  ],
+  [
+    "de-CH/projects",
+    {
+      "body": "---
+title: Projekte
+---
+
+Test
+",
+      "data": {
+        "basePath": "/",
+        "contentPath": "subpath",
+        "locale": "de-CH",
+        "title": "Projekte",
+        "translationId": "src/content/pages/subpath/projects.mdx",
+      },
+      "filePath": "src/content/pages/de-CH/subpath/projects.mdx",
+      "id": "de-CH/projects",
+    },
+  ],
+  [
+    "zh-CN/about",
+    {
+      "body": "---
+title: 关于我
+---
+
+测试
+",
+      "data": {
+        "basePath": "/",
+        "contentPath": "",
+        "locale": "zh-CN",
+        "title": "关于我",
+        "translationId": "src/content/pages/about.mdx",
+      },
+      "filePath": "src/content/pages/zh-CN/about.mdx",
+      "id": "zh-CN/about",
+    },
+  ],
+  [
+    "zh-CN/projects",
+    {
+      "body": "---
+title: 项目
+---
+
+测试
+",
+      "data": {
+        "basePath": "/",
         "contentPath": "subpath",
         "locale": "zh-CN",
         "title": "项目",
