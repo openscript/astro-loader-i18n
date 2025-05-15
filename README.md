@@ -349,6 +349,7 @@ Made by the community:
 ## Roadmap
 
 - [ ] Improve types of params returned by `i18nPropsAndParams`
+- [ ] Include a language switcher Astro component
 
 ## Wish list
 
