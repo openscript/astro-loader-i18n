@@ -355,5 +355,6 @@ Made by the community:
 To make internationalization easier, **Astro** could offer the following features:
 
 - [ ] Provide routing information to `getStaticPaths()` such as the `routePattern` to avoid manual repetition. Also see this pull request: https://github.com/withastro/astro/pull/13520
+- [ ] Allow to define custom parameters for `getStaticPaths()` like `paginate` from integrations and loaders. This makes integrating additional helpers for building `getStaticPaths()` way easier.
 - [ ] Allow to define different schemas for input (this already exists, today) and output of a loader. This is useful if a loader transforms the data. Currently the schema wouldn't match the output of the loader anymore.
 - [ ] Allow to define additional custom properties from loaders apart from the `data` object, that are available inside `getStaticPaths()` and while rendering. This is useful if a loader calculates additional properties that later used in the template and are not necessarily part of the data object to avoid collisions with the user provided data.
