@@ -1,5 +1,12 @@
 # astro-loader-i18n
 
+## 0.6.5
+
+### Patch Changes
+
+- 502ccc1: Enhance base path handling
+- bcaf1d8: Document public exports
+
 ## 0.6.4
 
 ### Patch Changes
