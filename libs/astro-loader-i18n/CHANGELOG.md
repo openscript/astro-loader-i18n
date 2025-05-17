@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.6.6
+
+### Patch Changes
+
+- 7bed19e: Add `prefixDefaultLocale` option to `i18nPropsAndParams` (thank you @duy-the-developer)
+
 ## 0.6.5
 
 ### Patch Changes
