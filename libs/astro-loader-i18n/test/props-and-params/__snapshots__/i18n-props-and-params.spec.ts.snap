@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`i18nPropsAndParams > should generate full paths if prefixDefaultLocale is true 1`] = `
+exports[`i18nPropsAndParams > should generate paths for a valid collection 1`] = `
 [
   {
     "params": {
       "blog": "logbuch",
-      "locale": "de-CH",
+      "locale": undefined,
       "slug": "test/veruckte-umlaute",
     },
     "props": {
@@ -16,9 +16,9 @@ exports[`i18nPropsAndParams > should generate full paths if prefixDefaultLocale 
         "title": "Verückte Umlaute!",
         "translationId": "magic.mdx",
       },
-      "translatedPath": "/de-CH/logbuch/posts/test/veruckte-umlaute",
+      "translatedPath": "/logbuch/posts/test/veruckte-umlaute",
       "translations": {
-        "de-CH": "/de-CH/logbuch/posts/test/veruckte-umlaute",
+        "de-CH": "/logbuch/posts/test/veruckte-umlaute",
         "zh-CN": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
       },
     },
@@ -39,7 +39,7 @@ exports[`i18nPropsAndParams > should generate full paths if prefixDefaultLocale 
       },
       "translatedPath": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
       "translations": {
-        "de-CH": "/de-CH/logbuch/posts/test/veruckte-umlaute",
+        "de-CH": "/logbuch/posts/test/veruckte-umlaute",
         "zh-CN": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
       },
     },
@@ -87,53 +87,6 @@ exports[`i18nPropsAndParams > should generate full paths if prefixDefaultLocale 
       "translatedPath": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
       "translations": {
         "de-CH": "/de-CH/logbuch/posts/test/veruckte-umlaute",
-        "zh-CN": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
-      },
-    },
-  },
-]
-`;
-
-exports[`i18nPropsAndParams > should generate paths for a valid collection 1`] = `
-[
-  {
-    "params": {
-      "blog": "logbuch",
-      "locale": undefined,
-      "slug": "test/veruckte-umlaute",
-    },
-    "props": {
-      "data": {
-        "basePath": "/",
-        "contentPath": "test",
-        "locale": "de-CH",
-        "title": "Verückte Umlaute!",
-        "translationId": "magic.mdx",
-      },
-      "translatedPath": "/logbuch/posts/test/veruckte-umlaute",
-      "translations": {
-        "de-CH": "/logbuch/posts/test/veruckte-umlaute",
-        "zh-CN": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
-      },
-    },
-  },
-  {
-    "params": {
-      "blog": "blog",
-      "locale": "zh-CN",
-      "slug": "test/shen2-qi2-de-biao1-ti2",
-    },
-    "props": {
-      "data": {
-        "basePath": "/",
-        "contentPath": "test",
-        "locale": "zh-CN",
-        "title": "神奇的标题",
-        "translationId": "magic.mdx",
-      },
-      "translatedPath": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
-      "translations": {
-        "de-CH": "/logbuch/posts/test/veruckte-umlaute",
         "zh-CN": "/zh-CN/blog/posts/test/shen2-qi2-de-biao1-ti2",
       },
     },
