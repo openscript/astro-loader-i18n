@@ -18,6 +18,17 @@ describe("i18nPropsAndParams", () => {
     const result = i18nPropsAndParams(COLLECTION_FIXTURE, { routePattern, segmentTranslations, defaultLocale: "de-CH" });
     expect(result).toMatchSnapshot();
   });
+  it("should generate full paths if prefixDefaultLocale is true", () => {
+    const routePattern = "[...locale]/[blog]/posts/[...slug]";
+    const segmentTranslations: SegmentTranslations = { "de-CH": { blog: "logbuch" }, "zh-CN": { blog: "blog" } };
+    const result = i18nPropsAndParams(COLLECTION_FIXTURE, {
+      routePattern,
+      segmentTranslations,
+      defaultLocale: "de-CH",
+      prefixDefaultLocale: true,
+    });
+    expect(result).toMatchSnapshot();
+  });
   it("should should throw an error if the slug needs to be a spread param, but isn't", () => {
     const routePattern = "[...locale]/[blog]/posts/[slug]";
     const segmentTranslations: SegmentTranslations = { "de-CH": { blog: "logbuch" }, "zh-CN": { blog: "blog" } };

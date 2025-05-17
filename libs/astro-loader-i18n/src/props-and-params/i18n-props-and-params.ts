@@ -13,12 +13,14 @@ type Config = {
   localeParamName?: string;
   slugParamName?: string;
   titleDataKey?: string;
+  prefixDefaultLocale?: boolean;
 };
 
 const defaultConfig = {
   localeParamName: "locale",
   slugParamName: "slug",
   titleDataKey: "title",
+  prefixDefaultLocale: false,
 } as const;
 
 function getSegmentTranslations(
@@ -27,7 +29,7 @@ function getSegmentTranslations(
 ) {
   if (!c.segmentTranslations[data.locale]) throw new Error(`No slugs found for locale ${data.locale}`);
 
-  const currentLocale = data.locale === c.defaultLocale ? undefined : data.locale;
+  const currentLocale = !c.prefixDefaultLocale && data.locale === c.defaultLocale ? undefined : data.locale;
   const segmentValues = { [c.localeParamName]: currentLocale, ...c.segmentTranslations[data.locale] };
 
   const slugValue = c.titleDataKey ? data[c.titleDataKey] : undefined;
