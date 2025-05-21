@@ -83,30 +83,30 @@
 
 ## Usage
 
-1. Install the package `astro-loader-i18n` (and `limax` for slug generation):
+1. Install the package `astro-loader-i18n`:
    <details open>
     <summary>npm</summary>
 
     ```bash
-    npm install astro-loader-i18n limax
+    npm install astro-loader-i18n
     ```
    </details>
    <details>
      <summary>yarn</summary>
 
      ```bash
-     yarn add astro-loader-i18n limax
+     yarn add astro-loader-i18n
      ```
    </details>
    <details>
      <summary>pnpm</summary>
 
      ```bash
-     pnpm add astro-loader-i18n limax
+     pnpm add astro-loader-i18n
      ```
    </details>
 
-1. Configure locales, a default locale and segments for example in a file called `site.config.ts`:
+2. Configure locales, a default locale and segments for example in a file called `site.config.ts`:
 
    ```typescript
    export const C = {
@@ -123,7 +123,7 @@
    };
    ```
 
-1. Configure i18n in `astro.config.ts`:
+3. Configure i18n in `astro.config.ts`:
 
    ```typescript
    import { defineConfig } from "astro/config";
@@ -137,7 +137,7 @@
    });
    ```
 
-1. Define collections using `astro-loader-i18n` in `content.config.ts`. Don't forget to use `extendI18nLoaderSchema` or `localized` to extend the schema with the i18n specific properties:
+4. Define collections using `astro-loader-i18n` in `content.config.ts`. Don't forget to use `extendI18nLoaderSchema` or `localized` to extend the schema with the i18n specific properties:
 
    ```typescript
    import { defineCollection, z } from "astro:content";
@@ -199,7 +199,7 @@
    };
    ```
 
-1. Create content files in the defined structure:
+5. Create content files in the defined structure:
    > ⚠️ WARNING
    > The content files need to be structured according to the locales defined in `astro.config.ts`.
 
@@ -214,7 +214,7 @@
                └── projects.zh-CN.mdx
    ```
 
-1. Retrieve the `locale` and `translationId` identifier during rendering:
+6. Retrieve the `locale` and `translationId` identifier during rendering:
 
    ```typescript
    import { getCollection } from "astro:content";
@@ -224,10 +224,11 @@
    console.log(pages["data"].translationId); // e.g. src/content/files/about.mdx
    ```
 
-1. Use `i18nPropsAndParams` to provide params and get available translations paths via the page props:
+7. Use `i18nPropsAndParams` to provide params and get available translations paths via the page props:
 
    ```typescript
    import { i18nPropsAndParams } from "astro-loader-i18n";
+   import sluggify from "limax"; // sluggify is used to create a slug from the title
 
    export const getStaticPaths = async () => {
      // ⚠️ Unfortunately there is no way to access the routePattern, that's why we need to define it here again.
@@ -239,11 +240,13 @@
        defaultLocale: C.DEFAULT_LOCALE,
        routePattern,
        segmentTranslations: C.SEGMENT_TRANSLATIONS,
+       // `generateSegments` is a function that generates per entry individual segments.
+       generateSegments: (entry) => ({ slug: sluggify(entry.data.title) }),
      });
    };
    ```
 
-1. Use `Astro.props.translations` to provide a same site language switcher.
+8. Use `Astro.props.translations` to provide a same site language switcher.
 
 ### In-file localized content
 
@@ -335,6 +338,70 @@ export const getStaticPaths = async () => {
   });
 };
 ```
+
+## API
+
+Below you can find a description of all exported functions and types.
+
+### `i18nLoader`
+
+`i18nLoader` parses i18n information from file names or folder structures.
+
+As this is a wrapper around the `glob()` loader, you can use all options from the `glob()` loader. See the [Astro documentation](https://docs.astro.build/en/reference/content-loader-reference/#glob-loader) for more information.
+
+It adds the following properties to an entrys `data` object:
+
+- `locale`: The locale of the entry. This is either the folder name or the file name suffix.
+- `translationId`: The translation identifier. This helps to identify the same content in different languages.
+- `contentPath`: The path to the file relative to the content base path. This is useful if you want to add the folder names into the path. For example `src/content/pages/de-CH/deeply/nested/about.mdx` it would be `deeply/nested`.
+- `basePath`: The base path from the Astro config. This is a workaround, because from `getStaticPaths()` you don't have access to the base path and you need it for generating paths.
+
+### `i18nContentLoader`
+
+`i18nContentLoader` creates multiple entries from a single yaml or json file.
+
+See [i18nLoader](#i18nloader) for more information.
+
+### `localized`
+
+`localized` is a helper function to define a schema for in-file localized content. It takes a schema and an array of locales and returns a schema that is an object with the locale as key and the schema as value.
+
+Parameters:
+- `schema`: The schema to apply to the value of the object.
+- `locales`: An array of locales to use as keys for the object.
+- `partial`: Optional. If `true`, not all locales need to be defined in the schema.
+
+### `extendI18nLoaderSchema`
+
+`extendI18nLoaderSchema` is a helper function to extend the schema of the `i18nLoader` and `i18nContentLoader`. It adds the `translationId`, `locale`, `contentPath` and `basePath` properties to the schema.
+
+### `i18nLoaderSchema`
+
+`i18nLoaderSchema` is a schema that is used by the `i18nLoader` and `i18nContentLoader`. It defines the properties that are added to the entrys `data` object.
+
+### `i18nPropsAndParams`
+
+`i18nPropsAndParams` is a helper function to generate the `params` and `props` object for `getStaticPaths()` and to provide the translations object to the page props.
+
+Parameters:
+- `collection`: The collection to use. This can be a collection from `getCollection()` or a virtual collection created with `createI18nCollection()`.
+- `options`: An object with the following properties:
+  - `defaultLocale`: The default locale to use.
+  - `routePattern`: The route pattern to use. This is the pattern that is used in the `getStaticPaths()` function. Unfortunately there is no way to access the routePattern, that's why we need to define it here again.
+  - `segmentTranslations`: An object with the segment translations. This is used to translate the segments in the URL.
+  - `generateSegments`: (Optional) A function that generates the segments for each entry. This is useful if you want to generate slugs or other segments.
+  - `localeParamName`: (Optional) The name of the locale parameter in the URL. This is used to generate the URL for the translations object.
+  - `prefixDefaultLocale`: (Optional) If `true`, the default locale will be prefixed to the URL. This is useful if you want to have a clean URL for the default locale.
+
+It returns an object with `params` and `props`. `props` contains additionally a `translations` object with the paths to the corresponding content of all existing translations. The `translatedPath` is the current entry path.
+
+### `createI18nCollection`
+
+`createI18nCollection` creates a virtual collection that is not based on any content. This is useful if you want to create a collection for a page that is not based on i18n content.
+
+### `resolvePath`
+
+`resolvePath` is a helper function that connects path segments and deals with slashes.
 
 ## Examples
 
