@@ -1,41 +1,44 @@
-import limax from "limax";
-import { checkI18nLoaderCollection, i18nLoaderSchema } from "../schemas/i18n-loader-schema";
+import { checkI18nLoaderCollection, I18nCollection, I18nLoaderEntry } from "../schemas/i18n-loader-schema";
 import { buildPath, parseRoutePattern, SegmentTranslations } from "../utils/route";
-import { z } from "astro/zod";
 import { CollectionEntry, CollectionKey } from "astro:content";
-import { I18nCollection } from "../collections/create-i18n-collection";
-import { joinPath } from "../utils/path";
 
-type Config = {
+/**
+ * Configuration options for internationalization (i18n) routing.
+ *
+ * @template C - The type of the entry used for segment generation.
+ * @property defaultLocale - The default locale to use when none is specified.
+ * @property routePattern - The route pattern string used for matching and generating localized routes.
+ * @property segmentTranslations - An object containing translations for route segments.
+ * @property generateSegments - (Optional) A function that generates a mapping of segment names to their translations for a given entry.
+ * @property localeParamName - (Optional) The name of the parameter used to specify the locale in routes.
+ * @property prefixDefaultLocale - (Optional) Whether to prefix the default locale in generated routes.
+ */
+type Config<C> = {
   defaultLocale: string;
   routePattern: string;
   segmentTranslations: SegmentTranslations;
+  generateSegments?: (entry: C) => Record<string, string>;
   localeParamName?: string;
-  slugParamName?: string;
-  titleDataKey?: string;
   prefixDefaultLocale?: boolean;
 };
 
 const defaultConfig = {
   localeParamName: "locale",
-  slugParamName: "slug",
-  titleDataKey: "title",
   prefixDefaultLocale: false,
+  generateSegments: () => ({}),
 } as const;
 
-function getSegmentTranslations(
-  data: z.infer<typeof i18nLoaderSchema> & Record<string, string | unknown>,
-  c: Omit<Required<Config>, "routePattern">
-) {
+function getSegmentTranslations<C>(entry: I18nLoaderEntry, c: Omit<Required<Config<C>>, "routePattern">) {
+  const { data } = entry;
   if (!c.segmentTranslations[data.locale]) throw new Error(`No slugs found for locale ${data.locale}`);
 
   const currentLocale = !c.prefixDefaultLocale && data.locale === c.defaultLocale ? undefined : data.locale;
-  const segmentValues = { [c.localeParamName]: currentLocale, ...c.segmentTranslations[data.locale] };
+  const segmentValues = {
+    [c.localeParamName]: currentLocale,
+    ...c.segmentTranslations[data.locale],
+    ...c.generateSegments(entry as C),
+  };
 
-  const slugValue = c.titleDataKey ? data[c.titleDataKey] : undefined;
-  if (slugValue && typeof slugValue === "string") {
-    segmentValues[c.slugParamName] = joinPath(data.contentPath, limax(slugValue));
-  }
   return segmentValues;
 }
 
@@ -48,27 +51,10 @@ function getSegmentTranslations(
  * @returns An array of objects containing `params` and `props` for each entry.
  * @throws {Error} If route segment translations or slug parameters are invalid.
  */
-export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(collection: C | I18nCollection, config: Config) {
+export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>>(collection: C[] | I18nCollection, config: Config<C>) {
   checkI18nLoaderCollection(collection);
   const { routePattern, ...c } = { ...defaultConfig, ...config };
   const route = parseRoutePattern(routePattern);
-
-  route.forEach((segment, index) => {
-    if (
-      segment.param &&
-      segment.value !== c.localeParamName &&
-      index !== route.length - 1 &&
-      !Object.values(c.segmentTranslations).every((translation) => translation[segment.value])
-    ) {
-      throw new Error(`No slugs found for route segment ${segment.value}`);
-    }
-    if (segment.value === c.slugParamName && !segment.spread && collection.some((entry) => entry.data.contentPath !== "")) {
-      const example = collection.find((entry) => entry.data.contentPath !== "");
-      throw new Error(
-        `The slug param "${segment.value}" requires to be spread, because some entries (e.g ${example?.data.translationId}:${example?.data.contentPath}) have a contentPath, that leads to a slug with a path. Add "..." to the slug param in your route pattern ${routePattern} via changing the corresponding file or folder name.`
-      );
-    }
-  });
 
   return collection.map((entry) => {
     const { translationId } = entry.data;
@@ -77,13 +63,13 @@ export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(c
       (previous, current) => {
         return {
           ...previous,
-          [current.data.locale]: buildPath(route, getSegmentTranslations(current.data, c), current.data.basePath),
+          [current.data.locale]: buildPath(route, getSegmentTranslations(current, c), current.data.basePath),
         };
       },
       {} as Record<string, string>
     );
 
-    const params = getSegmentTranslations(entry.data, c);
+    const params = getSegmentTranslations(entry, c);
     const translatedPath = buildPath(route, params, entry.data.basePath);
 
     return {
@@ -92,7 +78,7 @@ export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>[]>(c
         ...entry,
         translations,
         translatedPath,
-      } as C[number] & I18nCollection[number] & { translations: Record<string, string>; translatedPath: string },
+      } as C[][number] & I18nCollection[number] & { translations: Record<string, string>; translatedPath: string },
     };
   });
 }

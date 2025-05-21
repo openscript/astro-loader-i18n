@@ -63,6 +63,11 @@ export function buildPath(routePattern: RoutePattern, segmentValues: Segments, b
         if (!segmentValues[segment.value] && !segment.spread) {
           throw new Error(`No segment value found for route segment "${segment.value}". Did you forget to provide it?`);
         }
+        if (segmentValues[segment.value]?.includes("/") && !segment.spread) {
+          throw new Error(
+            `The segment value "${segmentValues[segment.value]}" for route segment "${segment.value}" contains a slash. Did you forget to add "..." to the route pattern?`
+          );
+        }
 
         return segmentValues[segment.value];
       }

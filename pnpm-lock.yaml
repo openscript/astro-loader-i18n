@@ -71,6 +71,9 @@ importers:
       astro-loader-i18n:
         specifier: workspace:*
         version: link:../../libs/astro-loader-i18n
+      limax:
+        specifier: ^4.1.0
+        version: 4.1.0
 
   libs/astro-loader-i18n:
     devDependencies:
@@ -95,9 +98,6 @@ importers:
       globals:
         specifier: ^16.1.0
         version: 16.1.0
-      limax:
-        specifier: ^4.1.0
-        version: 4.1.0
       tslib:
         specifier: ^2.8.1
         version: 2.8.1

@@ -44,6 +44,10 @@ describe("parseRoutePattern", () => {
 describe("buildPath", () => {
   it("should throw if no segment matches a param", () => {
     const routePattern = parseRoutePattern("/blog/[slug]");
-    expect(() => buildPath(routePattern, { slug: undefined })).toThrowErrorMatchingSnapshot();
+    expect(() => buildPath(routePattern, { slug: undefined }, "/")).toThrowErrorMatchingSnapshot();
+  });
+  it("should throw if is filled with a path and param is not spread", () => {
+    const routePattern = parseRoutePattern("/blog/[slug]");
+    expect(() => buildPath(routePattern, { slug: "bli/bla/blub" }, "/")).toThrowErrorMatchingSnapshot();
   });
 });

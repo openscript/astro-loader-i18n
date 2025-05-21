@@ -5,6 +5,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.2.6",
     "astro": "^5.7.13",
-    "astro-loader-i18n": "workspace:*"
+    "astro-loader-i18n": "workspace:*",
+    "limax": "^4.1.0"
   }
 }

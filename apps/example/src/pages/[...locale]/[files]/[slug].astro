@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { i18nPropsAndParams } from "astro-loader-i18n";
 import { C } from "../../../site.config";
 import Page from "../../../layouts/Page.astro";
+import sluggify from "limax";
 
 export const getStaticPaths = async () => {
   const routePattern = "[...locale]/[files]/[slug]";
@@ -12,6 +13,7 @@ export const getStaticPaths = async () => {
     defaultLocale: C.DEFAULT_LOCALE,
     routePattern,
     segmentTranslations: C.SEGMENT_TRANSLATIONS,
+    generateSegments: (entry) => ({ slug: sluggify(entry.data.title) }),
   });
 };
 

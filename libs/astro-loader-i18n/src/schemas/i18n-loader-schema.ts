@@ -26,6 +26,8 @@ export const i18nLoaderSchema = z.object({
  */
 export const extendI18nLoaderSchema = <Z extends AnyZodObject>(schema: Z) => i18nLoaderSchema.merge(schema);
 
+export type I18nCollection = { data: z.infer<typeof i18nLoaderSchema> }[];
+
 const i18nLoaderEntrySchema = z.object({
   data: i18nLoaderSchema,
   filePath: z.string().optional(),
