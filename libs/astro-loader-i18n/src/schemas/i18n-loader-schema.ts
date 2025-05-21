@@ -26,13 +26,18 @@ export const i18nLoaderSchema = z.object({
  */
 export const extendI18nLoaderSchema = <Z extends AnyZodObject>(schema: Z) => i18nLoaderSchema.merge(schema);
 
-const i18nLoaderCollectionSchema = z.array(
-  z.object({
-    data: i18nLoaderSchema,
-  })
-);
+export type I18nCollection = { data: z.infer<typeof i18nLoaderSchema> }[];
 
-export function checkI18nLoaderCollection(obj: unknown): asserts obj is z.infer<typeof i18nLoaderCollectionSchema> {
+const i18nLoaderEntrySchema = z.object({
+  data: i18nLoaderSchema,
+  filePath: z.string().optional(),
+});
+export type I18nLoaderEntry = z.infer<typeof i18nLoaderEntrySchema>;
+
+const i18nLoaderCollectionSchema = z.array(i18nLoaderEntrySchema);
+export type I18nLoaderCollection = z.infer<typeof i18nLoaderCollectionSchema>;
+
+export function checkI18nLoaderCollection(obj: unknown): asserts obj is I18nLoaderCollection {
   const result = i18nLoaderCollectionSchema.safeParse(obj);
 
   if (!result.success) {

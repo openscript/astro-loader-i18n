@@ -1,13 +1,10 @@
-import { i18nLoaderSchema } from "../schemas/i18n-loader-schema";
-import { z } from "astro/zod";
+import { I18nCollection } from "../schemas/i18n-loader-schema";
 
 type Options = {
   locales: string[];
   routePattern: string;
   basePath?: string;
 };
-
-export type I18nCollection = { data: z.infer<typeof i18nLoaderSchema> }[];
 
 /**
  * Creates an internationalization (i18n) collection based on the provided options.
