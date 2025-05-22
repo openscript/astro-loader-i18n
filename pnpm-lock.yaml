@@ -64,10 +64,10 @@ importers:
     dependencies:
       '@astrojs/mdx':
         specifier: ^4.2.6
-        version: 4.2.6(astro@5.7.13(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0))
+        version: 4.2.6(astro@5.7.14(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0))
       astro:
         specifier: ^5.7.13
-        version: 5.7.13(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0)
+        version: 5.7.14(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0)
       astro-loader-i18n:
         specifier: workspace:*
         version: link:../../libs/astro-loader-i18n
@@ -91,7 +91,7 @@ importers:
         version: 3.1.4(vitest@3.1.4)
       astro:
         specifier: ^5.7.13
-        version: 5.7.13(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0)
+        version: 5.7.14(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0)
       eslint:
         specifier: ^9.27.0
         version: 9.27.0(jiti@2.4.2)
@@ -1765,8 +1765,8 @@ packages:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
 
-  astro@5.7.13:
-    resolution: {integrity: sha512-cRGq2llKOhV3XMcYwQpfBIUcssN6HEK5CRbcMxAfd9OcFhvWE7KUy50zLioAZVVl3AqgUTJoNTlmZfD2eG0G1w==}
+  astro@5.7.14:
+    resolution: {integrity: sha512-DfuDD49f7mbHB7ygLm8KXEC6QQtpLoNrmoylcMLKdl1ahXNdiw+mgW8ApEMyHTUyVrqEUnr4gZCKSlZ9POCHjQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4391,12 +4391,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.2.6(astro@5.7.13(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0))':
+  '@astrojs/mdx@4.2.6(astro@5.7.14(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.1
       '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
       acorn: 8.14.1
-      astro: 5.7.13(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0)
+      astro: 5.7.14(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -6379,7 +6379,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro@5.7.13(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0):
+  astro@5.7.14(@types/node@22.15.21)(jiti@2.4.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.8.0):
     dependencies:
       '@astrojs/compiler': 2.12.0
       '@astrojs/internal-helpers': 0.6.1
@@ -6411,6 +6411,7 @@ snapshots:
       github-slugger: 2.0.0
       html-escaper: 3.0.3
       http-cache-semantics: 4.2.0
+      import-meta-resolve: 4.1.0
       js-yaml: 4.1.0
       kleur: 4.1.5
       magic-string: 0.30.17
