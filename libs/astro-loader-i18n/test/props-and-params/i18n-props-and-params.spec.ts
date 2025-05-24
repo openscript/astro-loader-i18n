@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { i18nPropsAndParams } from "../../src/props-and-params/i18n-props-and-params";
+import { i18nProps, i18nPropsAndParams } from "../../src/props-and-params/i18n-props-and-params";
 import { SegmentTranslations } from "../../src/utils/route";
 
 const COLLECTION_FIXTURE = [
@@ -58,5 +58,19 @@ describe("i18nPropsAndParams", () => {
         generateSegments: (entry) => ({ slug: entry.data.slug }),
       })
     ).toThrowErrorMatchingSnapshot();
+  });
+});
+
+describe("i18nProps", () => {
+  it("should generate paths for a valid collection", () => {
+    const routePattern = "[...locale]/[blog]/posts/[...slug]";
+    const segmentTranslations: SegmentTranslations = { "de-CH": { blog: "logbuch" }, "zh-CN": { blog: "blog" } };
+    const result = i18nProps(COLLECTION_FIXTURE, {
+      routePattern,
+      segmentTranslations,
+      defaultLocale: "de-CH",
+      generateSegments: (entry) => ({ slug: entry.data.slug }),
+    });
+    expect(result).toMatchSnapshot();
   });
 });

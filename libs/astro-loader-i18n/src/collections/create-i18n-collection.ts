@@ -1,4 +1,4 @@
-import { I18nCollection } from "../schemas/i18n-loader-schema";
+import { I18nLoaderEntry } from "../schemas/i18n-loader-schema";
 
 type Options = {
   locales: string[];
@@ -12,7 +12,7 @@ type Options = {
  * @param options - Configuration options for the i18n collection.
  * @returns An array of objects representing the i18n collection for each locale.
  */
-export function createI18nCollection(options: Options): I18nCollection {
+export function createI18nCollection(options: Options): I18nLoaderEntry[] {
   const { locales, routePattern, basePath } = options;
 
   return locales.map((locale) => ({ data: { locale: locale, translationId: routePattern, contentPath: "", basePath: basePath || "" } }));

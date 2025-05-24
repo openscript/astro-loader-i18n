@@ -1,4 +1,4 @@
-import { checkI18nLoaderCollection, I18nCollection, I18nLoaderEntry } from "../schemas/i18n-loader-schema";
+import { checkI18nLoaderCollection, I18nLoaderEntry } from "../schemas/i18n-loader-schema";
 import { buildPath, parseRoutePattern, SegmentTranslations } from "../utils/route";
 import { CollectionEntry, CollectionKey } from "astro:content";
 
@@ -42,16 +42,7 @@ function getSegmentTranslations<C>(entry: I18nLoaderEntry, c: Omit<Required<Conf
   return segmentValues;
 }
 
-/**
- * Processes a collection of entries and generates i18n-related properties and parameters.
- *
- * @template C - The type of the collection entries.
- * @param collection - The collection of entries or an i18n collection.
- * @param config - The configuration object for i18n processing.
- * @returns An array of objects containing `params` and `props` for each entry.
- * @throws {Error} If route segment translations or slug parameters are invalid.
- */
-export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>>(collection: C[] | I18nCollection, config: Config<C>) {
+function calculatePropsAndParams<C extends CollectionEntry<CollectionKey>>(collection: C[] | I18nLoaderEntry[], config: Config<C>) {
   checkI18nLoaderCollection(collection);
   const { routePattern, ...c } = { ...defaultConfig, ...config };
   const route = parseRoutePattern(routePattern);
@@ -78,7 +69,35 @@ export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>>(col
         ...entry,
         translations,
         translatedPath,
-      } as C[][number] & I18nCollection[number] & { translations: Record<string, string>; translatedPath: string },
+      } as C[][number] & I18nLoaderEntry[][number] & { translations: Record<string, string>; translatedPath: string },
     };
+  });
+}
+
+/**
+ * Processes a collection of entries and generates i18n-related properties and parameters.
+ *
+ * @template C - The type of the collection entries.
+ * @param collection - The collection of entries or an i18n collection.
+ * @param config - The configuration object for i18n processing.
+ * @returns An array of objects containing `params` and `props` for each entry.
+ * @throws {Error} If route segment translations or slug parameters are invalid.
+ */
+export function i18nPropsAndParams<C extends CollectionEntry<CollectionKey>>(collection: C[] | I18nLoaderEntry[], config: Config<C>) {
+  return calculatePropsAndParams(collection, config);
+}
+
+/**
+ * Processes a collection of entries and generates i18n-related properties.
+ *
+ * @template C - The type of the collection entries.
+ * @param collection - The collection of entries or an i18n collection.
+ * @param config - The configuration object for i18n processing.
+ * @returns An array of objects containing the `props` for each entry.
+ * @throws {Error} If route segment translations or slug parameters are invalid.
+ */
+export function i18nProps<C extends CollectionEntry<CollectionKey>>(collection: C[] | I18nLoaderEntry[], config: Config<C>) {
+  return calculatePropsAndParams(collection, config).map(({ props }) => {
+    return props;
   });
 }

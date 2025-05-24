@@ -1,5 +1,38 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`i18nProps > should generate paths for a valid collection 1`] = `
+[
+  {
+    "data": {
+      "basePath": "/",
+      "contentPath": "test",
+      "locale": "de-CH",
+      "slug": "slug-de-ch",
+      "translationId": "magic.mdx",
+    },
+    "translatedPath": "/logbuch/posts/slug-de-ch",
+    "translations": {
+      "de-CH": "/logbuch/posts/slug-de-ch",
+      "zh-CN": "/zh-CN/blog/posts/slug-zh-cn",
+    },
+  },
+  {
+    "data": {
+      "basePath": "/",
+      "contentPath": "test",
+      "locale": "zh-CN",
+      "slug": "slug-zh-cn",
+      "translationId": "magic.mdx",
+    },
+    "translatedPath": "/zh-CN/blog/posts/slug-zh-cn",
+    "translations": {
+      "de-CH": "/logbuch/posts/slug-de-ch",
+      "zh-CN": "/zh-CN/blog/posts/slug-zh-cn",
+    },
+  },
+]
+`;
+
 exports[`i18nPropsAndParams > should generate full paths if prefixDefaultLocale is true 1`] = `
 [
   {
