@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.7.1
+
+### Patch Changes
+
+- 2f47d28: Add i18nProps helper
+
 ## 0.7.0
 
 ### Minor Changes
