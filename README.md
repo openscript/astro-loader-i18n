@@ -409,6 +409,7 @@ Made by the author of `astro-loader-i18n`:
 
 - Test project ([Source](https://github.com/openscript/astro-loader-i18n/tree/main/apps/example)): Minimal example of how to use `astro-loader-i18n` with Astro.
 - Astro Theme International ([Demo](https://openscript.github.io/astro-theme-international/) / [Source](https://github.com/openscript/astro-theme-international)): A demo theme with the goal to be as international as possible.
+- r.obin.ch ([Demo](https://r.obin.ch) / [Source](https://github.com/openscript/r.obin.ch)): A personal website with a blog and projects, built with Astro and `astro-loader-i18n`.
 
 Made by the community:
 - eCamp3 ([Demo](https://www.ecamp3.ch) / [Source](https://github.com/ecamp/ecamp-site)): A website of an application for camp planning.
