@@ -1,5 +1,12 @@
 # astro-loader-i18n
 
+## 0.7.2
+
+### Patch Changes
+
+- b714569: Upgrade dependencies
+- 275f508: Process object in arrays with i18n content loader
+
 ## 0.7.1
 
 ### Patch Changes
