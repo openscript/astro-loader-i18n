@@ -12,7 +12,14 @@ function recursivePruneLocales(obj: Record<string, unknown>, locales: string[], 
   const result: Record<string, unknown> = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    if (value && typeof value === "object" && !Array.isArray(value)) {
+    if (Array.isArray(value)) {
+      result[key] = value.map((item) => {
+        if (item && typeof item === "object" && !Array.isArray(item)) {
+          return recursivePruneLocales(item as Record<string, unknown>, locales, locale);
+        }
+        return item;
+      });
+    } else if (value && typeof value === "object") {
       const valueAsRecord = value as Record<string, unknown>;
       const hasLocales = Object.keys(valueAsRecord).some((k) => locales.includes(k));
       let prunedValue: unknown | undefined = undefined;
@@ -20,11 +27,7 @@ function recursivePruneLocales(obj: Record<string, unknown>, locales: string[], 
       if (hasLocales) {
         prunedValue = valueAsRecord[locale] ?? undefined;
       } else {
-        prunedValue = value;
-      }
-
-      if (prunedValue && typeof prunedValue === "object" && !Array.isArray(prunedValue)) {
-        prunedValue = recursivePruneLocales(prunedValue as Record<string, unknown>, locales, locale);
+        prunedValue = recursivePruneLocales(valueAsRecord, locales, locale);
       }
 
       result[key] = prunedValue;
