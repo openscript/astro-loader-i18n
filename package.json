@@ -23,17 +23,17 @@
     "@nx/eslint": "21.1.3",
     "@nx/vite": "21.1.3",
     "@nx/web": "21.1.3",
-    "@types/node": "^22.15.30",
-    "@vitest/ui": "^3.2.2",
+    "@types/node": "^24.0.0",
+    "@vitest/ui": "^3.2.3",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-prettier": "^5.4.1",
     "globals": "^16.2.0",
     "jiti": "2.4.2",
     "nx": "21.1.3",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.33.1",
+    "typescript-eslint": "^8.34.0",
     "vite": "^6.3.5"
   }
 }
