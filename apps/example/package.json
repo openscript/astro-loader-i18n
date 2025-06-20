@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
-    "astro": "^5.9.2",
+    "astro": "^5.10.0",
     "astro-loader-i18n": "workspace:*",
     "limax": "^4.1.0"
   }
