@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.7.4
+
+### Patch Changes
+
+- 63cb021: Upgrade dependencies
+
 ## 0.7.3
 
 ### Patch Changes
