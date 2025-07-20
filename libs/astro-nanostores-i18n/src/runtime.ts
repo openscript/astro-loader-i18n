@@ -9,17 +9,15 @@ export const initializeI18n = (defaultLocale: string, translations: Record<strin
   if (!i18nInstance) {
     i18nInstance = createI18n(currentLocale, {
       baseLocale: defaultLocale,
-      get: async () => {
-        return {};
-      },
+      get: async () => ({}),
       cache: translations,
     });
   }
 };
 
-export const useI18n = async <Body extends Translations>(componentName: string, baseTranslations: Body) => {
+export const useI18n = <Body extends Translations>(componentName: string, baseTranslations: Body) => {
   if (!i18nInstance) {
     throw new Error("i18n not initialized. Call initializeI18n first.");
   }
-  return i18nInstance(componentName, baseTranslations);
+  return i18nInstance(componentName, baseTranslations).get();
 };

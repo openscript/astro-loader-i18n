@@ -68,12 +68,18 @@ importers:
       '@astrojs/mdx':
         specifier: ^4.3.1
         version: 4.3.1(astro@5.12.0(@types/node@24.0.15)(jiti@2.4.2)(rollup@4.45.1)(typescript@5.8.3)(yaml@2.8.0))
+      '@nanostores/i18n':
+        specifier: ^1.1.2
+        version: 1.1.2(nanostores@1.0.1)
       astro:
         specifier: ^5.12.0
         version: 5.12.0(@types/node@24.0.15)(jiti@2.4.2)(rollup@4.45.1)(typescript@5.8.3)(yaml@2.8.0)
       astro-loader-i18n:
         specifier: workspace:*
         version: link:../../libs/astro-loader-i18n
+      astro-nanostores-i18n:
+        specifier: workspace:*
+        version: link:../../libs/astro-nanostores-i18n
       limax:
         specifier: ^4.1.0
         version: 4.1.0

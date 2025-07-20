@@ -50,7 +50,7 @@ export { useI18n, currentLocale };
   import type { ComponentsJSON, Translations } from '@nanostores/i18n';
   export declare const currentLocale: import('nanostores').PreinitializedWritableAtom<string> & object;
   export declare const initializeI18n: (defaultLocale: string, translations: Record<string, ComponentsJSON>) => void;
-  export declare const useI18n: <Body extends Translations>(componentName: string, baseTranslations: Body) => Promise<import('@nanostores/i18n').Messages<Body>>;
+  export declare const useI18n: <Body extends Translations>(componentName: string, baseTranslations: Body) => Body;
 }
 `,
         });

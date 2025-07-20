@@ -1,0 +1,6 @@
+{
+  "example": {
+    "message": "某个消息。",
+    "param": "带参数的消息：{irgendwas}"
+  }
+}
