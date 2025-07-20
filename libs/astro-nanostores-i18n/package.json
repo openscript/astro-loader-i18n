@@ -1,0 +1,63 @@
+{
+  "name": "astro-nanostores-i18n",
+  "version": "0.0.1",
+  "description": "An integration of @nanostores/i18n into Astro.",
+  "keywords": [
+    "astro",
+    "astro-component",
+    "i18n",
+    "tooling",
+    "utils",
+    "utility",
+    "withastro"
+  ],
+  "homepage": "https://github.com/openscript/astro-nanostores-i18n/libs/astro-nanostores-i18n",
+  "license": "MIT",
+  "author": "Robin Bühler",
+  "repository": "github:openscript/astro-nanostores-i18n",
+  "type": "module",
+  "main": "./dist/integration.js",
+  "types": "./dist/integration.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/integration.js",
+      "types": "./dist/integration.d.ts"
+    }
+  },
+  "bin": {
+    "i18n:extract": "./dist/bin/extract.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@nanostores/i18n": "^1.0.1",
+    "astro": "^5.5.0"
+  },
+  "devDependencies": {
+    "@astrojs/compiler": "^2.12.2",
+    "@codecov/vite-plugin": "^1.9.1",
+    "@eslint/js": "^9.31.0",
+    "@types/node": "^24.0.13",
+    "@vitest/coverage-v8": "^3.2.4",
+    "astro": "^5.11.0",
+    "eslint": "^9.31.0",
+    "fast-glob": "^3.3.3",
+    "globals": "^16.3.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.36.0",
+    "vite": "^7.0.4",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "astro-integration-kit": "^0.18.0",
+    "nanostores": "^1.0.1"
+  }
+}
