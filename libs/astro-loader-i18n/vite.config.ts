@@ -25,12 +25,11 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["astro/loaders", "astro/zod", "limax"],
+      external: ["astro/loaders", "astro/zod"],
       output: {
         globals: {
           "astro/loaders": "astroLoaders",
           "astro/zod": "astroZod",
-          limax: "limax",
         },
       },
     },
