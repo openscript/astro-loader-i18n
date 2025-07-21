@@ -6,7 +6,7 @@ import { createContext, runInContext } from "node:vm";
 import { parse } from "@astrojs/compiler";
 import { is, walk } from "@astrojs/compiler/utils";
 import type { Messages } from "@nanostores/i18n";
-import { glob } from "fast-glob";
+import glob from "fast-glob";
 import * as ts from "typescript";
 
 const { values } = parseArgs({
@@ -44,11 +44,12 @@ const allMessages: Record<string, Messages> = {};
 const context = createContext({
   exports: {},
   Object,
-  i18n: (namespace: string, messages: Messages) => {
+  useI18n: (namespace: string, messages: Messages) => {
     allMessages[namespace] = { ...allMessages[namespace], ...messages };
     return messages;
   },
   params: (template: string) => template,
+  count: (counts: Record<string, string>) => counts,
 });
 
 function extractMessagesFromAST(code: string) {
@@ -57,7 +58,7 @@ function extractMessagesFromAST(code: string) {
   let messagesExport: string | undefined;
 
   function visit(node: ts.Node) {
-    if (ts.isVariableStatement(node) && node.modifiers?.some((mod) => mod.kind === ts.SyntaxKind.ExportKeyword)) {
+    if (ts.isVariableStatement(node)) {
       const declaration = node.declarationList.declarations[0];
       if (ts.isIdentifier(declaration.name) && declaration.name.text === "messages" && declaration.initializer) {
         messagesExport = node.getText();

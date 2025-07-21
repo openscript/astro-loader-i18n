@@ -32,6 +32,7 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
+        "astro:middleware",
         "astro-integration-kit",
         "node:fs/promises",
         "node:vm",

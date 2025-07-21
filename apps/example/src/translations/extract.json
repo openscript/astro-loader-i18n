@@ -1,0 +1,10 @@
+{
+  "example": {
+    "message": "Irgend eine Nachricht.",
+    "param": "Eine Nachricht mit einem Parameter: {irgendwas}",
+    "count": {
+      "one": "Ein Eintrag",
+      "many": "{count} Einträge"
+    }
+  }
+}

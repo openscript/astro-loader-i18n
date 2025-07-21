@@ -128,19 +128,25 @@ importers:
 
   libs/astro-nanostores-i18n:
     dependencies:
+      '@astrojs/compiler':
+        specifier: ^2.12.2
+        version: 2.12.2
       '@nanostores/i18n':
         specifier: ^1.0.1
         version: 1.1.2(nanostores@1.0.1)
       astro-integration-kit:
         specifier: ^0.18.0
         version: 0.18.0(astro@5.12.0(@types/node@24.0.15)(jiti@2.4.2)(rollup@4.45.1)(typescript@5.8.3)(yaml@2.8.0))
+      fast-glob:
+        specifier: ^3.3.3
+        version: 3.3.3
       nanostores:
         specifier: ^1.0.1
         version: 1.0.1
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
     devDependencies:
-      '@astrojs/compiler':
-        specifier: ^2.12.2
-        version: 2.12.2
       '@codecov/vite-plugin':
         specifier: ^1.9.1
         version: 1.9.1(vite@6.3.5(@types/node@24.0.15)(jiti@2.4.2)(yaml@2.8.0))
@@ -159,18 +165,12 @@ importers:
       eslint:
         specifier: ^9.31.0
         version: 9.31.0(jiti@2.4.2)
-      fast-glob:
-        specifier: ^3.3.3
-        version: 3.3.3
       globals:
         specifier: ^16.3.0
         version: 16.3.0
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
-      typescript:
-        specifier: ^5.8.3
-        version: 5.8.3
       typescript-eslint:
         specifier: ^8.36.0
         version: 8.37.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3)

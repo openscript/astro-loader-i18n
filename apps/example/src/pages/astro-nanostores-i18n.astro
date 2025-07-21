@@ -1,13 +1,17 @@
 ---
 import Page from "../layouts/Page.astro";
 import { useI18n, currentLocale } from "astro-nanostores-i18n:runtime";
-import { params } from "@nanostores/i18n";
+import { count, params } from "@nanostores/i18n";
 
 currentLocale.set("zh-CN");
 
-export const messages = useI18n("example", {
+const messages = useI18n("example", {
   message: "Irgend eine Nachricht.",
   param: params("Eine Nachricht mit einem Parameter: {irgendwas}"),
+  count: count({
+    one: "Ein Eintrag",
+    many: "{count} Einträge",
+  }),
 });
 ---
 

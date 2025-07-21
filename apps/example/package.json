@@ -9,5 +9,8 @@
     "astro-loader-i18n": "workspace:*",
     "astro-nanostores-i18n": "workspace:*",
     "limax": "^4.1.0"
+  },
+  "scripts": {
+    "i18n:extract": "extract-messages"
   }
 }
