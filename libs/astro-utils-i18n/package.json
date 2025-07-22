@@ -1,7 +1,8 @@
 {
-  "name": "astro-nanostores-i18n",
+  "name": "astro-utils-i18n",
   "version": "0.0.1",
-  "description": "An integration of @nanostores/i18n into Astro.",
+  "private": true,
+  "description": "A collection of utilities for managing i18n in Astro.",
   "keywords": [
     "astro",
     "astro-component",
@@ -11,21 +12,18 @@
     "utility",
     "withastro"
   ],
-  "homepage": "https://github.com/openscript/astro-i18n/libs/astro-nanostores-i18n",
+  "homepage": "https://github.com/openscript/astro-i18n/libs/astro-utils-i18n",
   "license": "MIT",
   "author": "Robin Bühler",
   "repository": "github:openscript/astro-i18n",
   "type": "module",
-  "main": "./dist/integration.js",
-  "types": "./dist/integration.d.ts",
+  "main": "./dist/astro-utils-i18n.js",
+  "types": "./dist/astro-utils-i18n.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/integration.js",
-      "types": "./dist/integration.d.ts"
+      "import": "./dist/astro-utils-i18n.js",
+      "types": "./dist/astro-utils-i18n.d.ts"
     }
-  },
-  "bin": {
-    "extract-messages": "./dist/bin/extract.js"
   },
   "files": [
     "dist",
@@ -33,7 +31,6 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@nanostores/i18n": "^1.0.1",
     "astro": "^5.5.0"
   },
   "devDependencies": {
@@ -49,15 +46,5 @@
     "vite": "^7.0.4",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.2.4"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@astrojs/compiler": "^2.12.2",
-    "astro-integration-kit": "^0.18.0",
-    "fast-glob": "^3.3.3",
-    "nanostores": "^1.0.1",
-    "typescript": "^5.8.3"
   }
 }

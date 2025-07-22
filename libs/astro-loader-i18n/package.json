@@ -9,10 +9,10 @@
     "i18n",
     "withastro"
   ],
-  "homepage": "https://github.com/openscript/astro-loader-i18n/libs/astro-loader-i18n",
+  "homepage": "https://github.com/openscript/astro-i18n/libs/astro-loader-i18n",
   "license": "MIT",
   "author": "Robin Bühler",
-  "repository": "github:openscript/astro-loader-i18n",
+  "repository": "github:openscript/astro-i18n",
   "type": "module",
   "main": "./dist/astro-loader-i18n.js",
   "types": "./dist/astro-loader-i18n.d.ts",
@@ -43,7 +43,8 @@
     "typescript-eslint": "^8.37.0",
     "vite": "^7.0.5",
     "vite-plugin-dts": "^4.5.4",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "astro-utils-i18n": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

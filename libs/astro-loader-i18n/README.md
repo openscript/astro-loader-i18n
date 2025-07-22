@@ -1,6 +1,5 @@
 # astro-loader-i18n
 
-[![codecov](https://codecov.io/github/openscript/astro-loader-i18n/graph/badge.svg?token=O2UYXUDEOT)](https://codecov.io/github/openscript/astro-loader-i18n)
 [![NPM Downloads](https://img.shields.io/npm/dw/astro-loader-i18n)](https://npmjs.org/astro-loader-i18n)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/astro-loader-i18n)](https://npmjs.org/astro-loader-i18n)
 

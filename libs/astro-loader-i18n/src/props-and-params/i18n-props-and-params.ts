@@ -1,5 +1,5 @@
 import { checkI18nLoaderCollection, I18nLoaderEntry } from "../schemas/i18n-loader-schema";
-import { buildPath, parseRoutePattern, SegmentTranslations } from "../utils/route";
+import { buildPath, parseRoutePattern, SegmentTranslations } from "astro-utils-i18n";
 import { CollectionEntry, CollectionKey } from "astro:content";
 
 /**

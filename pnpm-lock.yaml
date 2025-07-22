@@ -101,6 +101,9 @@ importers:
       astro:
         specifier: ^5.12.0
         version: 5.12.0(@types/node@24.0.15)(jiti@2.4.2)(rollup@4.45.1)(typescript@5.8.3)(yaml@2.8.0)
+      astro-utils-i18n:
+        specifier: workspace:*
+        version: link:../astro-utils-i18n
       eslint:
         specifier: ^9.31.0
         version: 9.31.0(jiti@2.4.2)
@@ -146,6 +149,45 @@ importers:
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
+    devDependencies:
+      '@codecov/vite-plugin':
+        specifier: ^1.9.1
+        version: 1.9.1(vite@6.3.5(@types/node@24.0.15)(jiti@2.4.2)(yaml@2.8.0))
+      '@eslint/js':
+        specifier: ^9.31.0
+        version: 9.31.0
+      '@types/node':
+        specifier: ^24.0.13
+        version: 24.0.15
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.4(vitest@3.2.4)
+      astro:
+        specifier: ^5.11.0
+        version: 5.12.0(@types/node@24.0.15)(jiti@2.4.2)(rollup@4.45.1)(typescript@5.8.3)(yaml@2.8.0)
+      eslint:
+        specifier: ^9.31.0
+        version: 9.31.0(jiti@2.4.2)
+      globals:
+        specifier: ^16.3.0
+        version: 16.3.0
+      tslib:
+        specifier: ^2.8.1
+        version: 2.8.1
+      typescript-eslint:
+        specifier: ^8.36.0
+        version: 8.37.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3)
+      vite:
+        specifier: ^6.3.5
+        version: 6.3.5(@types/node@24.0.15)(jiti@2.4.2)(yaml@2.8.0)
+      vite-plugin-dts:
+        specifier: ^4.5.4
+        version: 4.5.4(@types/node@24.0.15)(rollup@4.45.1)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.15)(jiti@2.4.2)(yaml@2.8.0))
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.4(@types/debug@4.1.12)(@types/node@24.0.15)(@vitest/ui@3.2.4)(jiti@2.4.2)(yaml@2.8.0)
+
+  libs/astro-utils-i18n:
     devDependencies:
       '@codecov/vite-plugin':
         specifier: ^1.9.1
