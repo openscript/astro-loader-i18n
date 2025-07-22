@@ -50,4 +50,8 @@ describe("buildPath", () => {
     const routePattern = parseRoutePattern("/blog/[slug]");
     expect(() => buildPath(routePattern, { slug: "bli/bla/blub" }, "/")).toThrowErrorMatchingSnapshot();
   });
+  it("should build valid paths", () => {
+    const routePattern = parseRoutePattern("/blog/[...slug]/comments/[commentId]");
+    expect(buildPath(routePattern, { slug: "bli/bla/blub", commentId: "2" }, "/")).toMatchSnapshot();
+  });
 });

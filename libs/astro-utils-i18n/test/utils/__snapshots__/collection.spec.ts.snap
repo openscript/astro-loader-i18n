@@ -31,6 +31,36 @@ exports[`pruneLocales > should prune locales with nested data 1`] = `
       "b": 16,
     },
   ],
+  "nestedArrayWithObjects": [
+    {
+      "de": {
+        "a": 29,
+        "b": 30,
+      },
+      "en": {
+        "a": 25,
+        "b": 26,
+      },
+      "fr": {
+        "a": 27,
+        "b": 28,
+      },
+    },
+    {
+      "de": {
+        "a": 35,
+        "b": 36,
+      },
+      "en": {
+        "a": 31,
+        "b": 32,
+      },
+      "fr": {
+        "a": 33,
+        "b": 34,
+      },
+    },
+  ],
   "nestedObject": {
     "a": 7,
     "b": 8,
