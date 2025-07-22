@@ -13,7 +13,7 @@ vi.mock("astro-integration-kit", () => {
   };
 });
 
-describe("Integration Tests", () => {
+describe("integration.ts", () => {
   it("should have a valid integration export", () => {
     expect(integration).toBeDefined();
     expect(typeof integration).toBe("function");
