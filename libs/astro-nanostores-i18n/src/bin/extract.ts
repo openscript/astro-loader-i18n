@@ -28,6 +28,7 @@ const { values } = parseArgs({
 });
 
 if (values.help) {
+  // eslint-disable-next-line no-console
   console.log(`
 Usage: extract-messages [options]
 
@@ -89,6 +90,7 @@ await Promise.all(
           }
         } catch (error: unknown) {
           console.error(`Error processing file ${file}:`, error);
+          process.exit(1);
         }
       }
     });
