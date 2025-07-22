@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getAllUniqueKeys, pruneLocales } from "../../src/utils/collection";
+import { getAllUniqueKeys, pruneLocales } from "../../src/astro-utils-i18n";
 
 describe("getAllUniqueKeys", () => {
   it("should return all unique keys of an object", () => {

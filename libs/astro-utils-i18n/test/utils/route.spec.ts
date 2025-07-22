@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildPath, parseRoutePattern } from "../../src/utils/route";
+import { buildPath, parseRoutePattern } from "../../src/astro-utils-i18n";
 
 describe("parseRoutePattern", () => {
   it("should parse a static route pattern", () => {

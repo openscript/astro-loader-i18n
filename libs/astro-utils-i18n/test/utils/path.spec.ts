@@ -7,7 +7,7 @@ import {
   resolvePath,
   trimRelativePath,
   trimSlashes,
-} from "../../src/utils/path";
+} from "../../src/astro-utils-i18n";
 
 describe("joinPath", () => {
   it("should join paths", () => {
