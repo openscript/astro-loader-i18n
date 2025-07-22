@@ -1,6 +1,6 @@
 ---
 import Page from "../layouts/Page.astro";
-import { useI18n, currentLocale } from "astro-nanostores-i18n:runtime";
+import { useI18n, useFormat, currentLocale } from "astro-nanostores-i18n:runtime";
 import { count, params } from "@nanostores/i18n";
 
 currentLocale.set("zh-CN");
@@ -13,10 +13,13 @@ const messages = useI18n("example", {
     many: "{count} Einträge",
   }),
 });
+
+const format = useFormat();
 ---
 
 <Page>
   <h1>astro-nanostores-i18n</h1>
   <p>{messages.message}</p>
   <p>{messages.param({ irgendwas: "Something" })}</p>
+  <p>{format.time(new Date())}</p>
 </Page>

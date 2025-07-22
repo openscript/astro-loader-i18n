@@ -33,11 +33,11 @@ const createPlugin = (options: Options): AstroIntegration => {
         addVirtualImports(params, {
           name,
           imports: {
-            [`${name}:runtime`]: `import { initializeI18n, useI18n, currentLocale } from "${resolve("./runtime.js")}";
+            [`${name}:runtime`]: `import { initializeI18n, useFormat, useI18n, currentLocale } from "${resolve("./runtime.js")}";
 
 initializeI18n("${config.i18n.defaultLocale}", ${JSON.stringify(options.translations || {})});
 
-export { useI18n, currentLocale };
+export { useFormat, useI18n, currentLocale };
 `,
           },
         });
@@ -49,7 +49,8 @@ export { useI18n, currentLocale };
           content: `declare module "${name}:runtime" {
   import type { ComponentsJSON, Translations } from '@nanostores/i18n';
   export declare const currentLocale: import('nanostores').PreinitializedWritableAtom<string> & object;
-  export declare const initializeI18n: (defaultLocale: string, translations: Record<string, ComponentsJSON>) => void;
+  export declare const initializeI18n: (defaultLocale: string, translations: Record<string, Components>) => void;
+  export declare const useFormat: () => import('@nanostores/i18n').Formatter;
   export declare const useI18n: <Body extends Translations>(componentName: string, baseTranslations: Body) => Body;
 }
 `,

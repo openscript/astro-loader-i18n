@@ -1,4 +1,4 @@
-import { Components, createI18n, type Translations } from "@nanostores/i18n";
+import { Components, createI18n, formatter, type Translations } from "@nanostores/i18n";
 import { atom } from "nanostores";
 
 export const currentLocale = atom("");
@@ -14,6 +14,8 @@ export const initializeI18n = (defaultLocale: string, translations: Record<strin
     });
   }
 };
+
+export const useFormat = () => formatter(currentLocale).get();
 
 export const useI18n = <Body extends Translations>(componentName: string, baseTranslations: Body) => {
   if (!i18nInstance) {
