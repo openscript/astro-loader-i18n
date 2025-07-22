@@ -14,7 +14,7 @@ exports[`Integration Tests > should inject the types for the virtual module 1`] 
 exports[`Integration Tests > should register virtual module 1`] = `
 {
   "imports": {
-    "astro-nanostores-i18n:runtime": "import { initializeI18n, useFormat, useI18n, currentLocale } from "file:///workspaces/astro-loader-i18n/libs/astro-nanostores-i18n/src/integration.ts/./runtime.js";
+    "astro-nanostores-i18n:runtime": "import { initializeI18n, useFormat, useI18n, currentLocale } from "./runtime.js";
 
 initializeI18n("en", {});
 

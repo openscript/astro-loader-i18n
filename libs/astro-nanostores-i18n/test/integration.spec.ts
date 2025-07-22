@@ -6,8 +6,9 @@ import { addVirtualImports } from "astro-integration-kit";
 vi.mock("astro-integration-kit", () => {
   return {
     addVirtualImports: vi.fn(),
-    createResolver: (base: string) => ({
-      resolve: (path: string) => [base, path].join("/"),
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    createResolver: (_base: string) => ({
+      resolve: (path: string) => [path].join("/"),
     }),
   };
 });
