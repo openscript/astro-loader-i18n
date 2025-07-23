@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.7.6
+
+### Patch Changes
+
+- 8960dba: Fix homepage path
+
 ## 0.7.5
 
 ### Patch Changes

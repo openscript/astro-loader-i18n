@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.1.1
+
+### Patch Changes
+
+- 8960dba: Fix homepage path
+
 ## 0.1.0
 
 ### Minor Changes
