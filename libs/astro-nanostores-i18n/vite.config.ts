@@ -33,7 +33,9 @@ export default defineConfig({
     rollupOptions: {
       external: [
         "astro:middleware",
+        "astro:config/client",
         "astro-integration-kit",
+        "astro-nanostores-i18n:runtime",
         "node:fs/promises",
         "node:vm",
         "node:util",

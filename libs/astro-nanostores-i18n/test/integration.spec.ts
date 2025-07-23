@@ -62,4 +62,20 @@ describe("integration.ts", () => {
       hook(mockParams as Parameters<BaseIntegrationHooks["astro:config:done"]>[0]);
     }
   });
+  it("should add middleware if configured", () => {
+    const mockParams = {
+      addMiddleware: vi.fn(),
+      config: { i18n: { defaultLocale: "en" } },
+    };
+    const i = integration({ addMiddleware: true });
+    const hook = i.hooks["astro:config:setup"];
+    expect(hook).toBeDefined();
+    if (hook) {
+      hook(mockParams as Parameters<BaseIntegrationHooks["astro:config:setup"]>[0]);
+    }
+    expect(mockParams.addMiddleware).toHaveBeenCalledWith({
+      entrypoint: "astro-nanostores-i18n/middleware",
+      order: "pre",
+    });
+  });
 });

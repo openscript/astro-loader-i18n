@@ -1,5 +1,6 @@
 ---
 import { createI18nCollection, i18nPropsAndParams } from "astro-loader-i18n";
+import { currentLocale } from "astro-nanostores-i18n:runtime";
 import { C } from "../../../site.config";
 import Page from "../../../layouts/Page.astro";
 
@@ -19,6 +20,7 @@ const props = Astro.props;
 ---
 
 <Page>
+  <p>Current locale: {currentLocale.get()}</p>
   <dl>
     <dt>Params</dt>
     <dd>

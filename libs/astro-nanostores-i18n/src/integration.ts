@@ -5,6 +5,7 @@ import { name } from "../package.json";
 
 type Options = {
   translations?: Record<string, ComponentsJSON>;
+  addMiddleware?: boolean;
 };
 
 /**
@@ -21,7 +22,7 @@ const createPlugin = (options: Options): AstroIntegration => {
     name,
     hooks: {
       "astro:config:setup": (params) => {
-        const { config, logger } = params;
+        const { config, logger, addMiddleware } = params;
 
         if (!config.i18n) {
           logger.error(
@@ -41,13 +42,20 @@ export { useFormat, useI18n, currentLocale };
 `,
           },
         });
+
+        if (options.addMiddleware) {
+          addMiddleware({
+            entrypoint: `${name}/middleware`,
+            order: "pre",
+          });
+        }
       },
       "astro:config:done": (params) => {
         const { injectTypes } = params;
         injectTypes({
           filename: `${name}.d.ts`,
           content: `declare module "${name}:runtime" {
-  import type { ComponentsJSON, Translations } from '@nanostores/i18n';
+  import type { Components, Translations } from '@nanostores/i18n';
   export declare const currentLocale: import('nanostores').PreinitializedWritableAtom<string> & object;
   export declare const initializeI18n: (defaultLocale: string, translations: Record<string, Components>) => void;
   export declare const useFormat: () => import('@nanostores/i18n').Formatter;

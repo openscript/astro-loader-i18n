@@ -20,6 +20,7 @@ export default defineConfig({
       translations: {
         "zh-CN": zhCN,
       },
+      addMiddleware: true,
     }),
   ],
 });
