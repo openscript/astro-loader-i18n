@@ -11,7 +11,7 @@
     "utility",
     "withastro"
   ],
-  "homepage": "https://github.com/openscript/astro-i18n/libs/astro-nanostores-i18n",
+  "homepage": "https://github.com/openscript/astro-i18n/tree/main/libs/astro-nanostores-i18n",
   "license": "MIT",
   "author": "Robin Bühler",
   "repository": "github:openscript/astro-i18n",
