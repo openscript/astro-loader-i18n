@@ -1,5 +1,12 @@
 # astro-loader-i18n
 
+## 0.7.5
+
+### Patch Changes
+
+- 65e4dfc: Upgrade dependencies
+- 385f153: Refactor project
+
 ## 0.7.4
 
 ### Patch Changes
