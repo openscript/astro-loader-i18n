@@ -11,6 +11,7 @@ export const initializeI18n = (defaultLocale: string, translations: Record<strin
       baseLocale: defaultLocale,
       get: async () => ({}),
       cache: translations,
+      isSSR: true,
     });
   }
 };
