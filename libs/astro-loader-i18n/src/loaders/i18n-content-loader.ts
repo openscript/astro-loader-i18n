@@ -1,6 +1,5 @@
 import { glob, Loader, LoaderContext } from "astro/loaders";
-import { pruneLocales, getAllUniqueKeys } from "../utils/collection";
-import { createContentPath, createTranslationId } from "../utils/path";
+import { pruneLocales, getAllUniqueKeys, createContentPath, createTranslationId } from "astro-utils-i18n";
 
 const UNDETERMINED_LOCALE = "und";
 

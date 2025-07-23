@@ -1,5 +1,5 @@
 import { glob, Loader, LoaderContext } from "astro/loaders";
-import { createContentPath, createTranslationId, parseLocale } from "../utils/path";
+import { createContentPath, createTranslationId, parseLocale } from "astro-utils-i18n";
 
 type GlobOptions = Parameters<typeof glob>[0];
 

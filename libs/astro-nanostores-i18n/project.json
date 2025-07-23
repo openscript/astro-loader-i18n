@@ -1,14 +1,14 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "astro-loader-i18n",
-  "sourceRoot": "libs/astro-loader-i18n/src",
+  "name": "astro-nanostores-i18n",
+  "sourceRoot": "libs/astro-nanostores-i18n/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "libs/astro-loader-i18n/dist",
+        "outputPath": "libs/astro-nanostores-i18n/dist",
         "generatePackageJson": false
       }
     },
@@ -16,14 +16,14 @@
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "libs/astro-loader-i18n/dist",
+        "outputPath": "libs/astro-nanostores-i18n/dist",
         "watch": true,
         "generatePackageJson": false
       }
     },
     "prepare": {
       "dependsOn": ["build"],
-      "command": "cp LICENSE libs/astro-loader-i18n && rm libs/astro-loader-i18n/dist/package.json"
+      "command": "cp LICENSE libs/astro-nanostores-i18n && rm libs/astro-nanostores-i18n/dist/package.json"
     },
     "test": {
       "executor": "@nx/vite:test",

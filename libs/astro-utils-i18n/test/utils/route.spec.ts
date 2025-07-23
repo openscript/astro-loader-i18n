@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildPath, parseRoutePattern } from "../../src/utils/route";
+import { buildPath, parseRoutePattern } from "../../src/astro-utils-i18n";
 
 describe("parseRoutePattern", () => {
   it("should parse a static route pattern", () => {
@@ -49,5 +49,9 @@ describe("buildPath", () => {
   it("should throw if is filled with a path and param is not spread", () => {
     const routePattern = parseRoutePattern("/blog/[slug]");
     expect(() => buildPath(routePattern, { slug: "bli/bla/blub" }, "/")).toThrowErrorMatchingSnapshot();
+  });
+  it("should build valid paths", () => {
+    const routePattern = parseRoutePattern("/blog/[...slug]/comments/[commentId]");
+    expect(buildPath(routePattern, { slug: "bli/bla/blub", commentId: "2" }, "/")).toMatchSnapshot();
   });
 });

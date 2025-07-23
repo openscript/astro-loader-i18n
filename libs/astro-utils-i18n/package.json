@@ -1,25 +1,28 @@
 {
-  "name": "astro-loader-i18n",
-  "version": "0.7.4",
-  "description": "An Astro content loader for i18n files and folder structures.",
+  "name": "astro-utils-i18n",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A collection of utilities for managing i18n in Astro.",
   "keywords": [
     "astro",
-    "astro-content-loader",
-    "astro-loader",
+    "astro-component",
     "i18n",
+    "tooling",
+    "utils",
+    "utility",
     "withastro"
   ],
-  "homepage": "https://github.com/openscript/astro-i18n/libs/astro-loader-i18n",
+  "homepage": "https://github.com/openscript/astro-i18n/libs/astro-utils-i18n",
   "license": "MIT",
   "author": "Robin Bühler",
   "repository": "github:openscript/astro-i18n",
   "type": "module",
-  "main": "./dist/astro-loader-i18n.js",
-  "types": "./dist/astro-loader-i18n.d.ts",
+  "main": "./dist/astro-utils-i18n.js",
+  "types": "./dist/astro-utils-i18n.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/astro-loader-i18n.js",
-      "types": "./dist/astro-loader-i18n.d.ts"
+      "import": "./dist/astro-utils-i18n.js",
+      "types": "./dist/astro-utils-i18n.d.ts"
     }
   },
   "files": [
@@ -36,17 +39,12 @@
     "@types/node": "^24.1.0",
     "@vitest/coverage-v8": "^3.2.4",
     "astro": "^5.12.2",
-    "astro-utils-i18n": "workspace:*",
     "eslint": "^9.31.0",
     "globals": "^16.3.0",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.2.4"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

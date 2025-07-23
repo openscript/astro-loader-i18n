@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getAllUniqueKeys, pruneLocales } from "../../src/utils/collection";
+import { getAllUniqueKeys, pruneLocales } from "../../src/astro-utils-i18n";
 
 describe("getAllUniqueKeys", () => {
   it("should return all unique keys of an object", () => {
@@ -80,6 +80,18 @@ describe("pruneLocales", () => {
             { a: 23, b: 24 },
           ],
         },
+        nestedArrayWithObjects: [
+          {
+            en: { a: 25, b: 26 },
+            fr: { a: 27, b: 28 },
+            de: { a: 29, b: 30 },
+          },
+          {
+            en: { a: 31, b: 32 },
+            fr: { a: 33, b: 34 },
+            de: { a: 35, b: 36 },
+          },
+        ],
         string: "normal string",
         number: 123,
         boolean: true,
