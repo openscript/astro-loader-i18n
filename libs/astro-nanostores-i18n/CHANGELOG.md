@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.1.2
+
+### Patch Changes
+
+- cc41241: Enable SSR mode for @nanostores/i18n instance
+
 ## 0.1.1
 
 ### Patch Changes
