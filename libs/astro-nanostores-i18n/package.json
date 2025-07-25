@@ -37,6 +37,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
+    "nanostores": "^1.0.1",
     "@nanostores/i18n": "^1.2.0",
     "astro": "^5.5.0"
   },

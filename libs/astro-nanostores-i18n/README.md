@@ -12,21 +12,21 @@
     <summary>npm</summary>
 
     ```bash
-    npm install astro-nanostores-i18n @nanostores/i18n
+    npm install astro-nanostores-i18n @nanostores/i18n nanostores
     ```
    </details>
    <details>
      <summary>yarn</summary>
 
      ```bash
-     yarn add astro-nanostores-i18n @nanostores/i18n
+     yarn add astro-nanostores-i18n @nanostores/i18n nanostores
      ```
    </details>
    <details>
      <summary>pnpm</summary>
 
      ```bash
-     pnpm add astro-nanostores-i18n @nanostores/i18n
+     pnpm add astro-nanostores-i18n @nanostores/i18n nanostores
      ```
    </details>
 1. Add the integration to your `astro.config.mjs`:
