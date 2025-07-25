@@ -37,18 +37,18 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "nanostores": "^1.0.1",
     "@nanostores/i18n": "^1.2.0",
-    "astro": "^5.5.0"
+    "astro": "^5.5.0",
+    "nanostores": "^1.0.1"
   },
   "devDependencies": {
     "@codecov/vite-plugin": "^1.9.1",
-    "@eslint/js": "^9.31.0",
+    "@eslint/js": "^9.32.0",
     "@types/node": "^24.1.0",
     "@vitest/coverage-v8": "^3.2.4",
     "astro": "^5.12.3",
     "astro-utils-i18n": "workspace:*",
-    "eslint": "^9.31.0",
+    "eslint": "^9.32.0",
     "globals": "^16.3.0",
     "tslib": "^2.8.1",
     "typescript-eslint": "^8.38.0",
