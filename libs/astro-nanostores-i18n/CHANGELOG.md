@@ -1,5 +1,12 @@
 # astro-nanostores-i18n
 
+## 0.1.3
+
+### Patch Changes
+
+- 7fd8cf7: Add peer dependency
+- 7bd69e1: Improve parse locale heuristic
+
 ## 0.1.2
 
 ### Patch Changes

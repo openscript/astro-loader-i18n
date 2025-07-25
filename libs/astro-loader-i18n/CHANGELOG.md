@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.7.7
+
+### Patch Changes
+
+- 7bd69e1: Improve parse locale heuristic
+
 ## 0.7.6
 
 ### Patch Changes
