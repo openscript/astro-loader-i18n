@@ -1,9 +1,11 @@
 ---
-import Page from "../layouts/Page.astro";
-import { useI18n, useFormat, currentLocale } from "astro-nanostores-i18n:runtime";
+import Page from "../../layouts/Page.astro";
+import { useI18n, useFormat } from "astro-nanostores-i18n:runtime";
 import { count, params } from "@nanostores/i18n";
 
-currentLocale.set("zh-CN");
+export const getStaticPaths = async () => {
+  return [{ params: { locale: undefined } }, { params: { locale: "zh-CN" } }];
+};
 
 const messages = useI18n("example", {
   message: "Irgend eine Nachricht.",
@@ -19,6 +21,14 @@ const format = useFormat();
 
 <Page>
   <h1>astro-nanostores-i18n</h1>
+  <ul>
+    <li>
+      <a href="/zh-CN/astro-nanostores-i18n">中文</a>
+    </li>
+    <li>
+      <a href="/astro-nanostores-i18n">Deutsch</a>
+    </li>
+  </ul>
   <p>{messages.message}</p>
   <p>{messages.param({ irgendwas: "Something" })}</p>
   <p>{format.time(new Date())}</p>
