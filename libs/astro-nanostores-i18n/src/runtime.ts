@@ -3,6 +3,7 @@ import { atom } from "nanostores";
 
 export const currentLocale = atom("");
 let i18nInstance: ReturnType<typeof createI18n>;
+let formatterInstance: ReturnType<typeof formatter>;
 
 export const initializeI18n = (defaultLocale: string, translations: Record<string, Components>) => {
   currentLocale.set(defaultLocale);
@@ -14,9 +15,10 @@ export const initializeI18n = (defaultLocale: string, translations: Record<strin
       isSSR: true,
     });
   }
+  formatterInstance = formatter(currentLocale);
 };
 
-export const useFormat = () => formatter(currentLocale).get();
+export const useFormat = () => formatterInstance.get();
 
 export const useI18n = <Body extends Translations>(componentName: string, baseTranslations: Body) => {
   if (!i18nInstance) {
