@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.1.4
+
+### Patch Changes
+
+- b8ab7fa: Create formatter instance on initialization
+
 ## 0.1.3
 
 ### Patch Changes
