@@ -34,6 +34,8 @@ export const trimRelativePath = (path: string) => {
 };
 
 export const parseLocale = (path: string, locales: string[], defaultLocale: string) => {
+  if (!path.startsWith("/")) path = `/${path}`;
+  if (!path.endsWith("/")) path = `${path}/`;
   const localePattern = createLocalePattern(`(${locales.join("|")})`);
   const locale = path.match(localePattern)?.[0];
 

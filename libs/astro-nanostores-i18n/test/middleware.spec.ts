@@ -57,4 +57,10 @@ describe("middleware.ts", async () => {
     expect(mockCurrentLocaleSet).toHaveBeenCalledWith("fr-CA");
     expect(mockNext).toHaveBeenCalled();
   });
+
+  it("should handle without prefix", async () => {
+    await onRequest({ url: { pathname: "es" } } as APIContext, mockNext);
+    expect(mockCurrentLocaleSet).toHaveBeenCalledWith("es");
+    expect(mockNext).toHaveBeenCalled();
+  });
 });

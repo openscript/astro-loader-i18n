@@ -99,6 +99,18 @@ describe("parseLocale", () => {
     const locale = parseLocale("/page", ["de-CH", "zh-CN"], "zh-CN");
     expect(locale).toBe("zh-CN");
   });
+  it("should extract locale from relative path without anything more", () => {
+    const locale = parseLocale("de-CH", ["de-CH", "zh-CN"], "zh-CN");
+    expect(locale).toBe("de-CH");
+  });
+  it("should extract locale from absolute path without anything more", () => {
+    const locale = parseLocale("/de-CH", ["de-CH", "zh-CN"], "zh-CN");
+    expect(locale).toBe("de-CH");
+  });
+  it("should extract locale from relative path with trailing slash", () => {
+    const locale = parseLocale("de-CH/", ["de-CH", "zh-CN"], "zh-CN");
+    expect(locale).toBe("de-CH");
+  });
 });
 
 describe("createTranslationId", () => {
